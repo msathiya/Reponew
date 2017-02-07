@@ -1,0 +1,7 @@
+- cloud_properties:
+    instance_type: m1.small
+  name: small_z2
+  network: cf_haproxy1
+  stemcell:
+    name: bosh-aws-xen-ubuntu-trusty-go_agent
+    version: latest

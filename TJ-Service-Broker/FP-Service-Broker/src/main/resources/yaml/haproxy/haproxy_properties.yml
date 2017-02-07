@@ -1,0 +1,9 @@
+  ha_proxy:
+    tcp:
+    - name: {{deploymentName}}
+      port: {{proxyPort}}
+      backend_servers:
+      {{#staticIpList}}
+      - {{staticIp}}
+      {{/staticIpList}}
+      backend_port: {{proxyPort}}

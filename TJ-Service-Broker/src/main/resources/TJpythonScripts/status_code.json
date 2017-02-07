@@ -1,0 +1,26 @@
+{
+  "STATUS_CODE": {
+    "0": "Null",
+    "1": "Unexpected error",
+    "2": "Database already present",
+    "3": "Admin authentication failed",
+    "4": "Error reading from config file",
+    "5": "Cannot connect to mongos instance",
+    "6": "Enterprise DB does not exists",
+    "7": "User authentication failed for ENTERPRISE_DB",
+    "8": "User authentication failed for META_DB",
+    "9": "Company doesn't exist",
+    "10": "User authentication failed for MASTER_DB",
+    "11": "User authentication failed for SECURITY_DB",
+    "12": "Input Error for Company_Id",
+    "13": "Input Error for App_Id",
+    "14": "App doesn't exist",
+    "15": "Authentication Failure",
+    "16": "CHILD_DEFINITION_ID/DEFINITION_DATA_TYPE/DEFINITION_NAME not proper",
+	"17" : "Orchestration-Entity Mapping not found",
+	"18" : "Database Insertion error",
+	"19" : "Database deletion error",
+	"20" : "Entity not found in ENTITY_TEMPLATE collection",
+	"21" : "Error in creating index"
+  }
+}

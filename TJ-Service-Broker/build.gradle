@@ -1,0 +1,35 @@
+apply plugin		: 'spring-boot'
+sourceCompatibility = 1.8
+
+springBoot {
+    mainClass 		= 'org.service.Application'
+}
+
+bootRun {
+    addResources 	= true
+}
+
+jar {
+	baseName = 'TJ-Service-Broker'
+}
+repositories {
+    maven {
+        url ('http://repo.maven.apache.org/maven2/')
+    }
+}
+
+buildscript {
+	repositories {
+	    maven {
+	        url ('http://repo.maven.apache.org/maven2/')
+	    }
+	}
+    dependencies {
+        classpath ('org.springframework.boot:spring-boot-gradle-plugin:1.3.6.RELEASE')
+    }
+}
+
+dependencies {
+ 	compile project(':FP-Service-Broker')
+	compile ('org.eclipse.jgit:org.eclipse.jgit:2.1.0.201209190230-r')
+}

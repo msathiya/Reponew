@@ -1,0 +1,16 @@
+- name: cf_haproxy1
+  subnets:
+  - cloud_properties:
+      subnet: {{subnetId}}
+    dns:
+    - 10.10.0.2
+    security_groups:
+    - cf-haproxy
+    - bosh    
+    gateway: {{gatewayip}}
+    range: {{rangeip}}/24
+    static:
+    {{#proxyIpList}}
+    - {{proxyIp}}
+    {{/proxyIpList}}
+  type: manual

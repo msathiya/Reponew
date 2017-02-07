@@ -1,0 +1,7 @@
+---
+applications:
+- name: tj
+  memory: 256M
+  no-route: true
+  services:
+  - tj

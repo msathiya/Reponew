@@ -1,0 +1,18 @@
+- instances: {{noOfProxyInstance}}
+  name: haproxy_z1
+  networks:
+  - name: cf_haproxy1
+    static_ips:
+    {{#proxyIpList}}
+    - {{proxyIp}}
+    {{/proxyIpList}}
+  persistent_disk: 0
+  instance_type: m1.small
+  resource_pool: small_z2
+  properties:
+     metron_agent:
+        deployment: {{deploymentName}}
+        group_name: HAPROXY
+  templates:
+  - name: haproxy
+    release: cf-haproxy

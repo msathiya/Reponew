@@ -1,0 +1,1448 @@
+{
+    "MASTER_DB": {
+        "COLLECTIONS": [
+            "tenant",
+            "device_tenant",
+            "tenant_audit",
+            "SEQUENCE_GENERATOR"
+        ]
+    },
+    "tenant": {
+        "COLLECTION_NAME": "tenant",
+        "JSON_SCHEMA": {
+            "tenant_id": "Number",
+            "name": "String",
+            "provisional_profile": "String",
+            "certificate": "String",
+            "password": "String",
+            "status": "String",
+            "cert_expiry_date": "Date",
+            "is_certificate_available": "Boolean",
+            "failure_reason": "String",
+            "created_date": "Date",
+            "certificate_name": "String",
+            "created_by": "String",
+            "modified_date": "Date",
+            "domain": "String",
+            "ldap_url": "String",
+            "ldap_username": "String",
+            "ldap_password": "String",
+            "base_dn": "String",
+            "feedback_mail_id": "String",
+            "is_super_tenant": "Boolean",
+            "is_sso_enabled": "Boolean",
+            "is_vpn_enabled": "Boolean",
+            "is_crs_valid": "Boolean",
+            "auth_type": "Number",
+            "show_app_within_container": "Boolean",
+            "provide_container_app": "Boolean",
+            "app_level_vpn": "String",
+            "device_level_vpn": "String",
+            "aes_salt": "String",
+            "license_mode": "String",
+            "is_container_sso_agent": "Boolean",
+            "is_system_generated": "Boolean",
+            "exchange_server": "String",
+            "domain_name": "String",
+            "port_no": "Number",
+            "auth_url": "String",
+            "auth_domains": "String",
+            "sso_details": [
+                {
+                    "sso_id": "Number",
+                    "token_period": "String",
+                    "cache_credential_period": "String",
+                    "ios_sso_agent": "String",
+                    "android_sso_agent": "String",
+                    "encryption_algorithm": "String",
+                    "public_key": "String",
+                    "private_key": "String",
+                    "certificate_name": "String",
+                    "is_ownkey": "Boolean",
+                    "aes_salt": "String",
+                    "sso_type": "Number",
+                    "extend_token_period": "Boolean",
+                    "cache_credential": "Boolean",
+                    "domain": "String",
+                    "sso_applicable_agent": "String",
+                    "public_key_extension": "String",
+                    "logout_url": "String",
+                    "cert_pwd": "String",
+                    "modified_by": "String",
+                    "modified_date": "Date"
+                }
+            ],
+            "ios_wrapping_details": [
+                {
+                    "unwrapped_binary_path": "String",
+                    "wrapped_binary_path": "String",
+                    "wrap_script_url": "String",
+                    "wrap_server_type": "String",
+                    "user_name": "String",
+                    "password": "String"
+                }
+            ],
+            "android_wrapping_details": [
+                {
+                    "unwrapped_binary_path": "String",
+                    "wrapped_binary_path": "String",
+                    "wrap_script_url": "String",
+                    "wrap_server_type": "String",
+                    "user_name": "String",
+                    "password": "String"
+                }
+            ],
+            "external_authenticate_details": [
+                {
+                    "host": "String",
+                    "protocol": "String",
+                    "external_url": "String",
+                    "method": "String",
+                    "external_system_port": "number",
+                    "external_system_timeout": "number"
+                }
+            ],
+            "external_user_details_details": [
+                {
+                    "host": "String",
+                    "protocol": "String",
+                    "external_url": "String",
+                    "method": "String",
+                    "external_system_port": "number",
+                    "external_system_timeout": "number"
+                }
+            ],
+            "external_group_check_details": [
+                {
+                    "host": "String",
+                    "protocol": "String",
+                    "external_url": "String",
+                    "method": "String",
+                    "external_system_port": "number",
+                    "external_system_timeout": "number"
+                }
+            ],
+            "authentication_priority": [
+                {
+                    "priority_zero": "Number",
+                    "priority_one": "Number",
+                    "priority_two": "Number",
+                    "priority_three": "Number"
+                }
+            ]
+        },
+        "INDEXES": "tenant_id_1 domain_1 is_system_generated_1",
+        "tenant_id_1": "tenant_id,1",
+        "tenant_id_1_OPTIONS": {
+
+        },
+        "domain_1": "domain,1",
+        "domain_1_OPTIONS": {
+        },
+        "is_system_generated_1": "is_system_generated,1",
+        "is_system_generated_1_OPTIONS": {
+        },
+        "OPTION": {
+
+        }
+    },
+    "tenant_audit": {
+        "COLLECTION_NAME": "tenant_audit",
+        "JSON_SCHEMA": {
+            "tenant_id": "String",
+            "tenant_name": "String",
+            "status": "Number",
+            "is_self_sign": "Boolean",
+            "certificate": "String",
+            "cert_expiry_date": "Date",
+            "action_token": "String",
+            "comments": "String",
+            "failure_reason": "String",
+            "modified_date": "Date",
+            "certificate_name": "String",
+            "password": "String",
+            "is_supertenant": "Boolean",
+            "is_sso_enabled": "Boolean",
+            "is_crs_valid": "Boolean"
+        },
+        "OPTION": {
+
+        }
+    },
+    "device_tenant": {
+        "COLLECTION_NAME": "device_tenant",
+        "JSON_SCHEMA": {
+            "device_id": "String",
+            "tenant_id": "Number"
+        },
+        "INDEXES": "device_id_1",
+        "device_id_1": "device_id,1",
+        "device_id_1_OPTIONS": {
+
+        },
+        "OPTION": {
+
+        }
+    },
+    "SEQUENCE_GENERATOR": {
+        "COLLECTION_NAME": "SEQUENCE_GENERATOR",
+        "JSON_SCHEMA": {
+            "COLLECTION_NAME": "String",
+            "ATTRIBUTE_SEQUENCE": [
+                {
+                    "_id": false,
+                    "ATTRIBUTE_NAME": "String",
+                    "SEQUENCE_CURRENT_VALUE": {
+                        "type": "Number",
+                        "default": 0
+                    }
+                }
+            ]
+        },
+        "OPTION": {
+            "autoIndex": false,
+            "safe": true,
+            "strict": "throw"
+        },
+        "INDEXES": "COLLECTION_NAME_1",
+        "COLLECTION_NAME_1": "COLLECTION_NAME,1",
+        "COLLECTION_NAME_1_OPTIONS": {
+            "unique": true
+        }
+    },
+    "Trumobi": {
+        "COLLECTIONS": [
+            "user",
+            "app",
+            "group",
+            "category",
+            "vip_user",
+            "resource",
+            "app_mix",
+            "app_rating",
+            "resource_rating",
+            "device",
+            "profile",
+            "user_sessions",
+            "resource_download_details",
+            "resource_type",
+            "app_icon_repository",
+            "resource_icon_repository",
+            "vip_icon_repository",
+            "icon_repository",
+            "resource_repository",
+            "category_icon_repository",
+            "app_mix_icon_repository",
+            "app_repository",
+            "job_log",
+            "device_spec",
+            "app_download_details",
+            "email_cert_request",
+            "launchpad_audit",
+            "product_license_details",
+            "template",
+            "certificate_repository",
+            "vpn_payload_values",
+            "app_store_details",
+            "config",
+            "job_master",
+            "crs_designation",
+            "crs_project",
+            "general_audit",
+            "entity_master",
+            "app_wrap_trans_detail",
+            "mdm_push_log",
+            "app_notification",
+            "notification_audit",
+            "SEQUENCE_GENERATOR"
+        ]
+    },
+    "user": {
+        "COLLECTION_NAME": "user",
+        "JSON_SCHEMA": {
+            "user_id": "Number",
+            "first_name": "String",
+            "last_name": "String",
+            "user_type": "Number",
+            "emp_id": "String",
+            "email": "String",
+            "password": "String",
+            "user_name": "String",
+            "language": "String",
+            "is_active": "Boolean",
+            "is_ad_user": "Boolean",
+            "designation": "String",
+            "department": "String",
+            "created_date": "Date",
+            "subscribe": "Boolean",
+            "modified_date": "Date",
+            "role_id": "Number",
+            "authentication_mode": "Number",
+            "email_required": "Boolean",
+            "apps": [
+                "Number"
+            ],
+            "resources": [
+                "Number"
+            ],
+            "group": [
+                {
+                    "group_id": "Number",
+                    "name": "String"
+                }
+            ],
+            "profile": [
+                {
+                    "profile_id": "Number",
+                    "trumobi_identifier": "String",
+                    "app_id": "Number",
+                    "app_platform_id": "Number",
+                    "last_accessed_version": "Number",
+                    "last_pulled_date": "Date"
+                }
+            ],
+            "location": "String"
+        },
+        "INDEXES": "emp_id_1 emp_id_authentication_mode_1",
+        "emp_id_1": "emp_id,1",
+        "emp_id_1_OPTIONS": {
+
+        },
+        "emp_id_authentication_mode_1": "emp_id,1 authentication_mode,1",
+        "emp_id_authentication_mode_1_OPTIONS": {
+
+        },
+		"profile_app_id_profile_trumobi_identifier_1": "profile.app_id,1 profile.trumobi_identifier,1",
+        "profile_app_id_profile_trumobi_identifier_1_OPTIONS": {
+
+        },
+        "OPTION": {
+
+        }
+    },
+    "user_sessions": {
+        "COLLECTION_NAME": "user_sessions",
+        "JSON_SCHEMA": {
+            "emp_id": "String",
+            "session_id": "String",
+            "session_type": "Number",
+            "app_platform_id": "Number",
+            "created_date": "Date",
+            "last_accessed_date": "Date",
+            "trumobi_identifier": "String",
+            "source": "Number",
+            "expired_Date": "Date"
+        },
+        "INDEXES": "emp_id_1 session_id_1 emp_id_session_type_1 expired_Date_1",
+        "emp_id_1": "emp_id,1",
+        "emp_id_1_OPTIONS": {
+
+        },
+        "session_id_1": "session_id,1",
+        "session_id_1_OPTIONS": {
+
+        },
+		"emp_id_session_type_1": "emp_id,1 session_type,1",
+        "emp_id_session_type_1_OPTIONS": {
+
+        },
+		"expired_Date_1": "expired_Date,-1",
+        "expired_Date_1_OPTIONS": {
+
+        },
+        "OPTION": {
+
+        }
+    },
+    "app": {
+        "COLLECTION_NAME": "app",
+        "JSON_SCHEMA": {
+            "app_id": "Number",
+            "docType": "String",
+            "app_name": "String",
+            "customer_name": "String",
+            "category_id": "Number",
+			"category_name": "String",
+            "contact_person_id": "String",
+            "contact_auth_type": "Number",
+            "is_ind_lnc_rq": "Boolean",
+            "file_id": "String",
+            "file_name": "String",
+            "commentCount": "Number",
+            "likeCount": "Number",
+            "android_likeCount": "Number",
+            "ios_likeCount": "Number",
+            "windows_likeCount": "Number",
+            "downloadCount": "Number",
+            "downloaded_date_time": "Date",
+            "android_downloadCount": "Number",
+            "ios_downloadCount": "Number",
+            "windows_downloadCount": "Number",
+            "is_featured_app": "Boolean",
+            "request_access_reqd": "Boolean",
+            "short_description": "String",
+            "is_mandatory": "Boolean",
+            "is_mandatory_modified_date": "Date",
+            "enabled_sso": "Boolean",
+            "is_container_licensed": "Boolean",
+            "no_of_licenses": "Number",
+            "license_type": "Number",
+            "app_userId": "String",
+            "is_app_licensed": "Boolean",
+            "validity_period": "Number",
+            "validity_unit": "String",
+            "no_of_devices": "Number",
+            "modified_by": "String",
+            "modified_date": "Date",
+            "created_by": "String",
+            "created_date": "Date",
+            "creater_auth_type": "Number",
+            "app_platform_id": "Number",
+            "device_type": "String",
+            "app_version": "String",
+            "isMaxVersion": "Boolean",
+            "min_compatible_os_version": "String",
+			"min_compatible_os_version_int": "Number",
+            "app_status": "String",
+            "release_notes": "String",
+            "is_latest": "Boolean",
+            "bundle_identifier": "String",
+            "package_name": "String",
+            "is_recompiled": "Boolean",
+            "is_native": "Boolean",
+            "binary_file_size": "Number",
+            "encryption_key": "String",
+            "check_sum": "String",
+            "update_type": "Number",
+            "conditional_days": "Number",
+            "disable_itunes": "Number",
+            "enable_local_storage": "Number",
+            "enable_sso": "Boolean",
+            "app_size": "Number",
+            "wrap_sign": "Number",
+            "app_url_schema": "String",
+            "enable_app_vpn": "Number",
+            "icon_url": "String",
+            "platform": [
+                "String"
+            ],
+            "files": [
+                {
+                    "file_id": "String",
+                    "file_name": "String",
+                    "file_type": "String",
+                    "file_size": "Number"
+                }
+            ],
+            "profile": [
+                "Number"
+            ]
+        },
+        "INDEXES": "app_id_1 app_platform_id_1 is_featured_app_1 bundle_identifier_1 app_id_docType_1 app_platform_id_docType_1",
+        "app_id_1": "app_id,1",
+        "app_id_1_OPTIONS": {
+        },
+        "app_platform_id_1": "app_platform_id,1",
+        "app_platform_id_1_OPTIONS": {
+        },
+        "is_featured_app_1": "is_featured_app,1",
+        "is_featured_app_1_OPTIONS": {
+
+        },
+        "bundle_identifier_1": "bundle_identifier,1",
+        "bundle_identifier_1_OPTIONS": {
+
+        },
+        "app_id_docType_1": "app_id,1 docType,1",
+        "app_id_docType_1_OPTIONS": {
+        },
+        "app_platform_id_docType_1": "app_platform_id,1 docType,1",
+        "app_platform_id_docType_1_OPTIONS": {
+        },
+		"docType_1": "docType,1",
+        "docType_1_OPTIONS": {
+        },
+        "OPTION": {
+
+        }
+    },
+    "group": {
+        "COLLECTION_NAME": "group",
+        "JSON_SCHEMA": {
+            "group_id": "Number",
+            "name": "String",
+            "authentication_mode": "Number",
+            "is_active": "Boolean",
+            "created_date": "Date",
+            "apps": [
+                "Number"
+            ],
+            "resources": [
+                "Number"
+            ]
+        },
+        "INDEXES": "group_id_1 name_1",
+        "group_id_1": "group_id,1",
+        "group_id_1_OPTIONS": {
+
+        },
+        "name_1": "name,1",
+        "name_1_OPTIONS": {
+            "unique": true
+        },
+        "OPTION": {
+
+        }
+    },
+    "category": {
+        "COLLECTION_NAME": "category",
+        "JSON_SCHEMA": {
+            "category_id": "Number",
+            "name": "String",
+            "description": "String",
+            "file_id": "String",
+            "file_name": "String",
+            "type": "Number",
+            "is_active": "Boolean",
+            "created_date": "Date",
+            "modified_date": "Date"
+        },
+        "INDEXES": "category_id_1",
+        "category_id_1": "category_id,1",
+        "category_id_1_OPTIONS": {
+
+        },
+        "OPTION": {
+
+        }
+    },
+    "vip_user": {
+        "COLLECTION_NAME": "vip_user",
+        "JSON_SCHEMA": {
+            "vip_id": "Number",
+            "emp_id": "String",
+            "vip_user_description": "String",
+            "is_featured_vip": "Boolean",
+            "is_ad_or_local": "Number",
+            "vip_user_image": "String",
+            "designation": "String",
+            "file_id": "String",
+            "file_name": "String",
+            "department": "String",
+            "modified_by": "String",
+            "modified_date": "Date",
+            "app": [
+                {
+                    "app_id": "Number",
+                    "app_name": "String",
+                    "app_version": "String",
+                    "app_locator": "String",
+                    "is_enterprise_app": "Boolean",
+                    "app_icon": "String",
+                    "file_id": "String",
+                    "file_name": "String",
+                    "os_version": "String",
+                    "device_type": "String",
+                    "modified_by": "String",
+                    "modified_date": "Date"
+                }
+            ]
+        },
+        "INDEXES": "vip_id_1 is_featured_vip_1 emp_id_1",
+        "vip_id_1": "vip_id,1",
+        "vip_id_1_OPTIONS": {
+
+        },
+        "is_featured_vip_1": "is_featured_vip,1",
+        "is_featured_vip_1_OPTIONS": {
+
+        },
+        "emp_id_1": "emp_id,1",
+        "emp_id_1_OPTIONS": {
+
+        },
+        "OPTION": {
+
+        }
+    },
+    "profile": {
+        "COLLECTION_NAME": "profile",
+        "JSON_SCHEMA": {
+            "profile_id": "Number",
+            "name": "String",
+            "details": "String",
+            "created_by": "String",
+            "created_auth_type": "Number",
+            "created_date": "Date",
+            "modified_by": "String",
+            "modified_auth_type": "Number",
+            "modified_date": "Date",
+            "is_default": "Boolean",
+            "is_vpn_enabled": "Boolean",
+            "type": "String",
+            "trubox_profile": [
+                {
+                    "version": "Number",
+                    "details": "String",
+                    "modified_date": "Date",
+                    "is_latest": "Boolean"
+                }
+            ]
+        },
+        "INDEXES": "profile_id_1 type_is_default_1",
+        "profile_id_1": "profile_id,1",
+        "profile_id_1_OPTIONS": {
+
+        },
+        "type_is_default_1": "type,1 is_default,1",
+        "type_is_default_1_OPTIONS": {
+
+        },
+        "OPTION": {
+
+        }
+    },
+    "resource": {
+        "COLLECTION_NAME": "resource",
+        "JSON_SCHEMA": {
+            "resource_id": "Number",
+            "resource_title": "String",
+            "customer_name": "String",
+            "category_id": "Number",
+			"category_name": "String",
+            "contact_person_id": "String",
+            "contact_auth_type": "Number",
+            "contact_name": "String",
+            "resource_highlights": "String",
+            "resource_description": "String",
+            "modified_by": "String",
+            "modified_auth_type": "Number",
+            "modified_date": "Date",
+            "created_date": "Date",
+            "commentCount": "Number",
+            "likeCount": "Number",
+            "downloadCount": "Number",
+            "downloaded_date_time": "Date",
+            "is_featured_resource": "Boolean",
+            "request_access_required": "Boolean",
+            "is_active": "Boolean",
+            "file_id": "String",
+            "file_name": "String",
+            "resource_detail": [
+                {
+                    "resource_detail_id": "Number",
+                    "resource_version": "String",
+                    "resource_status": "Number",
+                    "release_notes": "String",
+                    "is_latest": "Boolean",
+                    "resource_type": "Number",
+                    "modified_by": "String",
+                    "modified_auth_type": "Number",
+                    "modified_date": "Date",
+                    "files": [
+                        {
+                            "file_id": "String",
+                            "file_name": "String",
+                            "file_type": "String",
+                            "file_size": "Number",
+                            "file_ext": "String"
+                        }
+                    ]
+                }
+            ]
+        },
+        "INDEXES": "is_featured_resource_1 resource_detail_resource_detail_id_1",
+        "is_featured_resource_1": "is_featured_resource,1",
+        "is_featured_resource_1_OPTIONS": {
+
+        },
+        "resource_id_1": "resource_id,1",
+        "resource_id_1_OPTIONS": {
+
+        },
+        "resource_detail_resource_detail_id_1": "resource_detail.resource_detail_id,1",
+        "resource_detail_resource_detail_id_1_OPTIONS": {
+        },
+        "OPTION": {
+
+        }
+    },
+    "app_mix": {
+        "COLLECTION_NAME": "app_mix",
+        "JSON_SCHEMA": {
+            "app_mix_id": "Number",
+            "app_mix_name": "String",
+            "file_id": "String",
+            "file_name": "String",
+            "is_active": "Boolean",
+            "is_featured": "Boolean",
+            "app_mix_description": "String",
+            "created_by": "String",
+            "created_auth_type": "Number",
+            "created_date": "Date",
+            "modified_by": "String",
+            "modified_auth_type": "Number",
+            "modified_date": "Date",
+            "app_like": [
+                {
+                    "is_like": "Boolean",
+                    "created_by": "String",
+                    "created_date": "Date",
+                    "modified_by": "String",
+                    "modified_date": "Date"
+                }
+            ],
+            "app_ids": [
+                {
+                    "app_id": "Number",
+                    "sequence_id": "Number",
+                    "created_by": "String",
+                    "created_date": "Date"
+                }
+            ]
+        },
+        "INDEXES": "app_ids_app_id_1 is_featured_1",
+        "app_ids_app_id_1": "app_ids.app_id,1",
+        "app_ids_app_id_1_OPTIONS": {
+
+        },
+        "is_featured_1": "is_featured,1",
+        "is_featured_1_OPTIONS": {
+
+        },
+        "OPTION": {
+
+        }
+    },
+    "app_rating": {
+        "COLLECTION_NAME": "app_rating",
+        "JSON_SCHEMA": {
+            "app_id": "Number",
+            "app_platform_id": "Number",
+            "docType": "String",
+            "rating": "Number",
+            "is_like": "Boolean",
+            "comment_id": "Number",
+            "comment_text": "String",
+            "is_latest_comment": "Boolean",
+            "created_by": "String",
+            "created_by_name": "String",
+            "created_by_email": "String",
+            "created_auth_type": "Number",
+            "created_date": "Date",
+            "admin_comments": "String",
+            "admin_id": "String",
+            "admin_name": "String",
+            "admin_email": "String",
+            "admin_auth_type": "Number",
+            "admin_created_date": "Date",
+            "modified_date": "Date",
+            "is_deleted": "Boolean",
+            "deletion_comments": "String",
+            "deleted_by": "String"
+        },
+        "INDEXES": "app_platform_id_1 app_id_app_platform_id_docType_created_by_1 docType_created_by_1",
+        "app_platform_id_1": "app_platform_id,1",
+        "app_platform_id_1_OPTIONS": {
+
+        },
+        "app_id_app_platform_id_docType_created_by_1": "app_id,1 app_platform_id,1 docType,1 created_by,1",
+        "app_id_app_platform_id_docType_created_by_1_OPTIONS": {
+        },
+		"docType_created_by_1": "docType,1 created_by,1",
+        "docType_created_by_1_OPTIONS": {
+        },
+        "OPTION": {
+
+        }
+    },
+    "resource_rating": {
+        "COLLECTION_NAME": "resource_rating",
+        "JSON_SCHEMA": {
+            "resource_id": "Number",
+            "resource_detail_id": "Number",
+            "docType": "String",
+            "rating": "Number",
+            "is_like": "Boolean",
+            "comment_id": "Number",
+            "comment_text": "String",
+            "is_latest_comment": "Boolean",
+            "created_by": "String",
+            "created_by_name": "String",
+            "created_by_email": "String",
+            "created_auth_type": "Number",
+            "created_by_email": "String",
+            "created_date": "Date",
+            "admin_comments": "String",
+            "admin_id": "String",
+            "admin_name": "String",
+            "admin_email": "String",
+            "admin_auth_type": "Number",
+            "admin_created_date": "Date",
+            "modified_date": "Date",
+            "is_deleted": "Boolean",
+            "deletion_comments": "String",
+            "deleted_by": "String"
+        },
+        "INDEXES": "resource_detail_id_1 resource_id_resource_detail_id_docType_created_by_1",
+        "resource_detail_id_1": "resource_detail_id,1",
+        "resource_detail_id_1_OPTIONS": {
+
+        },
+        "resource_id_resource_detail_id_docType_created_by_1": "resource_id,1 resource_detail_id,1 docType,1 created_by,1",
+        "resource_id_resource_detail_id_docType_created_by_1_OPTIONS": {
+        },
+        "OPTION": {
+
+        }
+    },
+    "device": {
+        "COLLECTION_NAME": "device",
+        "JSON_SCHEMA": {
+            "device_id": "Number",
+            "uid": "String",
+            "type": "String",
+            "os_version": "String",
+            "token": "String",
+            "push_magic": "String",
+            "persona_key": "String",
+            "unlock_token": "String",
+            "topic": "String",
+            "created_date": "Date",
+            "modified_date": "Date",
+            "is_authenticated": "Boolean",
+            "imei": "String",
+            "serial_number": "String",
+            "make": "String",
+            "ip_address": "String",
+            "is_blocked": "Boolean",
+            "trumobi_identifier": "String",
+			"ios7udid": "String",
+            "is_latest_profile_installed": "Boolean",
+            "admin_action": [
+                {
+                    "ownership_id": "Number",
+                    "from_user_id": "String",
+                    "from_auth_mode": "Number",
+                    "to_user_id": "string",
+                    "to_auth_mode": "Number",
+                    "actioned_by": "String",
+                    "action_taken": "String",
+                    "actioned_date": "Date",
+                    "comments": "String",
+                    "status": "String",
+                    "command_uid": "String"
+                }
+            ],
+            "app_wipe": [
+                {
+                    "app_id": "Number",
+                    "app_platform_id": "Number",
+                    "is_wiped": "Boolean",
+                    "created_date": "Date",
+                    "created_by": "String",
+                    "modified_date": "Date",
+                    "modified_by": "String"
+                }
+            ],
+            "download_token": [
+                {
+                    "emp_id": "String",
+                    "download_token": "String",
+                    "created_by": "String",
+                    "created_date": "Date"
+                }
+            ],
+            "user_mapping": [
+                {
+                    "created_date": "Date",
+                    "modified_date": "Date",
+                    "authentication_mode": "Number",
+                    "is_assigned_user": "Boolean",
+                    "emp_id": "String",
+                    "unblock_device_status": "String"
+                }
+            ]
+        },
+        "INDEXES": "trumobi_identifier_1 trumobi_identifier_is_authenticated_1 persona_key_1",
+        "trumobi_identifier_1": "trumobi_identifier,1",
+        "trumobi_identifier_1_OPTIONS": {
+            "unique": true
+        },
+        "trumobi_identifier_is_authenticated_1": "trumobi_identifier,1 is_authenticated,1",
+        "trumobi_identifier_is_authenticated_1_OPTIONS": {
+
+        },
+        "persona_key_1": "persona_key,1",
+        "persona_key_1_OPTIONS": {
+
+        },
+        "OPTION": {
+
+        }
+    },
+    "resource_download_details": {
+        "COLLECTION_NAME": "resource_download_details",
+        "JSON_SCHEMA": {
+            "resource_id": "Number",
+            "resource_detail_id": "Number",
+            "emp_id": "String",
+            "auth_type": "Number",
+            "download_date": "Date",
+            "is_download_complete": "Boolean",
+            "is_active": "Boolean",
+            "trumobi_identifier": "String",
+            "is_push_message_sent": "Boolean"
+        },
+        "INDEXES": "is_download_complete_1 emp_id_auth_type_trumobi_identifier_is_active_1",
+        "is_download_complete_1": "is_download_complete,1",
+        "is_download_complete_1_OPTIONS": {
+
+        },
+        "emp_id_auth_type_trumobi_identifier_is_active_1": "emp_id,1 auth_type,1 trumobi_identifier,1 is_active,1",
+        "emp_id_auth_type_trumobi_identifier_is_active_1_OPTIONS": {
+
+        },
+        "OPTION": {
+
+        }
+    },
+    "resource_type": {
+        "COLLECTION_NAME": "resource_type",
+        "JSON_SCHEMA": {
+            "type_id": "Number",
+            "name": "String",
+            "file_id": "String"
+        },
+        "OPTION": {
+
+        }
+    },
+    "app_icon_repository": {
+        "COLLECTION_NAME": "app_icon_repository",
+        "JSON_SCHEMA": {
+            "file_id": "String",
+            "data": "String"
+        },
+        "OPTION": {
+
+        }
+    },
+    "resource_icon_repository": {
+        "COLLECTION_NAME": "resource_icon_repository",
+        "JSON_SCHEMA": {
+            "file_id": "String",
+            "data": "String"
+        },
+        "OPTION": {
+
+        }
+    },
+    "vip_icon_repository": {
+        "COLLECTION_NAME": "vip_icon_repository",
+        "JSON_SCHEMA": {
+            "file_id": "String",
+            "data": "String"
+        },
+        "OPTION": {
+
+        }
+    },
+    "vip_app_icon_repository": {
+        "COLLECTION_NAME": "vip_app_icon_repository",
+        "JSON_SCHEMA": {
+            "file_id": "String",
+            "data": "String"
+        },
+        "OPTION": {
+
+        }
+    },
+    "icon_repository": {
+        "COLLECTION_NAME": "icon_repository",
+        "JSON_SCHEMA": {
+            "file_id": "String",
+            "data": "String"
+        },
+        "OPTION": {
+
+        }
+    },
+    "resource_repository": {
+        "COLLECTION_NAME": "resource_repository",
+        "JSON_SCHEMA": {
+            "file_id": "String",
+            "data": "String"
+        },
+        "OPTION": {
+
+        }
+    },
+    "category_icon_repository": {
+        "COLLECTION_NAME": "category_icon_repository",
+        "JSON_SCHEMA": {
+            "file_id": "String",
+            "data": "String"
+        },
+        "OPTION": {
+
+        }
+    },
+    "app_mix_icon_repository": {
+        "COLLECTION_NAME": "app_mix_icon_repository",
+        "JSON_SCHEMA": {
+            "file_id": "String",
+            "data": "String"
+        },
+        "OPTION": {
+
+        }
+    },
+    "app_repository": {
+        "COLLECTION_NAME": "app_repository",
+        "JSON_SCHEMA": {
+            "file_id": "String",
+            "data": "String"
+        },
+        "OPTION": {
+
+        }
+    },
+    "job_log": {
+        "COLLECTION_NAME": "job_log",
+        "JSON_SCHEMA": {
+            "job_log_id": "Number",
+            "job_id": "Number",
+            "job_log_description": "String"
+        },
+        "OPTION": {
+
+        }
+    },
+    "device_spec": {
+        "COLLECTION_NAME": "device_spec",
+        "JSON_SCHEMA": {
+            "device_id": "Number",
+            "platform_name": "String",
+            "os_version": "String",
+            "device_type": "String",
+            "model_number": "String",
+            "resolution_name": "String",
+            "resolution_height": "Number",
+            "resoultion_width": "Number",
+            "input_option": "String",
+            "created_date": "Date",
+            "display_name": "String",
+            "device_name": "String",
+            "is_active": "Boolean"
+        },
+        "OPTION": {
+
+        }
+    },
+    "app_download_details": {
+        "COLLECTION_NAME": "app_download_details",
+        "JSON_SCHEMA": {
+            "app_id": "Number",
+            "app_platform_id": "Number",
+            "emp_id": "String",
+            "os_version": "String",
+            "downloaded_date_time": "Date",
+            "device_type": "String",
+            "is_install_complete": "Boolean",
+            "is_active": "Boolean",
+            "auth_type": "Number",
+            "trumobi_identifier": "String",
+            "is_wiped": "Boolean",
+            "is_app_webappstore": "Boolean",
+            "appwipe_key": "String"
+        },
+        "INDEXES": "is_install_complete_1 trumobi_identifier_emp_id_is_active_1 trumobi_identifier_app_id_1",
+
+        "is_install_complete_1": "is_install_complete,1",
+        "is_install_complete_1_OPTIONS": {
+
+        },
+        "trumobi_identifier_emp_id_is_active_1": "trumobi_identifier,1 emp_id,1 is_active,1",
+        "trumobi_identifier_emp_id_is_active_1_OPTIONS": {
+
+        },
+		"trumobi_identifier_app_id_1": "trumobi_identifier,1 app_id,1",
+        "trumobi_identifier_app_id_1_OPTIONS": {
+
+        },
+        "OPTION": {
+
+        }
+    },
+    "email_cert_request": {
+        "COLLECTION_NAME": "email_cert_request",
+        "JSON_SCHEMA": {
+            "email_request_id": "Number",
+            "ldap_user_id": "String",
+            "device_id": "Number",
+            "request_status_id": "Number",
+            "modified_date": "Date",
+            "modified_by": "String",
+            "modified_auth_type": "Number",
+            "user_id": "Number",
+            "ca_request_id": "Number",
+            "cert_serial_number": "String",
+            "cert_thumb_print": "String",
+            "mdmpush_ws_response": "String",
+            "pfx_base64_string": "String",
+            "certificate_pwd": "String",
+            "ownership_id": "Number",
+            "exchange_server_version": "String",
+            "is_persona_request": "Boolean",
+            "valid_from": "Date",
+            "valid_to": "Date",
+            "comments": "String",
+            "reason_for_revoke": "String",
+            "workflow": [
+                {
+                    "user_action_id": "Number",
+                    "request_status_id": "Number",
+                    "comments": "String",
+                    "modified_date": "Date",
+                    "modified_by": "String",
+                    "is_active": "Boolean"
+                }
+            ]
+        },
+        "OPTION": {
+
+        }
+    },
+    "launchpad_audit": {
+        "COLLECTION_NAME": "launchpad_audit",
+        "JSON_SCHEMA": {
+            "login_id": "Number",
+            "user_id": "String",
+            "created_date": "Date",
+            "modified_date": "Date",
+            "download_flag": "Boolean",
+            "device_type": "String",
+            "os_version": "String",
+            "device_make": "String",
+            "user_agent": "String"
+        },
+        "OPTION": {
+
+        }
+    },
+    "product_license_details": {
+        "COLLECTION_NAME": "product_license_details",
+        "JSON_SCHEMA": {
+            "license_id": "String",
+            "is_distributed": "Boolean",
+            "user_id": "Number",
+            "license_type": "Number",
+            "app_userid": "String",
+            "product_name": "String",
+            "created_date": "Date",
+            "modified_date": "Date",
+            "device_id": "String",
+            "no_of_license": "Number",
+            "revoke_comments": "String",
+            "license_status": [
+                {
+                    "status": "String",
+                    "created_date": "Date",
+                    "is_active": "Boolean"
+                }
+            ]
+        },
+        "OPTION": {
+
+        }
+    },
+    "template": {
+        "COLLECTION_NAME": "template",
+        "JSON_SCHEMA": {
+            "template_id": "Number",
+            "name": "String",
+            "lang_id": "Number",
+            "subject": "String",
+            "message": "String",
+            "email_list": "String",
+            "is_visible": "Number"
+        },
+        "INDEXES": "template_id_1",
+        "template_id_1": "template_id,1",
+        "template_id_1_OPTIONS": {
+
+        },
+        "OPTION": {
+
+        }
+    },
+    "certificate_repository": {
+        "COLLECTION_NAME": "certificate_repository",
+        "JSON_SCHEMA": {
+            "file_id": "String",
+            "data": "String"
+        },
+        "OPTION": {
+
+        }
+    },
+    "vpn_payload_values": {
+        "COLLECTION_NAME": "vpn_payload_values",
+        "JSON_SCHEMA": {
+            "profile_id": "Number",
+            "connection_type": "Number",
+            "server": "String",
+            "vpn_protocol": "Number",
+            "authentication_type": "Number",
+            "display_name": "String",
+            "description": "String",
+            "certificate": "String",
+            "group_name": "String",
+            "shared_secret": "String",
+            "created_date": "Date",
+            "created_by": "String",
+            "created_auth_type": "Number",
+            "modified_date": "Date",
+            "modified_by": "String",
+            "modified_auth_type": "Number",
+            "realm": "String",
+            "is_prompt": "Boolean",
+            "username": "String",
+            "password": "String",
+            "vpn_client_appuri_schema": "String",
+            "android_vpn_client_download_link": "String",
+            "ios_vpn_client_download_link": "String",
+            "local_resource_url": "String"
+        },
+        "OPTION": {
+
+        }
+    },
+    "app_store_details": {
+        "COLLECTION_NAME": "app_store_details",
+        "JSON_SCHEMA": {
+            "app_name": "String",
+            "app_version": "String",
+            "device_type": "String",
+            "os_version": "String",
+            "manifest_file": "String",
+            "binary_file": "String",
+            "is_latest": "Boolean",
+            "version_check_message": "String",
+            "is_version_upd_mandatory": "Number",
+            "appstore_launch_url": "String",
+            "created_date": "Date",
+            "modified_date": "Date"
+        },
+        "INDEXES": "device_type_app_version_is_latest_1",
+        "device_type_app_version_is_latest_1": "device_type,1 app_version,1 is_latest,1",
+        "device_type_app_version_is_latest_1_OPTIONS": {
+
+        },
+        "OPTION": {
+
+        }
+    },
+    "config": {
+        "COLLECTION_NAME": "config",
+        "JSON_SCHEMA": {
+            "config_id": "Number",
+            "config_type": "String",
+            "config_values": [
+                {
+                    "value": "String",
+                    "detail": "String"
+                }
+            ]
+        },
+        "OPTION": {
+
+        }
+    },
+    "job_master": {
+        "COLLECTION_NAME": "job_master",
+        "JSON_SCHEMA": {
+            "job_id": "Number",
+            "job_status": "Number",
+            "is_error": "Boolean",
+            "job_description": "String",
+            "tenant_id": "Number",
+            "parameters": "String",
+            "type_id": "Number",
+            "priority": "Number",
+            "created_by": "String",
+            "created_date": "Date",
+            "modified_by": "String",
+            "modified_date": "Date",
+            "workflow": [
+                {
+                    "status_id": "Number",
+                    "created_by": "String",
+                    "created_date": "Date"
+                }
+            ]
+        },
+        "INDEXES": "job_status_type_id_1",
+        "job_status_type_id_1": "job_status,1 type_id,1",
+        "job_status_type_id_1_OPTIONS": {
+
+        },
+        "OPTION": {
+
+        }
+    },
+    "crs_designation": {
+        "COLLECTION_NAME": "crs_designation",
+        "JSON_SCHEMA": {
+            "job_code": "String",
+            "job_description": "String",
+            "job_family": "String",
+            "job_family_description": "String"
+        },
+        "OPTION": {
+
+        }
+    },
+    "crs_project": {
+        "COLLECTION_NAME": "crs_project",
+        "JSON_SCHEMA": {
+            "project_id": "String",
+            "project_name": "String",
+            "project_type": "String",
+            "city": "String",
+            "location": "String",
+            "customer_id": "String",
+            "vertical": "String"
+        },
+        "OPTION": {
+
+        }
+    },
+    "crs_relieved_user": {
+        "COLLECTION_NAME": "crs_relieved_user",
+        "JSON_SCHEMA": {
+            "associate_id": "String",
+            "created_date": "Date",
+            "device_id": "String"
+        },
+        "OPTION": {
+
+        }
+    },
+    "general_audit": {
+        "COLLECTION_NAME": "general_audit",
+        "JSON_SCHEMA": {
+            "entity": "String",
+            "entityId": "Number",
+            "operation": "String",
+            "data": {
+
+            },
+            "modifiedBy": "String",
+            "modifiedDate": "Date"
+        },
+        "OPTION": {
+
+        }
+    },
+    "entity_master": {
+        "COLLECTION_NAME": "entity_master",
+        "JSON_SCHEMA": {
+
+        },
+        "OPTION": {
+
+        }
+    },
+    "crs_rules": {
+        "COLLECTION_NAME": "crs_rules",
+        "JSON_SCHEMA": {
+            "crs_entity_id": "String",
+            "crs_entity_name": "String",
+            "rule_name": "Number",
+            "rule_type": "Number"
+        },
+        "OPTION": {
+
+        }
+    },
+    "app_wrap_trans_detail": {
+        "COLLECTION_NAME": "app_wrap_trans_detail",
+        "JSON_SCHEMA": {
+            "transfer_key": "String",
+            "job_id": "Number",
+            "app_platform_id": "Number",
+            "download_completed": "Boolean",
+            "no_downloads_allowed": "Number",
+            "created_date": "Date",
+            "modified_date": "Date"
+        },
+        "OPTION": {
+
+        }
+    },
+    "mdm_push_log": {
+        "COLLECTION_NAME": "mdm_push_log",
+        "JSON_SCHEMA": {
+            "device_udid": "String",
+            "command_details": [
+                {
+                    "command_udid": "String",
+                    "command_type_id": "String",
+                    "command_status_id": "String",
+                    "command_params": "String",
+                    "error_description": "String",
+                    "comment": "String",
+                    "created_by": "String",
+                    "created_date": "Date",
+                    "modified_by": "String",
+                    "modified_date": "Date"
+                }
+            ]
+        },
+        "OPTION": {
+
+        }
+    },
+    "app_notification": {
+        "COLLECTION_NAME": "app_notification",
+        "JSON_SCHEMA": {
+            "app_id": "Number",
+            "message_details": [
+                {
+                    "notification_id": "Number",
+                    "os": "String",
+                    "created_by": "String",
+                    "created_date": "Date"
+                }
+            ]
+        },
+        "OPTION": {
+
+        }
+    },
+    "notification_audit": {
+        "COLLECTION_NAME": "notification_audit",
+        "JSON_SCHEMA": {
+            "notification_id": "Number",
+            "device_udid": "String",
+            "user_id": "Number",
+            "created_date": "Date"
+        },
+        "OPTION": {
+
+        }
+    },
+"default_icon_details": {
+        "COLLECTION_NAME": "default_icon_details",
+        "JSON_SCHEMA": {
+            "filename": "String",
+            "created_date": "Date",
+            "modified_date": "Date"
+        },
+        "OPTION": {
+
+        }
+    }
+}

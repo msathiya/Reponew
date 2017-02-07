@@ -1,0 +1,26 @@
+---
+applications:
+- name: TJ-Service-Broker
+  memory: 512M
+  instances: 1
+  path: TJ-Service-Broker.jar
+  env:
+    cf_api_host_name: .mvp2.cognizantone.org
+    cf_api_url_http: http://api.mvp2.cognizantone.org
+    cf_api_url_https: https://api.mvp2.cognizantone.org
+    cf_login_url: https://login.mvp2.cognizantone.org/oauth/token?grant_type=password&username=admin&password=great!23
+    org_db_service_name: TJ-Service
+    org_service_bosh_authorization: Basic YWRtaW46bXZwMiEyMw==
+    org_service_bosh_directoruuid: c951363d-3918-4d3d-b44f-5954289db1c1
+    org_service_bosh_etcd_ip: 10.0.3.16
+    org_service_bosh_ip: 10.0.1.4
+    org_service_guid: d0a92770-cdc1-482f-8c6d-f010663671fb
+    org_service_name: TJ-Service
+    org_service_plan_dedicated_cluster_guid: aed550da-a407-4c4e-aa02-3d7562b9671c
+    org_service_plan_dedicated_single_guid: 3bc05b1a-0153-4af1-bd61-24abcd826aa2
+    org_service_plan_sandbox_guid: 545a7656-c1fb-45f9-a4be-efc688e384de
+    org_service_plan_shared_cluster_guid: 3d9a6426-d261-462a-b1db-5d1539b70a74
+    spring_datasource_password: admin
+    spring_datasource_url: jdbc:postgresql://10.0.3.111:6432/tenant_db
+    spring_datasource_url_nodbname: jdbc:postgresql://10.0.3.111:6432/
+    spring_datasource_username: admin

@@ -1,0 +1,4759 @@
+{
+  "MASTER_DB": {
+    "COLLECTIONS": [
+      "COMPANY",
+      "SEQUENCE_GENERATOR",
+      "COLLECTION_JSON_SCHEMA",
+	  "APP_SERVER_PERFORMANCE_AX"
+    ],
+    "SCHEMA": {
+      "COMPANY": {
+        "JSON_SCHEMA": {
+          "COMPANY_ID": {
+            "type": "Number",
+            "required": "true"
+          },
+          "COMPANY_NAME": "String",
+          "COMPANY_DESC": "String",
+          "LICENCE_STRING": "String",
+          "LICENCE_KEY_FILE_PATH": "String",
+          "CREATED_BY": {
+            "type": "String",
+            "default": "tj_user"
+          },
+          "CREATED_DATE": {
+            "type": "Date"
+          },
+          "MODIFIED_BY": {
+            "type": "String",
+            "default": "tj_user"
+          },
+          "MODIFIED_DATE": "Date",
+          "COMPANY_LOGO": "String",
+          "IDENTIFIER": "String",
+          "EXPIRY_DATE": "Date",
+          "IS_CSRF_ENABLED": {
+            "type": "Boolean",
+            "default": "false"
+          }
+        },
+        "COLLECTION_NAME": "COMPANY",
+        "INDEXES": "COMPANY_ID_1 COMPANY_NAME_1",
+        "COMPANY_ID_1": "COMPANY_ID,1",
+        "COMPANY_ID_1_OPTIONS": {
+          "unique": true
+        },
+        "COMPANY_NAME_1": "COMPANY_NAME,1",
+        "COMPANY_NAME_1_OPTIONS": {
+          
+        },
+        "OPTION": {
+          "autoIndex": false,
+          "safe": true,
+          "strict": "throw"
+        }
+      },
+	  "APP_SERVER_PERFORMANCE_AX": {
+        "JSON_SCHEMA": {
+          "CREATED_DATE": "Date",
+          "HOST_NAME": "String",
+          "HOST_IP": "String",
+          "PERFORMANCE_DETAIL": [
+            {
+			  "_id": false,
+              "HOUR": "Number",
+              "MINUTE": "Number",
+              "SECOND": "Number",
+              "MEMORY_USAGE": {
+                "TOTAL": "String",
+                "CACHED": "String",
+                "USED": "String",
+                "FREE": "String"
+              },
+              "PROCESSOR_USAGE": [
+                {
+				  "_id": false,
+                  "PROCESSOR_NAME": "String",
+                  "CPU_USAGE": "String"
+                }
+              ]
+            }
+          ]
+        },
+        "OPTION": {
+          "autoIndex": false,
+          "safe": true,
+          "strict": "throw"
+        },
+		"INDEXES": "CREATED_DATE_1_HOST_NAME_1_HOST_IP_1",
+        "CREATED_DATE_1_HOST_NAME_1_HOST_IP_1": "CREATED_DATE,1 HOST_NAME,1 HOST_IP,1",
+        "CREATED_DATE_1_HOST_NAME_1_HOST_IP_1_OPTIONS": {
+        },
+        "COLLECTION_NAME": "APP_SERVER_PERFORMANCE_AX"
+      },
+      "SEQUENCE_GENERATOR": {
+        "COLLECTION_NAME": "SEQUENCE_GENERATOR",
+        "JSON_SCHEMA": {
+          "COLLECTION_NAME": "String",
+          "ATTRIBUTE_SEQUENCE": [
+            {
+              "_id": false,
+              "ATTRIBUTE_NAME": "String",
+              "SEQUENCE_CURRENT_VALUE": {
+                "type": "Number",
+                "default": 0
+              }
+            }
+          ]
+        },
+        "OPTION": {
+          "autoIndex": false,
+          "safe": true,
+          "strict": "throw"
+        },
+        "INDEXES": "COLLECTION_NAME_1",
+        "COLLECTION_NAME_1": "COLLECTION_NAME,1",
+        "COLLECTION_NAME_1_OPTIONS": {
+          "unique": true
+        }
+      },
+      "COLLECTION_JSON_SCHEMA": {
+        "COLLECTION_NAME": "COLLECTION_JSON_SCHEMA",
+        "JSON_SCHEMA": {
+          "COLLECTION_NAME": "String",
+          "JSON_SCHEMA": {
+            
+          },
+          "OPTION": {
+            
+          }
+        },
+        "OPTION": {
+          "autoIndex": false,
+          "safe": true,
+          "strict": "true"
+        },
+        "INDEXES": "COLLECTION_NAME_1",
+        "COLLECTION_NAME_1": "COLLECTION_NAME,1",
+        "COLLECTION_NAME_1_OPTIONS": {
+          
+        }
+      }
+    }
+  },
+  "META_DB": {
+    "SCHEMA": {
+      "ENTITY_TEMPLATE": {
+        "COLLECTION_NAME": "ENTITY_TEMPLATE",
+        "JSON_SCHEMA": {
+          "ENTITY_NAME": "String",
+          "ENTITY_DISPLAY_NAME": "String",
+          "IS_TRIGGER_ENTITY": "Boolean",
+          "LOGICAL_DEFINITION_CURRENT_VALUE": {
+            "type": "Number",
+            "default": 0
+          },
+          "LOGICAL_DEFINITIONS": [
+            {
+              "_id": false,
+              "DEFINITION_ID": "Number",
+              "DEFINITION_NAME": "String",
+              "DEFINITION_DISPLAY_NAME": "String",
+              "DEFINITION_DATA_TYPE": "String",
+              "DEFINITION_DATA_STRUCTURE": {
+                "type": "String"
+              },
+              "DEFINITION_DEFAULT_VALUE": "String",
+              "IS_PRIMARY": "Boolean",
+              "IS_SEARCHABLE": "Boolean",
+              "IS_ARRAY": "Boolean",
+              "IS_MANDATORY": "Boolean",
+              "NOTIFICATION_LEVEL": "String",
+              "INDENTATION_LEVEL": "String",
+              "IS_PARENT_DEFINTION": "Boolean",
+              "CHILD_DEFINITION_ID": [
+                "Number"
+              ],
+              "PARENT_DEFINITION_ID": "Number",
+              "IS_ENCRYPTABLE": "Boolean",
+              "IS_READ_ONLY": {
+                "type": "Boolean",
+                "default": false
+              },
+              "DEFINITION_CONTENT_TYPE": {
+                "type": "String",
+                "enum": [
+                  "application/json",
+                  "application/xml",
+                  "application/msword",
+                  "application/vnd.ms-excel",
+                  "application/pdf",
+                  "application/octet-stream",
+                  "image/jpeg",
+                  "image/png",
+                  "text/plain",
+                  "multipart/form-data",
+                  "dynamic-content-type"
+                ]
+              }
+            }
+          ],
+          "ENTITY_ID": {
+            "type": "Number",
+            "required": "true"
+          },
+          "CREATED_BY": {
+            "type": "String",
+            "default": "tj_user"
+          },
+          "CREATED_DATE": "Date",
+          "MODIFIED_BY": {
+            "type": "String",
+            "default": "tj_user"
+          },
+          "MODIFIED_DATE": "Date",
+          "ACTION_TYPE": "String",
+          "IS_SYSTEM_GENERATED": {
+            "type": "Boolean",
+            "default": "false"
+          },
+          "IS_CONTEXT_ENTITY": "Boolean",
+          "CONTEXT_TYPE": "String",
+          "ENTITY_CATEGORY": "String",
+          "ENTITY_SUB_CATEGORY": "String",
+          "ENTITY_ORIGIN_ID": "Number",
+          "APP_VERSION": [
+            {
+              "_id": false,
+              "APP_ID": "Number",
+              "VERSION_NUMBER": "Number",
+              "CREATED_DATE": "Date",
+              "CREATED_BY": "String"
+            }
+          ],
+          "IDENTIFIER": "String"
+        },
+        "OPTION": {
+          "autoIndex": false,
+          "safe": true,
+          "strict": "throw"
+        },
+        "INDEXES": "ENTITY_ID_1 APP_ID_1",
+        "ENTITY_ID_1": "ENTITY_ID,1",
+        "ENTITY_ID_1_OPTIONS": {
+          "unique": true
+        },
+        "APP_ID_1": "APP_ID,1",
+        "APP_ID_1_OPTIONS": {
+          
+        }
+      },
+      "ORCHESTRATION": {
+        "COLLECTION_NAME": "ORCHESTRATION",
+        "JSON_SCHEMA": {
+          "RESPONSE_STRUCTURE": "String",
+          "PROXY_PASS": "Mixed",
+          "ORCHESTRATION_ID": {
+            "type": "Number",
+            "required": "true"
+          },
+          "ORCHESTRATION_NAME": "String",
+          "ORCHESTRATION_DESC": "String",
+          "PROXY_URL": "String",
+          "IS_PROXY_URL_ENABLED": {
+            "type": "Boolean",
+            "default": false
+          },
+          "PROXY_IDENTIFIER": "String",
+          "CREATED_BY": {
+            "type": "String",
+            "default": "tj_user"
+          },
+          "CREATED_DATE": "Date",
+          "MODIFIED_BY": {
+            "type": "String",
+            "default": "tj_user"
+          },
+          "MODIFIED_DATE": "Date",
+          "EPS_ACCESS_TYPE": {
+            "type": "String",
+            "enum": [
+              "INTERNAL",
+              "EXTERNAL",
+              "BOTH"
+            ]
+          },
+          "IS_DATA_TRANSIT_EPS": "Boolean",
+          "AUTH_PROVIDER": [
+            {
+              "_id": false,
+              "CONNECTION_ID": "Number",
+              "CONNECTION_NAME": "String",
+              "CONNECTION_TYPE": "String",
+              "CONNECTION_IDENTIFIER": "String"
+            }
+          ],
+          "APP_LOG_TYPE": [
+            "String"
+          ],
+          "STORAGE_LOCATION": {
+            "LOCATION_NAME": "String",
+            "LOCATION_TYPE": {
+              "type": "String",
+              "enum": [
+                "INTERNAL",
+                "EXTERNAL",
+                "NONE"
+              ]
+            }
+          },
+          "ENTITY": [
+            {
+              "_id": false,
+              "ENTITY_NAME": "String",
+              "ENTITY_DISPLAY_NAME": "String",
+              "ENTITY_ID": "Number",
+              "ENTITY_IDENTIFIER": "String",
+              "IS_TRIGGER_ENTITY": "Boolean",
+              "IS_SYSTEM_GENERATED": {
+                "type": "Boolean",
+                "default": "false"
+              },
+              "ENTITY_CATEGORY": {
+                "type": "String"
+              },
+              "ENTITY_SUB_CATEGORY": {
+                "type": "String"
+              },
+              "SERVICE_EXECUTION_ORDER": [
+                {
+                  "_id": false,
+                  "SERVICE_ID": "Number",
+                  "EXECUTION_SEQUENCE_NUMBER": "Number",
+                  "DEVICE_PLATFORM": "String"
+                }
+              ],
+              "ACTION": [
+                {
+                  "_id": false,
+                  "ACTION_TYPE": "String",
+                  "LOGICAL_DEFINITIONS": [
+                    {
+                      "_id": false,
+                      "DEFINITION_TYPE": {
+                        "type": "String"
+                      },
+                      "DEFINITION_ID": "Number",
+                      "DEFINITION_DISPLAY_NAME": "String",
+                      "DEFINITION_DEFAULT_VALUE": "String",
+                      "IS_PRIMARY": "Boolean",
+                      "IS_MANDATORY": "Boolean",
+                      "DEFINITION_NAME": "String",
+                      "DEFINITION_DATA_TYPE": "String",
+                      "NOTIFICATION_LEVEL": "String",
+                      "DEFINITION_PARAM_TYPE": "String",
+                      "IS_STORAGE_DEFINITION": "Boolean",
+                      "REFERENCE_DEFINITION_ID": "Number",
+                      "DEFINITION_DATA_STRUCTURE": {
+                        "type": "String"
+                      },
+                      "SERVICE_ID": "Number",
+                      "SERVICE_PARAM_ID": "Number",
+                      "DEFINITION_NAME_XPATH": "String",
+                      "DEFINITION_DISPLAY_NAME_XPATH": "String",
+                      "IS_PARENT_DEFINITION": "Boolean",
+                      "CHILD_DEFINITION_ID": [
+                        "Number"
+                      ],
+                      "INDENTATION_LEVEL": "String",
+                      "IS_DEFINED_DEFINITION": "Boolean",
+                      "SERVICE_PARENT_PARAM_ID": "Number",
+                      "IS_END_POINT_RESPONSE_DEFINITION": "Boolean",
+                      "PARENT_DEFINITION_ID": "Number",
+                      "DEFINITION_ACTION_TYPE": "String",
+                      "IS_ENCRYPTABLE": "Boolean",
+                      "CLIENT_DB_DATA_TYPE": "String",
+                      "IS_UI_SELECTED_DEFINITION": "Boolean",
+                      "IS_READ_ONLY": {
+                        "type": "Boolean",
+                        "default": false
+                      },
+                      "DEFINITION_CONTENT_TYPE": {
+                        "type": "String",
+                        "enum": [
+                          "application/json",
+                          "application/xml",
+                          "application/msword",
+                          "application/vnd.ms-excel",
+                          "application/pdf",
+                          "application/octet-stream",
+                          "image/jpeg",
+                          "image/png",
+                          "text/plain",
+                          "multipart/form-data",
+                          "dynamic-content-type"
+                        ]
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "END_POINT_ORCHESTRATION_URL": "String",
+          "JSON_SCHEMA": "String",
+          "PREPARED_QUERY": "Mixed",
+          "APP_ID": "Number",
+          "STATUS": "String",
+          "DATA_KEYS": [
+            "String"
+          ],
+          "DEPENDENT_END_POINT_ORCHESTRATION": [
+            "Number"
+          ],
+          "ORCHESTRATION_CATEGORY": {
+            "type": "String"
+          },
+          "DATA_EXPIRY_DAYS": {
+            "type": "Number",
+            "default": 30
+          },
+          "ORCHESTRATION_SUB_CATEGORY": {
+            "type": "String"
+          },
+          "EDS_NOTIFICATION_URL": "String",
+          "SCHEDULED_FREQUENCY": "String",
+          "SCHEDULE_START_DATE": "Date",
+          "SCHEDULE_END_DATE": "Date",
+          "PARENT_ORCHESTRATION_ID": "Number",
+          "DEVICE_TO_END_POINT_RULE": [
+            {
+              "_id": false,
+              "RULE_ID": "Number",
+              "RULE_EXECUTION_ORDER_NUMBER": "Number",
+              "RULE_FILE_DELETE_DATE": "Date",
+              "RULE_FILE_MODIFIED_DATE": "Date",
+              "ACTION_TYPE": "String",
+              "RULE_EXECUTION_TYPE": {
+                "type": "String",
+                "default": "NORMAL_EXECUTION",
+                "enum": [
+                  "NORMAL_EXECUTION",
+                  "SERVICE_PRE_EXECUTION",
+                  "RAP_PRE_EXECUTION",
+                  "SERVICE_POST_EXECUTION",
+                  "RAP_POST_EXECUTION"
+                ]
+              }
+            }
+          ],
+          "END_POINT_TO_DEVICE_RULE": [
+            {
+              "_id": false,
+              "RULE_ID": "Number",
+              "RULE_EXECUTION_ORDER_NUMBER": "Number",
+              "RULE_FILE_DELETE_DATE": "Date",
+              "RULE_FILE_MODIFIED_DATE": "Date",
+              "ACTION_TYPE": "String",
+              "RULE_EXECUTION_TYPE": {
+                "type": "String",
+                "default": "NORMAL_EXECUTION",
+                "enum": [
+                  "NORMAL_EXECUTION",
+                  "SERVICE_PRE_EXECUTION",
+                  "RAP_PRE_EXECUTION",
+                  "SERVICE_POST_EXECUTION",
+                  "RAP_POST_EXECUTION"
+                ]
+              }
+            }
+          ],
+          "IS_ACTIVE": "Boolean",
+          "ENTITY_TO_SERVICE_RULE": [
+            {
+              "_id": false,
+              "RULE_ID": "Number",
+              "RULE_EXECUTION_ORDER_NUMBER": "Number",
+              "RULE_FILE_DELETE_DATE": "Date",
+              "RULE_FILE_MODIFIED_DATE": "Date",
+              "SERVICE_ID": "Number",
+              "ACTION_TYPE": "String",
+              "RULE_EXECUTION_TYPE": {
+                "type": "String",
+                "default": "NORMAL_EXECUTION",
+                "enum": [
+                  "NORMAL_EXECUTION",
+                  "SERVICE_PRE_EXECUTION",
+                  "RAP_PRE_EXECUTION",
+                  "SERVICE_POST_EXECUTION",
+                  "RAP_POST_EXECUTION"
+                ]
+              }
+            }
+          ],
+          "SERVICE_TO_ENTITY_RULE": [
+            {
+              "_id": false,
+              "RULE_ID": "Number",
+              "RULE_EXECUTION_ORDER_NUMBER": "Number",
+              "RULE_FILE_DELETE_DATE": "Date",
+              "RULE_FILE_MODIFIED_DATE": "Date",
+              "SERVICE_ID": "Number",
+              "ACTION_TYPE": "String",
+              "RULE_EXECUTION_TYPE": {
+                "type": "String",
+                "default": "NORMAL_EXECUTION",
+                "enum": [
+                  "NORMAL_EXECUTION",
+                  "SERVICE_PRE_EXECUTION",
+                  "RAP_PRE_EXECUTION",
+                  "SERVICE_POST_EXECUTION",
+                  "RAP_POST_EXECUTION"
+                ]
+              }
+            }
+          ],
+          "IS_CLIENT_SDK_ENABLED": "Boolean",
+          "GET_SERVICE_ID": [
+            "Number"
+          ],
+          "PUT_SERVICE_ID": [
+            "Number"
+          ],
+          "DELETE_SERVICE_ID": [
+            "Number"
+          ],
+          "POST_SERVICE_ID": [
+            "Number"
+          ],
+          "GET_SERVICE": [
+            {
+              "_id": false,
+              "SERVICE_ID": "Number",
+              "CONNECTION_ID": "Number",
+              "IS_MODIFIED": {
+                "type": "Boolean",
+                "default": false
+              }
+            }
+          ],
+          "PUT_SERVICE": [
+            {
+              "_id": false,
+              "SERVICE_ID": "Number",
+              "CONNECTION_ID": "Number",
+              "IS_MODIFIED": {
+                "type": "Boolean",
+                "default": false
+              }
+            }
+          ],
+          "POST_SERVICE": [
+            {
+              "_id": false,
+              "SERVICE_ID": "Number",
+              "CONNECTION_ID": "Number",
+              "IS_MODIFIED": {
+                "type": "Boolean",
+                "default": false
+              }
+            }
+          ],
+          "DELETE_SERVICE": [
+            {
+              "_id": false,
+              "SERVICE_ID": "Number",
+              "CONNECTION_ID": "Number",
+              "IS_MODIFIED": {
+                "type": "Boolean",
+                "default": false
+              }
+            }
+          ],
+          "GET_SERVICE_CONNECTOR": [
+            {
+              "_id": false,
+              "SOURCE_SERVICE_ID": "Number",
+              "SOURCE_SERVICE_PARAM_ID": "Number",
+              "SOURCE_SERVICE_PARAM_DATA_TYPE": "String",
+              "SOURCE_SERVICE_PARAM_TYPE": {
+                "type": "String"
+              },
+              "SOURCE_SERVICE_PARAM_DATA_STRUCTURE": {
+                "type": "String"
+              },
+              "SOURCE_SERVICE_PARAM_XPATH": "String",
+              "TARGET_SERVICE_ID": "Number",
+              "TARGET_SERVICE_PARAM_ID": "Number",
+              "TARGET_SERVICE_PARAM_DATA_TYPE": "String",
+              "TARGET_SERVICE_PARAM_TYPE": {
+                "type": "String"
+              },
+              "TARGET_SERVICE_PARAM_DATA_STRUCTURE": {
+                "type": "String"
+              },
+              "TARGET_SERVICE_PARAM_XPATH": "String",
+              "SERVICE_CONNECTOR_ID": "Number"
+            }
+          ],
+          "PUT_SERVICE_CONNECTOR": [
+            {
+              "_id": false,
+              "SERVICE_CONNECTOR_ID": "Number",
+              "SOURCE_SERVICE_ID": "Number",
+              "SOURCE_SERVICE_PARAM_ID": "Number",
+              "SOURCE_SERVICE_PARAM_DATA_TYPE": "String",
+              "SOURCE_SERVICE_PARAM_TYPE": {
+                "type": "String"
+              },
+              "SOURCE_SERVICE_PARAM_DATA_STRUCTURE": {
+                "type": "String"
+              },
+              "SOURCE_SERVICE_PARAM_XPATH": "String",
+              "TARGET_SERVICE_ID": "Number",
+              "TARGET_SERVICE_PARAM_ID": "Number",
+              "TARGET_SERVICE_PARAM_DATA_TYPE": "String",
+              "TARGET_SERVICE_PARAM_TYPE": {
+                "type": "String"
+              },
+              "TARGET_SERVICE_PARAM_DATA_STRUCTURE": {
+                "type": "String"
+              },
+              "TARGET_SERVICE_PARAM_XPATH": "String"
+            }
+          ],
+          "POST_SERVICE_CONNECTOR": [
+            {
+              "_id": false,
+              "SERVICE_CONNECTOR_ID": "Number",
+              "SOURCE_SERVICE_ID": "Number",
+              "SOURCE_SERVICE_PARAM_ID": "Number",
+              "SOURCE_SERVICE_PARAM_DATA_TYPE": "String",
+              "SOURCE_SERVICE_PARAM_TYPE": {
+                "type": "String"
+              },
+              "SOURCE_SERVICE_PARAM_DATA_STRUCTURE": {
+                "type": "String"
+              },
+              "SOURCE_SERVICE_PARAM_XPATH": "String",
+              "TARGET_SERVICE_ID": "Number",
+              "TARGET_SERVICE_PARAM_ID": "Number",
+              "TARGET_SERVICE_PARAM_DATA_TYPE": "String",
+              "TARGET_SERVICE_PARAM_TYPE": {
+                "type": "String"
+              },
+              "TARGET_SERVICE_PARAM_DATA_STRUCTURE": {
+                "type": "String"
+              },
+              "TARGET_SERVICE_PARAM_XPATH": "String"
+            }
+          ],
+          "DELETE_SERVICE_CONNECTOR": [
+            {
+              "_id": false,
+              "SERVICE_CONNECTOR_ID": "Number",
+              "SOURCE_SERVICE_ID": "Number",
+              "SOURCE_SERVICE_PARAM_ID": "Number",
+              "SOURCE_SERVICE_PARAM_DATA_TYPE": "String",
+              "SOURCE_SERVICE_PARAM_TYPE": {
+                "type": "String"
+              },
+              "SOURCE_SERVICE_PARAM_DATA_STRUCTURE": {
+                "type": "String"
+              },
+              "SOURCE_SERVICE_PARAM_XPATH": "String",
+              "TARGET_SERVICE_ID": "Number",
+              "TARGET_SERVICE_PARAM_ID": "Number",
+              "TARGET_SERVICE_PARAM_DATA_TYPE": "String",
+              "TARGET_SERVICE_PARAM_TYPE": {
+                "type": "String"
+              },
+              "TARGET_SERVICE_PARAM_DATA_STRUCTURE": {
+                "type": "String"
+              },
+              "TARGET_SERVICE_PARAM_XPATH": "String"
+            }
+          ],
+          "POST_SELECTION_SET": [
+            {
+              "_id": false,
+              "SET_ID": "Number",
+              "IS_SELECTED_SET": "Boolean",
+              "ENTITY": [
+                {
+                  "_id": false,
+                  "ENTITY_NAME": "String",
+                  "ENTITY_DISPLAY_NAME": "String",
+                  "ENTITY_ID": "Number",
+                  "ENTITY_IDENTIFIER": "String",
+                  "IS_TRIGGER_ENTITY": "Boolean",
+                  "IS_SYSTEM_GENERATED": {
+                    "type": "Boolean",
+                    "default": "false"
+                  },
+                  "ENTITY_CATEGORY": "String",
+                  "ENTITY_SUB_CATEGORY": "String",
+                  "SERVICE_EXECUTION_ORDER": [
+                    {
+                      "_id": false,
+                      "SERVICE_ID": "Number",
+                      "EXECUTION_SEQUENCE_NUMBER": "Number"
+                    }
+                  ],
+                  "ACTION": [
+                    {
+                      "_id": false,
+                      "ACTION_TYPE": "String",
+                      "LOGICAL_DEFINITIONS": [
+                        {
+                          "_id": false,
+                          "DEFINITION_ID": "Number",
+                          "DEFINITION_NAME": "String",
+                          "DEFINITION_DISPLAY_NAME": "String",
+                          "DEFINITION_TYPE": "String",
+                          "REFERENCE_DEFINITION_ID": "Number",
+                          "DEFINITION_DATA_STRUCTURE": "String",
+                          "DEFINITION_DATA_TYPE": "String",
+                          "SERVICE_ID": "Number",
+                          "SERVICE_PARAM_ID": "Number",
+                          "DEFINITION_NAME_XPATH": "String",
+                          "DEFINITION_DISPLAY_NAME_XPATH": "String",
+                          "IS_PARENT_DEFINITION": "Boolean",
+                          "CHILD_DEFINITION_ID": [
+                            "Number"
+                          ],
+                          "INDENTATION_LEVEL": "String",
+                          "DEFINITION_DEFAULT_VALUE": "String",
+                          "IS_PRIMARY": "Boolean",
+                          "IS_MANDATORY": "Boolean",
+                          "NOTIFICATION_LEVEL": "String",
+                          "DEFINITION_PARAM_TYPE": "String",
+                          "IS_DEFINED_DEFINITION": "Boolean",
+                          "SERVICE_PARENT_PARAM_ID": "Number",
+                          "IS_END_POINT_RESPONSE_DEFINITION": "Boolean",
+                          "PARENT_DEFINITION_ID": "Number",
+                          "DEFINITION_ACTION_TYPE": "String",
+                          "IS_ENCRYPTABLE": "Boolean",
+                          "CLIENT_DB_DATA_TYPE": "String",
+                          "IS_UI_SELECTED_DEFINITION": "Boolean",
+                          "IS_READ_ONLY": {
+                            "type": "Boolean",
+                            "default": false
+                          },
+                          "DEFINITION_CONTENT_TYPE": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "POST_SERVICE_CONNECTOR": [
+                {
+                  "_id": false,
+                  "SERVICE_CONNECTOR_ID": "Number",
+                  "SOURCE_SERVICE_ID": "Number",
+                  "SOURCE_SERVICE_PARAM_ID": "Number",
+                  "SOURCE_SERVICE_PARAM_DATA_TYPE": "String",
+                  "SOURCE_SERVICE_PARAM_TYPE": {
+                    "type": "String"
+                  },
+                  "SOURCE_SERVICE_PARAM_DATA_STRUCTURE": {
+                    "type": "String"
+                  },
+                  "SOURCE_SERVICE_PARAM_XPATH": "String",
+                  "TARGET_SERVICE_ID": "Number",
+                  "TARGET_SERVICE_PARAM_ID": "Number",
+                  "TARGET_SERVICE_PARAM_DATA_TYPE": "String",
+                  "TARGET_SERVICE_PARAM_TYPE": {
+                    "type": "String"
+                  },
+                  "TARGET_SERVICE_PARAM_DATA_STRUCTURE": {
+                    "type": "String"
+                  },
+                  "TARGET_SERVICE_PARAM_XPATH": "String"
+                }
+              ]
+            }
+          ],
+          "DELETE_SELECTION_SET": [
+            {
+              "_id": false,
+              "SET_ID": "Number",
+              "ENTITY": [
+                {
+                  "_id": false,
+                  "ENTITY_NAME": "String",
+                  "ENTITY_DISPLAY_NAME": "String",
+                  "ENTITY_ID": "Number",
+                  "ENTITY_IDENTIFIER": "String",
+                  "IS_TRIGGER_ENTITY": "Boolean",
+                  "IS_SYSTEM_GENERATED": {
+                    "type": "Boolean",
+                    "default": "false"
+                  },
+                  "ENTITY_CATEGORY": "String",
+                  "ENTITY_SUB_CATEGORY": "String",
+                  "SERVICE_EXECUTION_ORDER": [
+                    {
+                      "_id": false,
+                      "SERVICE_ID": "Number",
+                      "EXECUTION_SEQUENCE_NUMBER": "Number"
+                    }
+                  ],
+                  "ACTION": [
+                    {
+                      "_id": false,
+                      "ACTION_TYPE": "String",
+                      "LOGICAL_DEFINITIONS": [
+                        {
+                          "_id": false,
+                          "DEFINITION_ID": "Number",
+                          "DEFINITION_NAME": "String",
+                          "DEFINITION_DISPLAY_NAME": "String",
+                          "DEFINITION_TYPE": "String",
+                          "REFERENCE_DEFINITION_ID": "Number",
+                          "DEFINITION_DATA_STRUCTURE": "String",
+                          "DEFINITION_DATA_TYPE": "String",
+                          "SERVICE_ID": "Number",
+                          "SERVICE_PARAM_ID": "Number",
+                          "DEFINITION_NAME_XPATH": "String",
+                          "DEFINITION_DISPLAY_NAME_XPATH": "String",
+                          "IS_PARENT_DEFINITION": "Boolean",
+                          "CHILD_DEFINITION_ID": [
+                            "Number"
+                          ],
+                          "INDENTATION_LEVEL": "String",
+                          "DEFINITION_DEFAULT_VALUE": "String",
+                          "IS_PRIMARY": "Boolean",
+                          "IS_MANDATORY": "Boolean",
+                          "NOTIFICATION_LEVEL": "String",
+                          "DEFINITION_PARAM_TYPE": "String",
+                          "IS_DEFINED_DEFINITION": "Boolean",
+                          "SERVICE_PARENT_PARAM_ID": "Number",
+                          "IS_END_POINT_RESPONSE_DEFINITION": "Boolean",
+                          "PARENT_DEFINITION_ID": "Number",
+                          "DEFINITION_ACTION_TYPE": "String",
+                          "IS_ENCRYPTABLE": "Boolean",
+                          "CLIENT_DB_DATA_TYPE": "String",
+                          "IS_UI_SELECTED_DEFINITION": "Boolean",
+                          "IS_READ_ONLY": {
+                            "type": "Boolean",
+                            "default": false
+                          },
+                          "DEFINITION_CONTENT_TYPE": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "DELETE_SERVICE_CONNECTOR": [
+                {
+                  "_id": false,
+                  "SERVICE_CONNECTOR_ID": "Number",
+                  "SOURCE_SERVICE_ID": "Number",
+                  "SOURCE_SERVICE_PARAM_ID": "Number",
+                  "SOURCE_SERVICE_PARAM_DATA_TYPE": "String",
+                  "SOURCE_SERVICE_PARAM_TYPE": {
+                    "type": "String"
+                  },
+                  "SOURCE_SERVICE_PARAM_DATA_STRUCTURE": {
+                    "type": "String"
+                  },
+                  "SOURCE_SERVICE_PARAM_XPATH": "String",
+                  "TARGET_SERVICE_ID": "Number",
+                  "TARGET_SERVICE_PARAM_ID": "Number",
+                  "TARGET_SERVICE_PARAM_DATA_TYPE": "String",
+                  "TARGET_SERVICE_PARAM_TYPE": {
+                    "type": "String"
+                  },
+                  "TARGET_SERVICE_PARAM_DATA_STRUCTURE": {
+                    "type": "String"
+                  },
+                  "TARGET_SERVICE_PARAM_XPATH": "String"
+                }
+              ],
+              "IS_SELECTED_SET": "Boolean"
+            }
+          ],
+          "PUT_SELECTION_SET": [
+            {
+              "_id": false,
+              "SET_ID": "Number",
+              "ENTITY": [
+                {
+                  "_id": false,
+                  "ENTITY_NAME": "String",
+                  "ENTITY_DISPLAY_NAME": "String",
+                  "ENTITY_ID": "Number",
+                  "ENTITY_IDENTIFIER": "String",
+                  "IS_TRIGGER_ENTITY": "Boolean",
+                  "IS_SYSTEM_GENERATED": {
+                    "type": "Boolean",
+                    "default": "false"
+                  },
+                  "ENTITY_CATEGORY": "String",
+                  "ENTITY_SUB_CATEGORY": "String",
+                  "SERVICE_EXECUTION_ORDER": [
+                    {
+                      "_id": false,
+                      "SERVICE_ID": "Number",
+                      "EXECUTION_SEQUENCE_NUMBER": "Number"
+                    }
+                  ],
+                  "ACTION": [
+                    {
+                      "_id": false,
+                      "ACTION_TYPE": "String",
+                      "LOGICAL_DEFINITIONS": [
+                        {
+                          "_id": false,
+                          "DEFINITION_ID": "Number",
+                          "DEFINITION_NAME": "String",
+                          "DEFINITION_DISPLAY_NAME": "String",
+                          "DEFINITION_TYPE": "String",
+                          "REFERENCE_DEFINITION_ID": "Number",
+                          "DEFINITION_DATA_STRUCTURE": "String",
+                          "DEFINITION_DATA_TYPE": "String",
+                          "SERVICE_ID": "Number",
+                          "SERVICE_PARAM_ID": "Number",
+                          "DEFINITION_NAME_XPATH": "String",
+                          "DEFINITION_DISPLAY_NAME_XPATH": "String",
+                          "IS_PARENT_DEFINITION": "Boolean",
+                          "CHILD_DEFINITION_ID": [
+                            "Number"
+                          ],
+                          "INDENTATION_LEVEL": "String",
+                          "DEFINITION_DEFAULT_VALUE": "String",
+                          "IS_PRIMARY": "Boolean",
+                          "IS_MANDATORY": "Boolean",
+                          "NOTIFICATION_LEVEL": "String",
+                          "DEFINITION_PARAM_TYPE": "String",
+                          "IS_DEFINED_DEFINITION": "Boolean",
+                          "SERVICE_PARENT_PARAM_ID": "Number",
+                          "IS_END_POINT_RESPONSE_DEFINITION": "Boolean",
+                          "PARENT_DEFINITION_ID": "Number",
+                          "DEFINITION_ACTION_TYPE": "String",
+                          "IS_ENCRYPTABLE": "Boolean",
+                          "CLIENT_DB_DATA_TYPE": "String",
+                          "IS_UI_SELECTED_DEFINITION": "Boolean",
+                          "IS_READ_ONLY": {
+                            "type": "Boolean",
+                            "default": false
+                          },
+                          "DEFINITION_CONTENT_TYPE": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "PUT_SERVICE_CONNECTOR": [
+                {
+                  "_id": false,
+                  "SERVICE_CONNECTOR_ID": "Number",
+                  "SOURCE_SERVICE_ID": "Number",
+                  "SOURCE_SERVICE_PARAM_ID": "Number",
+                  "SOURCE_SERVICE_PARAM_DATA_TYPE": "String",
+                  "SOURCE_SERVICE_PARAM_TYPE": {
+                    "type": "String"
+                  },
+                  "SOURCE_SERVICE_PARAM_DATA_STRUCTURE": {
+                    "type": "String"
+                  },
+                  "SOURCE_SERVICE_PARAM_XPATH": "String",
+                  "TARGET_SERVICE_ID": "Number",
+                  "TARGET_SERVICE_PARAM_ID": "Number",
+                  "TARGET_SERVICE_PARAM_DATA_TYPE": "String",
+                  "TARGET_SERVICE_PARAM_TYPE": {
+                    "type": "String"
+                  },
+                  "TARGET_SERVICE_PARAM_DATA_STRUCTURE": {
+                    "type": "String"
+                  },
+                  "TARGET_SERVICE_PARAM_XPATH": "String"
+                }
+              ],
+              "IS_SELECTED_SET": "Boolean"
+            }
+          ],
+          "GET_SELECTION_SET": [
+            {
+              "_id": false,
+              "SET_ID": "Number",
+              "ENTITY": [
+                {
+                  "_id": false,
+                  "ENTITY_NAME": "String",
+                  "ENTITY_DISPLAY_NAME": "String",
+                  "ENTITY_ID": "Number",
+                  "ENTITY_IDENTIFIER": "String",
+                  "IS_TRIGGER_ENTITY": "Boolean",
+                  "IS_SYSTEM_GENERATED": {
+                    "type": "Boolean",
+                    "default": "false"
+                  },
+                  "ENTITY_CATEGORY": "String",
+                  "ENTITY_SUB_CATEGORY": "String",
+                  "SERVICE_EXECUTION_ORDER": [
+                    {
+                      "_id": false,
+                      "SERVICE_ID": "Number",
+                      "EXECUTION_SEQUENCE_NUMBER": "Number"
+                    }
+                  ],
+                  "ACTION": [
+                    {
+                      "_id": false,
+                      "ACTION_TYPE": "String",
+                      "LOGICAL_DEFINITIONS": [
+                        {
+                          "_id": false,
+                          "DEFINITION_ID": "Number",
+                          "DEFINITION_NAME": "String",
+                          "DEFINITION_DISPLAY_NAME": "String",
+                          "DEFINITION_TYPE": "String",
+                          "REFERENCE_DEFINITION_ID": "Number",
+                          "DEFINITION_DATA_STRUCTURE": "String",
+                          "DEFINITION_DATA_TYPE": "String",
+                          "SERVICE_ID": "Number",
+                          "SERVICE_PARAM_ID": "Number",
+                          "DEFINITION_NAME_XPATH": "String",
+                          "DEFINITION_DISPLAY_NAME_XPATH": "String",
+                          "IS_PARENT_DEFINITION": "Boolean",
+                          "CHILD_DEFINITION_ID": [
+                            "Number"
+                          ],
+                          "INDENTATION_LEVEL": "String",
+                          "DEFINITION_DEFAULT_VALUE": "String",
+                          "IS_PRIMARY": "Boolean",
+                          "IS_MANDATORY": "Boolean",
+                          "NOTIFICATION_LEVEL": "String",
+                          "DEFINITION_PARAM_TYPE": "String",
+                          "IS_DEFINED_DEFINITION": "Boolean",
+                          "SERVICE_PARENT_PARAM_ID": "Number",
+                          "IS_END_POINT_RESPONSE_DEFINITION": "Boolean",
+                          "PARENT_DEFINITION_ID": "Number",
+                          "DEFINITION_ACTION_TYPE": "String",
+                          "IS_ENCRYPTABLE": "Boolean",
+                          "CLIENT_DB_DATA_TYPE": "String",
+                          "IS_UI_SELECTED_DEFINITION": "Boolean",
+                          "IS_READ_ONLY": {
+                            "type": "Boolean",
+                            "default": false
+                          },
+                          "DEFINITION_CONTENT_TYPE": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "GET_SERVICE_CONNECTOR": [
+                {
+                  "_id": false,
+                  "SERVICE_CONNECTOR_ID": "Number",
+                  "SOURCE_SERVICE_ID": "Number",
+                  "SOURCE_SERVICE_PARAM_ID": "Number",
+                  "SOURCE_SERVICE_PARAM_DATA_TYPE": "String",
+                  "SOURCE_SERVICE_PARAM_TYPE": {
+                    "type": "String"
+                  },
+                  "SOURCE_SERVICE_PARAM_DATA_STRUCTURE": {
+                    "type": "String"
+                  },
+                  "SOURCE_SERVICE_PARAM_XPATH": "String",
+                  "TARGET_SERVICE_ID": "Number",
+                  "TARGET_SERVICE_PARAM_ID": "Number",
+                  "TARGET_SERVICE_PARAM_DATA_TYPE": "String",
+                  "TARGET_SERVICE_PARAM_TYPE": {
+                    "type": "String"
+                  },
+                  "TARGET_SERVICE_PARAM_DATA_STRUCTURE": {
+                    "type": "String"
+                  },
+                  "TARGET_SERVICE_PARAM_XPATH": "String"
+                }
+              ],
+              "IS_SELECTED_SET": "Boolean"
+            }
+          ],
+          "GET_TRAVERSAL_PATH": {
+            "type": "Mixed"
+          },
+          "PUT_TRAVERSAL_PATH": {
+            "type": "Mixed"
+          },
+          "POST_TRAVERSAL_PATH": {
+            "type": "Mixed"
+          },
+          "DELETE_TRAVERSAL_PATH": {
+            "type": "Mixed"
+          },
+          "IDENTIFIER": "String",
+          "PRE_EXECUTION_OBJECT": {
+            "type": "Object"
+          },
+          "SPIKE_ARREST": {
+            "SPIKE_THRESHOLD_VALUE": "Number",
+            "SPIKE_DURATION": "Number",
+            "SPIKE_LEVEL": {
+              "type": "String",
+              "default": "USER"
+            }
+          },
+          "IS_LOCATION_CONTEXT_REQUIRED": "Boolean",
+          "IS_SYSTEM_GENERATED": "Boolean",
+          "IS_EPS": "Boolean",
+          "IS_API": "Boolean",
+          "IS_AUTH_ORCHESTRATION": "Boolean",
+          "AUTHENTICATION_TYPE":"String",
+          "GET_HEADER_PARAM": "String",
+          "POST_HEADER_PARAM": "String",
+          "PUT_HEADER_PARAM": "String",
+          "DELETE_HEADER_PARAM": "String",
+          "GET_BODY_PARAM": "String",
+          "POST_BODY_PARAM": "String",
+          "PUT_BODY_PARAM": "String",
+          "DELETE_BODY_PARAM": "String",
+          "GET_QUERY_PARAM": "String",
+          "POST_QUERY_PARAM": "String",
+          "PUT_QUERY_PARAM": "String",
+          "DELETE_QUERY_PARAM": "String",
+          "GET_PATH_PARAM": "String",
+          "POST_PATH_PARAM": "String",
+          "PUT_PATH_PARAM": "String",
+          "DELETE_PATH_PARAM": "String",
+          "IS_RESTFUL": "Boolean",
+          "IS_CONNECTOR_ORCHESTRATION": "Boolean",
+          "ORCHESTRATION_ORIGIN_ID": "Number",
+          "APP_VERSION": [
+            {
+              "_id": false,
+              "VERSION_NUMBER": "Number",
+              "CREATED_DATE": "Date",
+              "CREATED_BY": "String"
+            }
+          ],
+          "IS_REQUEST_STREAM": "Boolean",
+          "IS_RESPONSE_STREAM": "Boolean",
+          "REQUEST_CONTENT_TYPE": {
+            "GET_CONTENT_TYPE": {
+              "type": "String",
+              "enum": [
+                "application/json",
+                "application/xml",
+                "application/msword",
+                "application/pdf",
+                "application/octet-stream",
+                "image/jpeg",
+                "image/png",
+                "text/plain",
+                "multipart/form-data",
+                "application/vnd.ms-excel",
+                "dynamic-content-type"
+              ]
+            },
+            "PUT_CONTENT_TYPE": {
+              "type": "String",
+              "enum": [
+                "application/json",
+                "application/xml",
+                "application/msword",
+                "application/pdf",
+                "application/octet-stream",
+                "image/jpeg",
+                "image/png",
+                "text/plain",
+                "multipart/form-data",
+                "application/vnd.ms-excel",
+                "dynamic-content-type"
+              ]
+            },
+            "POST_CONTENT_TYPE": {
+              "type": "String",
+              "enum": [
+                "application/json",
+                "application/xml",
+                "application/msword",
+                "application/pdf",
+                "application/octet-stream",
+                "image/jpeg",
+                "image/png",
+                "text/plain",
+                "multipart/form-data",
+                "application/vnd.ms-excel",
+                "dynamic-content-type"
+              ]
+            },
+            "DELETE_CONTENT_TYPE": {
+              "type": "String",
+              "enum": [
+                "application/json",
+                "application/xml",
+                "application/msword",
+                "application/pdf",
+                "application/octet-stream",
+                "image/jpeg",
+                "image/png",
+                "text/plain",
+                "multipart/form-data",
+                "application/vnd.ms-excel",
+                "dynamic-content-type"
+              ]
+            }
+          },
+          "RESPONSE_CONTENT_TYPE": {
+            "GET_CONTENT_TYPE": {
+              "type": "String",
+              "enum": [
+                "application/json",
+                "application/xml",
+                "application/msword",
+                "application/pdf",
+                "application/octet-stream",
+                "image/jpeg",
+                "image/png",
+                "text/plain",
+                "multipart/form-data",
+                "application/vnd.ms-excel",
+                "dynamic-content-type"
+              ]
+            },
+            "PUT_CONTENT_TYPE": {
+              "type": "String",
+              "enum": [
+                "application/json",
+                "application/xml",
+                "application/msword",
+                "application/pdf",
+                "application/octet-stream",
+                "image/jpeg",
+                "image/png",
+                "text/plain",
+                "multipart/form-data",
+                "application/vnd.ms-excel",
+                "dynamic-content-type"
+              ]
+            },
+            "POST_CONTENT_TYPE": {
+              "type": "String",
+              "enum": [
+                "application/json",
+                "application/xml",
+                "application/msword",
+                "application/pdf",
+                "application/octet-stream",
+                "image/jpeg",
+                "image/png",
+                "text/plain",
+                "multipart/form-data",
+                "application/vnd.ms-excel",
+                "dynamic-content-type"
+              ]
+            },
+            "DELETE_CONTENT_TYPE": {
+              "type": "String",
+              "enum": [
+                "application/json",
+                "application/xml",
+                "application/msword",
+                "application/pdf",
+                "application/octet-stream",
+                "image/jpeg",
+                "image/png",
+                "text/plain",
+                "multipart/form-data",
+                "application/vnd.ms-excel",
+                "dynamic-content-type"
+              ]
+            }
+          },
+          "SYNC_ASYNC_TYPE": {
+            "type": "String",
+            "enum": [
+              "SYNC",
+              "ASYNC"
+            ]
+          },
+          "ADDITIONAL_PARAMETER": [
+            {
+              "PARAM_NAME": "String",
+              "PARAM_TYPE": "String",
+              "ACTION_TYPE": "String",
+              "IS_ENABLED": "Boolean",
+              "_id": false
+            }
+          ],
+          "POST_SERVICE_SELECTION_SET": "Mixed",
+          "PUT_SERVICE_SELECTION_SET": "Mixed",
+          "DELETE_SERVICE_SELECTION_SET": "Mixed",
+          "GET_SERVICE_SELECTION_SET": "Mixed",
+          "SYNC_PROCESS_TYPE": {
+            "type": "String",
+            "enum": [
+              "BULK",
+              "SINGLE"
+            ],
+            "default": "BULK"
+          }
+        },
+        "OPTION": {
+          "autoIndex": false,
+          "safe": true,
+          "strict": "throw"
+        },
+        "INDEXES": "ORCHESTRATION_ID_1 ORCHESTRATION_CATEGORY_1 PARENT_ORCHESTRATION_ID_1 ENTITY_ACTION_ACTION_TYPE_1 IS_SYSTEM_GENERATED_1 ORCHESTRATION_ORIGIN_ID_1 IDENTIFIER_APP_ID_APP_VERSION_VERSION_NUMBER_1 PREPARED_IDENTIFIER_ACTION_TYPE_1",
+        "ORCHESTRATION_ID_1": "ORCHESTRATION_ID,1",
+        "ORCHESTRATION_ID_1_OPTIONS": {
+          "unique": true,"sparse":true
+        },
+        "ORCHESTRATION_CATEGORY_1": "ORCHESTRATION_CATEGORY,1",
+        "ORCHESTRATION_CATEGORY_1_OPTIONS": {
+          
+        },
+        "PARENT_ORCHESTRATION_ID_1": "PARENT_ORCHESTRATION_ID,1",
+        "PARENT_ORCHESTRATION_ID_1_OPTIONS": {
+          
+        },
+        "ENTITY_ACTION_ACTION_TYPE_1": "ENTITY.ACTION.ACTION_TYPE,1",
+        "ENTITY_ACTION_ACTION_TYPE_1_OPTIONS": {
+          
+        },
+        "IS_SYSTEM_GENERATED_1": "IS_SYSTEM_GENERATED,1",
+        "IS_SYSTEM_GENERATED_1_OPTIONS": {
+          
+        },
+        "ORCHESTRATION_ORIGIN_ID_1": "ORCHESTRATION_ORIGIN_ID,1",
+        "ORCHESTRATION_ORIGIN_ID_1_OPTIONS": {
+          
+        },
+        "IDENTIFIER_APP_ID_APP_VERSION_VERSION_NUMBER_1": "IDENTIFIER,1 APP_ID,1 APP_VERSION.VERSION_NUMBER,1",
+        "IDENTIFIER_APP_ID_APP_VERSION_VERSION_NUMBER_1_OPTIONS": {
+          
+        },
+        "PREPARED_IDENTIFIER_ACTION_TYPE_1": "PREPARED_IDENTIFIER,1 ACTION_TYPE,1",
+        "PREPARED_IDENTIFIER_ACTION_TYPE_1_OPTIONS": {
+          "unique": true,"sparse":true
+        }
+      },
+      "SERVICE": {
+        "COLLECTION_NAME": "SERVICE",
+        "JSON_SCHEMA": {
+          "SERVICE_ID": {
+            "type": "Number",
+            "required": "true"
+          },
+          "SERVICE_NAME": "String",
+		  "IS_ACTIVE_AUTH_SERVICE": {
+            "type": "Boolean",
+            "default": false
+          },
+          "SERVICE_CATEGORY": "String",
+          "SERVICE_SUB_CATEGORY": "String",
+          "SERVICE_TYPE": {
+            "type": "String"
+          },
+          "SERVICE_URL": "String",
+          "IS_STATEFUL": "Boolean",
+          "HOST_TYPE": {
+            "type": "String",
+            "enum": [
+              "INTERNAL",
+              "EXTERNAL"
+            ],
+            "default": "EXTERNAL"
+          },
+          "FAILOVER_PICKUP_URL": "String",
+          "SERVICE_REQUEST_PARAMS": [
+            {
+              "_id": false,
+              "REQUEST_PARAM_ID": "Number",
+              "REQUEST_PARAM_NAME": "String",
+              "REQUEST_PARAM_DATA_TYPE": "String",
+              "REQUEST_PARAM_DEFAULT_VALUE": "Mixed",
+              "REQUEST_PARAM_WSDL_FILE_MAPPING": "String",
+              "REQUEST_PARAM_STATE_TYPE": {
+                "type": "String"
+              },
+              "REQUEST_PARAM_TYPE": {
+                "type": "String"
+              },
+              "REQUEST_PARAM_XPATH": "String",
+              "REQUEST_PARENT_PARAM_ID": "Number",
+              "CHILD_REQUEST_PARAM": [
+                {
+                  "_id": false,
+                  "REQUEST_PARAM_ID": "Number",
+                  "REQUEST_PARAM_NAME": "String"
+                }
+              ],
+              "IS_MANDATORY": "Boolean",
+              "REQUEST_PARAM_SUB_TYPE": "String",
+              "IS_ATTACHMENT": "Boolean",
+              "REQUEST_PARAM_DATA_STRUCTURE": {
+                "type": "String"
+              },
+              "REQUEST_PARAM_CONTENT_TYPE": {
+                "type": "String",
+                "enum": [
+                  "application/json",
+                  "application/xml",
+                  "application/msword",
+                  "application/pdf",
+                  "application/octet-stream",
+                  "image/jpeg",
+                  "image/png",
+                  "text/plain",
+                  "multipart/form-data",
+                  "application/vnd.ms-excel",
+                  "dynamic-content-type"
+                ]
+              }
+            }
+          ],
+          "SERVICE_RESPONSE_PARAMS": [
+            {
+              "_id": false,
+              "RESPONSE_PARAM_ID": "Number",
+              "RESPONSE_PARAM_XPATH": "String",
+              "RESPONSE_PARAM_NAME": "String",
+              "RESPONSE_PARAM_DATA_TYPE": "String",
+              "RESPONSE_PARENT_PARAM_ID": "Number",
+              "CHILD_RESPONSE_PARAM": [
+                {
+                  "_id": false,
+                  "RESPONSE_PARAM_ID": "Number",
+                  "RESPONSE_PARAM_NAME": "String"
+                }
+              ],
+              "IS_ATTACHMENT": "Boolean",
+              "RESPONSE_PARAM_DATA_STRUCTURE": {
+                "type": "String"
+              },
+              "RESPONSE_PARAM_CONTENT_TYPE": {
+                "type": "String",
+                "enum": [
+                  "application/json",
+                  "application/xml",
+                  "application/msword",
+                  "application/pdf",
+                  "application/octet-stream",
+                  "image/jpeg",
+                  "image/png",
+                  "text/plain",
+                  "multipart/form-data",
+                  "application/vnd.ms-excel",
+                  "dynamic-content-type"
+                ]
+              }
+            }
+          ],
+          "SERVICE_REQUEST_HEADERS": [
+            {
+              "_id": false,
+              "SPECIFIC_AUTHORIZATION": {
+                "BASIC": "String",
+                "DIGEST": "String",
+                "NTLM": "String"
+              },
+              "SPECIFIC_COOKIE": {
+                "DOMAIN": "String",
+                "PATH": "String",
+                "TYPE": "String",
+                "EXPIRATION": "String",
+                "MAX_AGE": "String",
+                "NAME": "String"
+              }
+            }
+          ],
+          "SERVICE_RESPONSE_HEADERS": [
+            {
+              "_id": false,
+              "LAST_MODIFIED": "Date"
+            },
+            {
+              "_id": false,
+              "RESPONSE_COOKIE": [
+                "String"
+              ]
+            }
+          ],
+          "WSDL_FILE": [
+            {
+              "_id": false,
+              "FILE_ID": "ObjectId",
+              "FILE_NAME": "String",
+              "FILE_TYPE": "String",
+              "FILE_EXTENSION": "String",
+              "ORDER_NUMBER": "Number"
+            }
+          ],
+          "EDS_WRAPPER_FILE": [
+            {
+              "_id": false,
+              "FILE_ID": "ObjectId",
+              "FILE_NAME": "String",
+              "FILE_TYPE": "String",
+              "FILE_EXTENSION": "String",
+              "ORDER_NUMBER": "Number"
+            }
+          ],
+          "SERVICE_PROTOCOL": "String",
+          "SERVICE_PORT": "String",
+          "SERVICE_REQUEST_TYPE": "String",
+          "SERVICE_PARAM_TYPE": "String",
+          "SERVICE_CERTIFICATE": [
+            {
+              "_id": false,
+              "APP_ID": "Number",
+              "APP_VERSION_NUMBER": "Number",
+              "FILE_ID": "ObjectId",
+              "FILE_NAME": "String",
+              "FILE_TYPE": "String",
+              "FILE_EXTENSION": "String",
+              "ORDER_NUMBER": "Number"
+            }
+          ],
+          "ENVIRONMENT": "String",
+          "CREATED_BY": {
+            "type": "String",
+            "default": "tj_user"
+          },
+          "CREATED_DATE": "Date",
+          "MODIFIED_BY": {
+            "type": "String",
+            "default": "tj_user"
+          },
+          "MODIFIED_DATE": "Date",
+          "SERVICE_RESPONSE_DATA": "String",
+          "SERVICE_REQUEST_DATA": "String",
+          "IS_TEST_SERVICE": "Boolean",
+          "SERVICE_METHOD": "String",
+          "SERVICE_SUB_TYPE": "String",
+          "SERVICE_TYPE_VERSION": "String",
+          "CONNECTION_ID": "Number",
+          "IS_AUTHENTICATION_SERVICE": {
+            "type": "Boolean",
+            "default": "false"
+          },
+          "SERVICE_GROUP_ID": "Number",
+          "BIND_TYPE": "String",
+          "SECURITY_MODE": "String",
+          "IS_TRANSPORT_SECURITY_ENABLED": "Boolean",
+          "SERVICE_CREDENTIAL": "String",
+          "PARSED_QUERY": "String",
+          "AUTHENTICATION_TYPE": {
+            "type": "String"
+          },
+          "AUTHENTICATION_SUB_TYPE": {
+            "type": "String"
+          },
+          "IS_CONNECTOR_SERVICE": {
+            "type": "Boolean",
+            "default": false
+          },
+          "CONNECTOR_SERVICE_TYPE": {
+            "type": "String"
+          },
+          "CONNECTOR_SERVICE_SUB_TYPE": {
+            "type": "String"
+          },
+          "IS_NOTIFICATION_GATEWAY_SERVICE": {
+            "type": "Boolean",
+            "default": false
+          },
+          "NOTIFICATION_TYPE": {
+            "type": "String"
+          },
+          "IS_SYSTEM_GENERATED": {
+            "type": "Boolean",
+            "default": "false"
+          },
+          "PARAM_CURRENT_VALUE": "Number",
+          "REQUEST_CONTENT_TYPE": {
+            "type": "String",
+            "enum": [
+              "application/json",
+              "application/xml",
+              "application/msword",
+              "application/pdf",
+              "application/octet-stream",
+              "image/jpeg",
+              "image/png",
+              "text/plain",
+              "multipart/form-data",
+              "application/vnd.ms-excel",
+              "dynamic-content-type"
+            ]
+          },
+          "RESPONSE_CONTENT_TYPE": {
+            "type": "String",
+            "enum": [
+              "application/json",
+              "application/xml",
+              "application/msword",
+              "application/pdf",
+              "application/octet-stream",
+              "image/jpeg",
+              "image/png",
+              "text/plain",
+              "multipart/form-data",
+              "application/vnd.ms-excel",
+              "dynamic-content-type"
+            ]
+          },
+          "IS_REQUEST_STREAM": "Boolean",
+          "IS_RESPONSE_STREAM": "Boolean",
+          "IS_DEBUG_HEADER_ENABLED": "Boolean",
+          "HTTP_CODE": [
+            {
+              "_id": false,
+              "CODE": [
+                "Number"
+              ],
+              "CODE_TYPE": {
+                "type": "String",
+                "enum": [
+                  "Success",
+                  "Failure"
+                ]
+              }
+            }
+          ],
+          "USE_HTTP_CODE": {
+            "type": "Boolean",
+            "default": false
+          },
+          "IDENTIFIER": "String",
+          "CUSTOM_SERVICE_FILE": [
+            {
+              "_id": false,
+              "FILE_ID": "ObjectId",
+              "FILE_NAME": "String",
+              "FILE_TYPE": "String",
+              "FILE_EXTENSION": "String",
+              "ORDER_NUMBER": "Number"
+            }
+          ]
+        },
+        "OPTION": {
+          "autoIndex": false,
+          "safe": true,
+          "strict": "throw"
+        },
+        "INDEXES": "SERVICE_ID_1 SERVICE_NAME_SERVICE_CATEGORY_SERVICE_METHOD_1 IDENTIFIER_1",
+        "SERVICE_ID_1": "SERVICE_ID,1",
+        "SERVICE_ID_1_OPTIONS": {
+          "unique": true
+        },
+        "SERVICE_NAME_SERVICE_CATEGORY_SERVICE_METHOD_1": "SERVICE_NAME,1 SERVICE_CATEGORY,1 SERVICE_METHOD,1",
+        "SERVICE_NAME_SERVICE_CATEGORY_SERVICE_METHOD_1_OPTIONS": {
+          "unique": true
+        },
+		"IDENTIFIER_1":"IDENTIFIER,1",
+		"IDENTIFIER_1_OPTIONS":{
+		}
+      },
+      "APP": {
+        "COLLECTION_NAME": "APP",
+        "JSON_SCHEMA": {
+          "APP_ID": {
+            "type": "Number",
+            "required": "true"
+          },
+          "APP_ORIGIN_ID": "Number",
+          "APP_NAME": "String",
+          "APP_DISPLAY_NAME": "String",
+          "APP_DESC": "String",
+          "APP_ICON": [
+            {
+              "_id": false,
+              "FILE_ID": "ObjectId",
+              "FILE_NAME": "String",
+              "FILE_TYPE": "String",
+              "FILE_EXTENSION": "String",
+              "ORDER_NUMBER": "Number"
+            }
+          ],
+          "CONTACT_PERSON_NAME": "String",
+          "CONTACT_PERSON_EMAIL": "String",
+          "CONTACT_PERSON_NO": "Number",
+          "APP_CATEGORY": "String",
+          "CREATED_BY": {
+            "type": "String",
+            "default": "tj_user"
+          },
+          "CREATED_DATE": "Date",
+          "MODIFIED_BY": {
+            "type": "String",
+            "default": "tj_user"
+          },
+          "MODIFIED_DATE": "Date",
+          "INFO_ARCH_XML_DATA": "String",
+          "IS_ACTIVE": {
+            "type": "Boolean",
+            "default": true
+          },
+          "EVENT": [
+            "Number"
+          ],
+          "IDENTIFIER": "String",
+          "APP_SECURITY": {
+            "IS_SINGLE_SIGN_ON_ENABLED": "Boolean",
+            "IS_XSS_ENABLED": "Boolean",
+            "IS_CSRF_ENABLED": "Boolean",
+            "IS_SQL_INJECTION_ENABLED": "Boolean"
+          },
+          "SERVICE_ID": [
+            "Number"
+          ],
+          "CLIENT_SDK_CLASS": [
+            {
+              "_id": false,
+              "FILE_ID": "ObjectId",
+              "FILE_NAME": "String",
+              "FILE_TYPE": "String",
+              "FILE_EXTENSION": "String",
+              "ORDER_NUMBER": "Number"
+            }
+          ],
+          "CLIENT_SDK_DOWN_LOAD_URL": "String",
+          "CLIENT_SDK_JSON": "Object",
+          "CLIENT_SDK_STATUS": [
+            {
+              "_id": false,
+              "STATUS": "String",
+              "CREATED_BY": {
+                "type": "String",
+                "default": "tj_user"
+              },
+              "CREATED_DATE": "Date",
+              "IS_ACTIVE": {
+                "type": "Boolean",
+                "default": "true"
+              }
+            }
+          ],
+          "IS_CONTEXT_REQUIRED": "Boolean",
+          "CONTEXT_DATA_EXPIRY_DAYS": {
+            "type": "Number",
+            "default": 30
+          },
+          "ENABLED_NOTIFICATION": [
+            {
+              "NOTIFICATION_TYPE": "String",
+              "SERVICE_ID": "Number",
+              "DEVICE_PLATFORM": "String",
+              "_id": false
+            }
+          ],
+          "ENABLED_NOTIFICATION_TYPE": [
+            "String"
+          ],
+          "APP_VERSION": [
+            {
+              "_id": false,
+              "VERSION_NUMBER": "Number",
+              "CREATED_DATE": "Date",
+              "CREATED_BY": "String",
+              "STATUS": {
+                "type": "String",
+                "enum": [
+                  "INPROGRESS",
+                  "COMPLETED",
+                  "CANCELLED"
+                ]
+              }
+            }
+          ],
+          "DISTANCE_UNIT": {
+            "type": "String",
+            "default": "miles"
+          },
+          "IS_SECURED": "Boolean",
+          "IS_SYSTEM_GENERATED": {
+            "type": "Boolean",
+            "default": "false"
+          },
+          "IS_APP_LOG_ENABLED": "Boolean",
+          "SPIKE_THRESHOLD_VALUE": "Number",
+          "SUPPORTED_LOGGER": [
+            {
+              "_id": false,
+              "LOG_TYPE": {
+                "type": "String",
+                "enum": [
+                  "APP_LOG"
+                ]
+              },
+              "FORMAT": {
+                "type": "String",
+                "enum": [
+                  "GELF"
+                ]
+              }
+            }
+          ],
+		  "APP_MAINTENANCE": [
+			{
+			"START_DATE": "Date",
+            "END_DATE": "Date",
+			"DURATION": "Number",
+			"USER":"String"
+			}
+		  ] 
+        },
+        "OPTION": {
+          "autoIndex": false,
+          "safe": true,
+          "strict": "throw"
+        },
+        "INDEXES": "APP_ID_1 APP_ORIGIN_ID_1_VERSION_NUMBER_1 IDENTIFIER_1",
+        "APP_ID_1": "APP_ID,1",
+        "APP_ID_1_OPTIONS": {
+          "unique": true
+        },
+        "APP_ORIGIN_ID_1_VERSION_NUMBER_1": "APP_ORIGIN_ID,1 APP_VERSION.VERSION_NUMBER,1",
+        "APP_ORIGIN_ID_1_VERSION_NUMBER_1_OPTIONS": {
+          
+        },
+        "IDENTIFIER_1":"IDENTIFIER,1",
+        "IDENTIFIER_1_OPTIONS":{
+
+        },
+        "IS_SYSTEM_GENERATED": {
+          "type": "Boolean",
+          "default": "false"
+        }
+      },
+      "CONNECTION_SETTING": {
+        "COLLECTION_NAME": "CONNECTION_SETTING",
+        "JSON_SCHEMA": {
+          "CONNECTION_AUTH_ID": "String",
+          "CONNECTION_AUTH_PWD": "String",
+          "CONNECTION_AUTH_TOKEN": "String",
+          "EMAIL_FROM_ADDRESS": "String",
+          "IS_SECURED_CONNECTION": "Boolean",
+          "CONNECTION_URL": "String",
+          "CONNECTION_SUB_TYPE": {
+            "type": "String"
+          },
+          "TOKEN_URL_DETAILS": [
+            {
+              "_id": false,
+              "TYPE": "String",
+              "URL": "String"
+            }
+          ],
+          "AUTH_GRANT_TYPE": {
+            "type": "String"
+          },
+          "CLIENT_ID": "String",
+          "CLIENT_SECRET_KEY": "String",
+          "MODIFIED_DATE": "Date",
+          "MODIFIED_BY": {
+            "type": "String",
+            "default": "tj_user"
+          },
+          "CREATED_DATE": "Date",
+          "CREATED_BY": {
+            "type": "String",
+            "default": "tj_user"
+          },
+          "CONNECTION_SOURCE_NAME": {
+            "type": "String"
+          },
+          "IS_DEFAULT": "Boolean",
+          "SERVICE_CERTIFICATE": [
+            {
+              "_id": false,
+              "APP_ID": "Number",
+              "APP_VERSION_NUMBER": "Number",
+              "ORDER_NUMBER": "Number",
+              "FILE_EXTENSION": "String",
+              "FILE_TYPE": "String",
+              "FILE_NAME": "String",
+              "FILE_ID": "String"
+            }
+          ],
+          "CERTIFICATE_KEY": [
+            {
+              "_id": false,
+              "ORDER_NUMBER": "Number",
+              "FILE_EXTENSION": "String",
+              "FILE_TYPE": "String",
+              "FILE_NAME": "String",
+              "FILE_ID": "ObjectId"
+            }
+          ],
+          "PORT": "String",
+          "HOST_NAME": "String",
+          "CONNECTION_TYPE": {
+            "type": "String"
+          },
+          "IDENTIFIER": "String",
+          "CONNECTION_NAME": "String",
+          "CONNECTION_ID": {
+            "type": "Number",
+            "required": "true"
+          },
+          "IS_SYSTEM_GENERATED": {
+            "type": "Boolean",
+            "default": "false"
+          },
+          "APP_VERSION": [
+            {
+              "_id": false,
+              "APP_ID": "Number",
+              "VERSION_NUMBER": "Number",
+			  "APP_IDENTIFIER": "String",
+			  "ORCHESTRATION_IDENTIFIER": "String",
+			  "IS_FOR_ALL_EPS":"Boolean",
+              "CREATED_DATE": "Date",
+              "CREATED_BY": "String"
+            }
+          ],
+          "DB_VERSION": "String",
+          "DEFAULT_SERVICE_ID": "Number",
+		  "DOMAIN" : "String",
+		  "DOMAIN_URL_SUFFIX" : "String",
+		  "SYS_ID" : "String",
+		  "SYS_NR" : "String",
+		  "CLIENT" : "String",
+		  "LANG" : "String",
+		  "USE_DELEGATION" : "Boolean",
+		  "COMPANY" : "String",
+		  "USE_BASIC_AUTH" : "Boolean",
+		  "IS_HTTPS" : "Boolean",
+		  "SUB_DOMAIN" : "String",
+		  "PROTOCOL" : "String",
+		  "API_KEY" : "String",
+		  "CUSTOM_FIELD" : "Mixed"
+        },
+        "OPTION": {
+          "autoIndex": false,
+          "safe": true,
+          "strict": "throw"
+        },
+        "INDEXES": "CONNECTION_ID_1",
+        "CONNECTION_ID_1": "CONNECTION_ID,1",
+        "CONNECTION_ID_1_OPTIONS": {
+          "unique": true
+        }
+      },
+      "HTTP_CONTEXT": {
+        "COLLECTION_NAME": "HTTP_CONTEXT",
+        "JSON_SCHEMA": {
+          "HTTP_CONTEXT_URL": "String",
+          "COMPANY_NAME": "String",
+          "RESOURCE_TYPE": "String",
+          "APP_ID": {
+            "type": "Number",
+            "required": "true"
+          },
+          "COMPANY_ID": {
+            "type": "Number",
+            "required": "true"
+          },
+          "ORCHESTRATION_ID": {
+            "type": "Number",
+            "required": "true"
+          },
+          "APP_IDENTIFIER": "String",
+          "COMPANY_IDENTIFIER": "String",
+          "ORCHESTRATION_IDENTIFIER": "String"
+        },
+        "OPTION": {
+          "autoIndex": false,
+          "safe": true,
+          "strict": "throw"
+        },
+        "INDEXES": "APP_ID_1_ORCHESTRATION_ID_1",
+        "APP_ID_1_ORCHESTRATION_ID_1": "APP_ID,1 ORCHESTRATION_ID,1",
+        "APP_ID_1_ORCHESTRATION_ID_1_OPTIONS": {
+          
+        }
+      },
+      "SERVICE_CERTIFICATE_REPOSITORY": {
+        "COLLECTION_NAME": "SERVICE_CERTIFICATE_REPOSITORY",
+        "JSON_SCHEMA": {
+          "FILE_ID": "ObjectId",
+          "DATA": "String"
+        },
+        "OPTION": {
+          "autoIndex": false,
+          "safe": true,
+          "strict": "throw"
+        }
+      },
+      "CLIENT_SDK_CLASS_REPOSITORY": {
+        "COLLECTION_NAME": "CLIENT_SDK_CLASS_REPOSITORY",
+        "JSON_SCHEMA": {
+          "FILE_ID": "ObjectId",
+          "DATA": "String"
+        },
+        "OPTION": {
+          "autoIndex": false,
+          "safe": true,
+          "strict": "throw"
+        }
+      },
+      "WSDL_FILE_REPOSITORY": {
+        "COLLECTION_NAME": "WSDL_FILE_REPOSITORY",
+        "JSON_SCHEMA": {
+          "FILE_ID": "ObjectId",
+          "DATA": "String"
+        },
+        "OPTION": {
+          "autoIndex": false,
+          "safe": true,
+          "strict": "throw"
+        }
+      },
+      "APP_ICON_REPOSITORY": {
+        "COLLECTION_NAME": "APP_ICON_REPOSITORY",
+        "JSON_SCHEMA": {
+          "FILE_ID": "ObjectId",
+          "DATA": "String"
+        },
+        "OPTION": {
+          "autoIndex": false,
+          "safe": true,
+          "strict": "throw"
+        }
+      },
+      "SCREEN": {
+        "COLLECTION_NAME": "SCREEN",
+        "JSON_SCHEMA": {
+          "SCREEN_ID": "Number",
+          "SCREEN_NAME": "String",
+          "CREATED_BY": "String",
+          "CREATED_DATE": "Date"
+        },
+        "INDEXES": "SCREEN_ID_1",
+        "SCREEN_ID_1": "SCREEN_ID,1",
+        "SCREEN_ID_1_OPTIONS": {
+          "unique": true
+        },
+        "OPTION": {
+          "autoIndex": false,
+          "safe": true,
+          "strict": "throw"
+        }
+      },
+      "ORCHESTRATION_LOGGER": {
+        "COLLECTION_NAME": "ORCHESTRATION_LOGGER",
+        "JSON_SCHEMA": {
+          "APP_IDENTIFIER": "String",
+          "ORCHESTRATION_IDENTIFIER": "String",
+          "APP_ID": "Number",
+          "ORCHESTRATION_ID": {
+            "type": "Number",
+            "required": "true"
+          },
+          "LOGGER_CLASS": "String",
+          "LOGGER_NAME": "String",
+          "APP_VERSION_NUMBER": "Number",
+          "LOGGER_TYPE": {
+            "TRANSACTION_LOG": [
+              {
+                "_id": false,
+                "LOG_TYPE": {
+                  "type": "String"
+                },
+                "DATA_EXPIRY_DAYS": {
+                  "type": "Number",
+                  "default": 30
+                },
+                "IS_ACTIVE": "Boolean",
+                "CREATED_BY": {
+                  "type": "String",
+                  "default": "tj_user"
+                },
+                "CREATED_DATE": "Date",
+                "MODIFIED_BY": {
+                  "type": "String",
+                  "default": "tj_user"
+                },
+                "MODIFIED_DATE": "Date",
+                "IS_MESSAGE_SIZE_REQUIRED": "Boolean",
+                "IS_CACHE_HIT_REQUIRED": "Boolean",
+                "IS_REQUEST_LATENCY_REQUIRED": "Boolean",
+                "IS_RESPONSE_LATENCY_REQUIRED": "Boolean",
+                "IS_BACKEND_ERROR_REQUIRED": "Boolean",
+                "IS_RESPONSE_TIME_REQUIRED": "Boolean"
+              }
+            ],
+            "TRANSACTION_LOG_ARCHIVE_FREQUENCY": "Number",
+            "PROCESS_TRACK_LOG": [
+              {
+                "_id": false,
+                "LOG_TYPE": {
+                  "type": "String"
+                },
+                "DATA_EXPIRY_DAYS": {
+                  "type": "Number",
+                  "default": 30
+                },
+                "IS_ACTIVE": "Boolean",
+                "CREATED_BY": {
+                  "type": "String",
+                  "default": "tj_user"
+                },
+                "CREATED_DATE": "Date",
+                "MODIFIED_BY": {
+                  "type": "String",
+                  "default": "tj_user"
+                },
+                "MODIFIED_DATE": "Date",
+                "IS_TRACE_REQUIRED": "Boolean",
+                "IS_ERROR_REQUIRED": "Boolean",
+                "IS_WARNING_REQUIRED": "Boolean",
+                "IS_INFO_REQUIRED": "Boolean",
+                "IS_ALARM_REQUIRED": "Boolean"
+              }
+            ],
+            "PROCESS_TRACK_LOG_ARCHIVE_FREQUENCY": "Number"
+          },
+          "SUPPORTED_LOGGER": [
+            {
+              "_id": false,
+              "LOG_TYPE": {
+                "type": "String",
+                "enum": [
+                  "PROCESS_TRACK_LOG"
+                ]
+              },
+              "FORMAT": {
+                "type": "String",
+                "enum": [
+                  "GELF"
+                ]
+              }
+            }
+          ]
+        },
+        "OPTION": {
+          "autoIndex": false,
+          "safe": true,
+          "strict": "throw"
+        },
+        "INDEXES": "ORCHESTRATION_ID_1",
+        "ORCHESTRATION_ID_1": "ORCHESTRATION_ID,1",
+        "ORCHESTRATION_ID_1_OPTIONS": {
+          
+        }
+      },
+      "NOTIFICATION": {
+        "COLLECTION_NAME": "NOTIFICATION",
+        "JSON_SCHEMA": {
+          "NOTIFICATION_ID": "Number",
+          "NOTIFICATION_NAME": "String",
+          "APP_ID": "Number",
+          "NOTIFICATION_MESSAGE": "String",
+          "CREATED_BY": "String",
+          "CREATED_DATE": "Date",
+          "CONDITION": [
+            {
+              "_id": false,
+              "CONDITION_TYPE": "String",
+              "USER_OR_ROLE": {
+                "type": "String"
+              },
+              "USER_OR_ROLE_VALUE": "String",
+              "LOCATION": {
+                "LONGITUDE": "Number",
+                "LATITUDE": "Number"
+              },
+              "WAS_OPERATOR": "String",
+              "DISTANCE_VALUE": "Number",
+              "DISTANCE_UNIT": "String",
+              "FROM_DATE": "Date",
+              "TO_DATE": "Date",
+              "FROM_TIME": "String",
+              "TO_TIME": "String",
+              "DEVICE_PARAMETER_NAME": "String",
+              "IS_OPERATOR_NAME": "String",
+              "IS_OPERATOR_VALUE": "String",
+              "LOCATION_NAME": "String"
+            }
+          ],
+          "OVER_ALL_CONDITION_OPERATOR": {
+            "type": "String"
+          },
+          "ROLE_RECIPIENT": [
+            "Number"
+          ],
+          "USER_RECIPIENT": [
+            "String"
+          ],
+          "MOBILE_RECIPIENT": [
+            "String"
+          ],
+          "EMAIL_SETTING": {
+            "TO": [
+              "String"
+            ],
+            "CC": [
+              "String"
+            ],
+            "BCC": [
+              "String"
+            ],
+            "SUBJECT": "String"
+          },
+          "SCHEDULE": {
+            "WHEN_TO_SEND": "String",
+            "FROM_DATE": "Date",
+            "TO_DATE": "Date",
+            "START_TIME": "String",
+            "FREQUENCY": "String"
+          },
+          "NOTIFICATION_CATEGORY": "String",
+          "END_POINT_NOTIFICATION_URL": [
+            {
+              "_id": false,
+              "END_POINT_ORCHESTRATION_IDENTIFIER": "String",
+              "NOTIFICATION_TYPE": {
+                "type": "String"
+              }
+            }
+          ],
+          "IS_ACTIVE": "Boolean",
+          "NOTIFICATION_ATTACHMENT": [
+            {
+              "_id": false,
+              "FILE_ID": "ObjectId",
+              "FILE_NAME": "String",
+              "FILE_TYPE": "String",
+              "FILE_EXTENSION": "String",
+              "ORDER_NUMBER": "Number"
+            }
+          ]
+        },
+        "INDEXES": "NOTIFICATION_ID_1",
+        "NOTIFICATION_ID_1": "NOTIFICATION_ID,1",
+        "NOTIFICATION_ID_1_OPTIONS": {
+          "unique": true
+        },
+        "OPTION": {
+          "autoIndex": false,
+          "safe": true,
+          "strict": "throw"
+        }
+      },
+      "BUCKET": {
+        "COLLECTION_NAME": "BUCKET",
+        "JSON_SCHEMA": {
+          "BUCKET_ID": {
+            "type": "Number",
+            "required": "true"
+          },
+          "BUCKET_NAME": "String",
+          "IDENTIFIER": "String",
+          "BUCKET_DESC": "String",
+          "CREATED_DATE": "Date",
+          "CREATED_BY": {
+            "type": "String",
+            "default": "tj_user"
+          },
+          "MODIFIED_DATE": "Date",
+          "MODIFIED_BY": {
+            "type": "String",
+            "default": "tj_user"
+          },
+          "ENTITY": [
+            "Number"
+          ],
+          "APP": [
+            {
+              "_id": false,
+              "APP_ID": "Number",
+              "APP_VERSION_NUMBER": [
+                "Number"
+              ]
+            }
+          ],
+          "BUCKET_TYPE": {
+            "type": "String",
+            "enum": [
+              "GLOBAL",
+              "APP",
+              "USER",
+              "CUSTOM"
+            ]
+          },
+          "IS_SYSTEM_GENERATED": {
+            "type": "Boolean",
+            "default": "false"
+          }
+        },
+        "OPTION": {
+          "autoIndex": false,
+          "safe": true,
+          "strict": "throw"
+        },
+        "INDEXES": "BUCKET_ID_1",
+        "BUCKET_ID_1": "BUCKET_ID,1",
+        "BUCKET_ID_1_OPTIONS": {
+          
+        }
+      },
+      "EDS_WRAPPER_FILE_REPOSITORY": {
+        "COLLECTION_NAME": "EDS_WRAPPER_FILE_REPOSITORY",
+        "JSON_SCHEMA": {
+          "FILE_ID": "ObjectId",
+          "DATA": "String"
+        },
+        "OPTION": {
+          "autoIndex": false,
+          "safe": true,
+          "strict": "throw"
+        }
+      },
+      "LICENSE_MANAGER": {
+        "COLLECTION_NAME": "LICENSE_MANAGER",
+        "JSON_SCHEMA": {
+          "LICENSE_KEY": "String",
+          "USER_ID": "String",
+          "USER_LICENSE_CONFIG": [
+            {
+              "_id": false,
+              "ORDER_NUMBER": "Number",
+              "FILE_EXTENSION": "String",
+              "FILE_TYPE": "String",
+              "FILE_NAME": "String",
+              "FILE_ID": "ObjectId",
+              "FILE_URL": "String"
+            }
+          ],
+          "LICENSE_DOWNLOAD_STATUS": [
+            {
+              "_id": false,
+              "STATUS": {
+                "type": "String",
+                "enum": [
+                  "YET_TO_DOWNLOAD",
+                  "IN_PROGRESS",
+                  "DOWNLOADED"
+                ]
+              },
+              "CREATED_DATE": "Date",
+              "IS_ACTIVE": "Boolean"
+            }
+          ],
+          "PRODUCT_NAME": "String"
+        },
+        "OPTION": {
+          "autoIndex": false,
+          "safe": true,
+          "strict": "throw"
+        }
+      },
+      "USER_LICENSE_CONFIG_REPOSITORY": {
+        "COLLECTION_NAME": "USER_LICENSE_CONFIG_REPOSITORY",
+        "JSON_SCHEMA": {
+          "FILE_ID": "ObjectId",
+          "DATA": "String"
+        },
+        "OPTION": {
+          "autoIndex": false,
+          "safe": true,
+          "strict": "throw"
+        }
+      },
+      "TEST_SERVICE": {
+        "COLLECTION_NAME": "TEST_SERVICE",
+        "JSON_SCHEMA": {
+          "TEST_ID": "Number",
+          "CREATED_DATE": "Date",
+          "CREATED_BY": "String",
+          "TEST_SERVICE_FILE": [
+            {
+              "_id": false,
+              "FILE_ID": "ObjectId",
+              "FILE_NAME": "String",
+              "FILE_TYPE": "String",
+              "FILE_EXTENSION": "String",
+              "ORDER_NUMBER": "Number"
+            }
+          ]
+        },
+        "OPTION": {
+          "autoIndex": false,
+          "safe": true,
+          "strict": "throw"
+        },
+        "INDEXES": "TEST_ID_1",
+        "TEST_ID_1": "TEST_ID,1",
+        "TEST_ID_1_OPTIONS": {
+          "unique": true
+        }
+      },
+      "TEST_SERVICE_FILE_REPOSITORY": {
+        "COLLECTION_NAME": "TEST_SERVICE_FILE_REPOSITORY",
+        "JSON_SCHEMA": {
+          "FILE_ID": "ObjectId",
+          "DATA": "String"
+        },
+        "OPTION": {
+          "autoIndex": false,
+          "safe": true,
+          "strict": "throw"
+        }
+      },
+      "PROCESS_QUEUE": {
+        "JSON_SCHEMA": {
+          "CLIENT_TRANSACTION_GROUP_ID": "String",
+          "CREATED_DATE": "String",
+          "TRU_ID": "String",
+          "USER_ID": "String",
+          "OVERALL_STATUS": [
+            {
+              "STATUS": {
+                "type": "String",
+                "enum": [
+                  "REQUEST_RECEIVING",
+                  "REQUEST_RECEIVED",
+                  "REQUEST_FAILED",
+                  "EXECUTION_STARTED",
+                  "EXECUTION_COMPLETED",
+                  "EXECUTION_FAILED"
+                ]
+              },
+              "CREATED_DATE": "Date",
+              "STATUS_MESSAGE": "String",
+              "IS_ACTIVE": "Boolean"
+            }
+          ],
+          "IS_LOCKED": "Boolean",
+          "LOCKED_DATE": "Date",
+          "DEVICE_PLATFORM": "String",
+          "EPS_TRANSACTION": [
+            {
+              "_id": false,
+              "__id": "Mixed",
+              "IS_PARENT": "Boolean",
+              "IS_PROCESSED": "Boolean",
+              "ENTITY_PRIMARY_KEY": "Mixed",
+              "ORCHESTRATION_ID": "Number",
+              "BASE_ORCHESTRATION_ID": "Number",
+              "IS_PURGED": {
+                "type": "Boolean",
+                "default": false
+              },
+              "CLIENT_TRANSACTION_ID": "String",
+              "TRANSACTION_ID": "ObjectId",
+              "TRANSACTION_GROUP_ID": "ObjectId",
+              "CREATED_DATE": "Date",
+              "REQUEST_QUERY_TEMP_ID": "Number",
+              "REQUEST_CONTENT_TYPE": "String",
+              "RESPONSE_CONTENT_TYPE": "String",
+              "EXECUTION_STATUS": [
+                {
+                  "_id": false,
+                  "STATUS": {
+                    "type": "String",
+                    "enum": [
+                      "EPS_REQUEST_RECEIVING",
+                      "EPS_REQUEST_RECEIVED",
+                      "EPS_REQUEST_FAILED",
+                      "EPS_EXECUTION_STARTED",
+                      "EPS_EXECUTION_FAILED",
+                      "EDS_EXECUTION_STARTED",
+                      "EDS_EXECUTION_SUCCESS",
+                      "EDS_EXECUTION_FAILED",
+                      "EPS_EXECUTION_SUCCESS"
+                    ]
+                  },
+                  "CREATED_DATE": "Date",
+                  "STATUS_MESSAGE": "String",
+                  "IS_ACTIVE": "Boolean"
+                }
+              ],
+              "REQUEST_QUEUE_REPOSITORY": [
+                {
+                  "_id": false,
+                  "FILE_ID": "ObjectId",
+                  "FILE_NAME": "String",
+                  "FILE_TYPE": "Date",
+                  "FILE_EXTENSION": "String",
+                  "ORDER_NUMBER": "Boolean",
+                  "ENTITY_NAME": "String",
+                  "DEFINITION_NAME": "String"
+                }
+              ],
+              "RESPONSE_QUEUE_REPOSITORY": [
+                {
+                  "_id": false,
+                  "FILE_ID": "ObjectId",
+                  "FILE_NAME": "String",
+                  "FILE_TYPE": "Date",
+                  "FILE_EXTENSION": "String",
+                  "ORDER_NUMBER": "Boolean",
+                  "ENTITY_NAME": "String",
+                  "DEFINITION_NAME": "String",
+                  "SERVICE_ID": "Number"
+                }
+              ],
+              "ACTION_TYPE": "String",
+              "REQUEST_HEADER": "Object",
+              "RESPONSE_HEADER": "Object",
+              "REQUEST_QUERY_STRING": "String",
+              "REQUEST_QUERY_PARAM": "Object",
+              "APP_ID": "Number",
+              "APP_IDENTIFIER": "String",
+              "APP_VERSION_NUMBER": "Number",
+              "ORCHESTRATION_IDENTIFIER": "String",
+              "ORCHESTRATION_CATEGORY": "String"
+            }
+          ]
+        },
+        "COLLECTION_NAME": "PROCESS_QUEUE",
+        "OPTION": {
+          "autoIndex": false,
+          "safe": true,
+          "strict": "throw"
+        },
+        "INDEXES": "TRU_ID_USER_ID_GROUP_ID_1 EPS_TRANSACTION_TRANSACTION_ID_1 EPS_TRANSACTION_ORCH_IDENT_1 EPS_TRANSACTION_REQ_STR_1 OVERALL_1 CREATED_DATE_1",
+        "TRU_ID_USER_ID_GROUP_ID_1": "TRU_ID,1 USER_ID,1 CLIENT_TRANSACTION_GROUP_ID,1",
+        "TRU_ID_USER_ID_GROUP_ID_1_OPTIONS": {
+          
+        },
+        "EPS_TRANSACTION_TRANSACTION_ID_1": "EPS_TRANSACTION.TRANSACTION_ID,1",
+        "EPS_TRANSACTION_TRANSACTION_ID_1_OPTIONS": {
+          
+        },
+        "EPS_TRANSACTION_ORCH_IDENT_1": "EPS_TRANSACTION.ORCHESTRATION_IDENTIFIER,1",
+        "EPS_TRANSACTION_ORCH_IDENT_1_OPTIONS": {
+          
+        },
+        "EPS_TRANSACTION_REQ_STR_1": "EPS_TRANSACTION.REQUEST_QUERY_STRING,1",
+        "EPS_TRANSACTION_REQ_STR_1_OPTIONS": {
+          
+        },
+        "OVERALL_1": "IS_LOCKED,1 OVERALL_STATUS.IS_ACTIVE,1 OVERALL_STATUS.STATUS,1",
+        "OVERALL_1_OPTIONS": {
+          
+        },
+        "CREATED_DATE_1": "OVERALL_STATUS.CREATED_DATE,1",
+        "CREATED_DATE_1_OPTIONS": {
+          
+        }
+      },
+      "SEQUENCE_GENERATOR": {
+        "COLLECTION_NAME": "SEQUENCE_GENERATOR",
+        "JSON_SCHEMA": {
+          "COLLECTION_NAME": "String",
+          "ATTRIBUTE_SEQUENCE": [
+            {
+              "_id": false,
+              "ATTRIBUTE_NAME": "String",
+              "SEQUENCE_CURRENT_VALUE": {
+                "type": "Number",
+                "default": 0
+              }
+            }
+          ]
+        },
+        "OPTION": {
+          "autoIndex": false,
+          "safe": true,
+          "strict": "throw"
+        },
+        "INDEXES": "COLLECTION_NAME_1",
+        "COLLECTION_NAME_1": "COLLECTION_NAME,1",
+        "COLLECTION_NAME_1_OPTIONS": {
+          "unique": true
+        }
+      },
+      "SYSTEM_JOB": {
+        "JSON_SCHEMA": {
+          "JOB_ID": {
+            "type": "Number",
+            "required": "true"
+          },
+          "JOB_NAME": "String",
+          "JOB_CATEGORY": "String",
+		  "JOB_DESC" : "String",
+          "JOB_TYPE": "String",
+          "JOB_FILE": [
+            {
+              "_id": false,
+              "FILE_ID": "ObjectId",
+              "FILE_NAME": "String",
+              "FILE_TYPE": "String",
+              "FILE_EXTENSION": "String",
+              "ORDER_NUMBER": "Boolean",
+              "APP_ID": "Number",
+              "FILE_URL": "String",
+              "CREATED_DATE": {
+                "type": "Date"
+              },
+              "APP_VERSION_NUMBER": "Number"
+            }
+          ],
+          "CREATED_BY": {
+            "type": "String",
+            "default": "tj_user"
+          },
+          "CREATED_DATE": {
+            "type": "Date"
+          },
+          "MODIFIED_BY": {
+            "type": "String",
+            "default": "tj_user"
+          },
+          "MODIFIED_DATE": {
+            "type": "Date"
+          },
+          "JOB_STATUS": [
+            {
+              "_id": false,
+              "SUB_TASK": "String",
+              "STATUS": "String",
+              "CREATED_BY": {
+                "type": "String",
+                "default": "tj_user"
+              },
+              "CREATED_DATE": {
+                "type": "Date"
+              },
+              "APP_ID": "Number",
+              "APP_VERSION_NUMBER": "Number",
+              "IS_PRIMARY": "Boolean",
+			  "SERVICE_IDENTIFIER":"String",
+			  "SERVICE_ID":"Number",
+			  "SERVICE_NAME":"String",
+              "APP_IDENTIFIER": "String",
+              "RETRY_COUNT": "Number",
+              "IS_ACTIVE": "String",
+			  "SERVICE_NAME" : "String",
+			  "SERVICE_ID" : "Number",
+			  "SERVICE_IDENTIFIER" : "String",
+              "MESSAGE": "String"
+            }
+          ],
+          "JOB_META_DATA": "Mixed",
+          "SCHEDULE": {
+            "_id": false,
+            "WHEN_TO_START": "String",
+            "FROM_DATE": "Date",
+            "TO_DATE": "Date",
+            "START_TIME": "Date",
+            "FREQUENCY": "String",
+            "NEXT_RUN_TIME": "Date"
+          },
+          "OVERALL_STATUS": {
+            "STATUS": "String",
+            "CREATED_DATE": "Date"
+          },
+          "IS_SYSTEM_GENERATED": "Boolean",
+          "IS_VISIBLE": "Boolean",
+          "LAST_RUN_DATE": "Date",
+          "IS_LOCKED": "Boolean",
+          "LOCK_DATE": "Date",
+          "DOCUMENT_VERSION": "Number",
+          "IS_PURGED": {
+            "type": "Boolean",
+            "default": false
+          },
+          "PURGED_BY": "String",
+          "PURGED_DATE": "Date"
+        },
+        "COLLECTION_NAME": "SYSTEM_JOB",
+        "INDEXES": "JOB_ID_1 JOB_CODE_1 IS_LOCKED_1 JOB_STATUS_STATUS_1",
+        "JOB_ID_1": "JOB_ID,1",
+        "JOB_ID_1_OPTIONS": {
+          "unique": true
+        },
+        "JOB_CODE_1": "JOB_CODE,1",
+        "JOB_CODE_1_OPTIONS": {
+        },
+        "IS_LOCKED_1": "IS_LOCKED,1",
+        "IS_LOCKED_1_OPTIONS": {
+        },
+        "JOB_STATUS_STATUS_1": "JOB_STATUS.STATUS,1",
+        "JOB_STATUS_STATUS_1_OPTIONS": {
+        },
+        "OPTION": {
+          "autoIndex": false,
+          "safe": true,
+          "strict": "throw"
+        }
+      },
+      "PROCESS_QUEUE_OFFLINE_INDEX": {
+        "JSON_SCHEMA": {
+          "TRU_ID":"String",
+          "USER_ID":"String",
+          "CLIENT_TRANSACTION_GROUP_ID":"String",
+          "IS_LOCKED":"Boolean",
+          "LOCK_DATE":"Date",
+		  "RETRY_COUNT":"Number",
+		  "RETRY_DETAIL":[
+		   {
+		   "DATE" : "Date"
+		   }
+		   ],
+          "CREATED_DATE":"Date"
+        },
+        "COLLECTION_NAME": "PROCESS_QUEUE_OFFLINE_INDEX",
+        "INDEXES": "IS_LOCKED_1",
+        "IS_LOCKED_1": "IS_LOCKED,1",
+        "IS_LOCKED_1_OPTIONS": {
+        },
+        "OPTION": {
+          "autoIndex": false,
+          "safe": true,
+          "strict": "throw"
+        }
+      },
+      "COLLECTION_JSON_SCHEMA": {
+        "COLLECTION_NAME": "COLLECTION_JSON_SCHEMA",
+        "JSON_SCHEMA": {
+          "COLLECTION_NAME": "String",
+          "JSON_SCHEMA": {
+            
+          },
+          "OPTION": {
+            
+          }
+        },
+        "OPTION": {
+          "autoIndex": false,
+          "safe": true,
+          "strict": "true"
+        },
+        "INDEXES": "COLLECTION_NAME_1",
+        "COLLECTION_NAME_1": "COLLECTION_NAME,1",
+        "COLLECTION_NAME_1_OPTIONS": {
+          
+        }
+      }
+    },
+    "COLLECTIONS": [
+      "ENTITY_TEMPLATE",
+      "ORCHESTRATION",
+      "SERVICE",
+      "APP",
+      "CONNECTION_SETTING",
+      "HTTP_CONTEXT",
+      "SERVICE_CERTIFICATE_REPOSITORY",
+      "CLIENT_SDK_CLASS_REPOSITORY",
+      "WSDL_FILE_REPOSITORY",
+      "APP_ICON_REPOSITORY",
+      "SCREEN",
+      "ORCHESTRATION_LOGGER",
+      "NOTIFICATION",
+      "SEQUENCE_GENERATOR",
+      "BUCKET",
+      "EDS_WRAPPER_FILE_REPOSITORY",
+      "LICENSE_MANAGER",
+      "USER_LICENSE_CONFIG_REPOSITORY",
+      "TEST_SERVICE",
+      "TEST_SERVICE_FILE_REPOSITORY",
+      "PROCESS_QUEUE",
+      "SYSTEM_JOB",
+      "COLLECTION_JSON_SCHEMA"
+    ]
+  },
+  "SECURITY_DB": {
+    "SCHEMA": {
+      "SECURITY_TOKEN": {
+        "COLLECTION_NAME": "SECURITY_TOKEN",
+        "JSON_SCHEMA": {
+          "USER_ID": "String",
+          "APP_ID": {
+            "type": "Number",
+            "required": "true"
+          },
+          "TRU_ID": "String",
+          "COMPANY_ID": "Number",
+          "MODIFIED_DATE": "Date",
+          "EXPIRY_DATE": "Date",
+          "CREATED_BY": {
+            "type": "String",
+            "default": "tj_user"
+          },
+          "CREATED_DATE": "Date",
+          "MODIFIED_BY": {
+            "type": "String",
+            "default": "tj_user"
+          },
+          "CONNECTION": {
+            "_id": false,
+            "CONNECTION_ID": "Number",
+            "ACCESS_TOKEN": "String",
+            "REFRESH_TOKEN": "String",
+            "REFRESH_TOKEN_ID": "String",
+            "CSRF_TOKEN": "String",
+            "CREATED_BY": "String",
+            "CREATED_DATE": "Date",
+            "TOKEN_GENERATION_TYPE": "String",
+            "IS_BLOCKED": {
+              "type": "Boolean",
+              "default": false
+            },
+            "DEVICE_TYPE": "String",
+            "DEVICE_PLATFORM": "String",
+            "DEVICE_PLATFORM_VERSION": "String"
+          },
+          "DEVICE_ID": "String",
+          "SECONDARY_APP": [
+            {
+              "_id": false,
+              "APP_ID": "Number",
+              "APP_IDENTIFIER": "String"
+            }
+          ],
+          "USER_AGENT": "String"
+        },
+        "OPTION": {
+          "autoIndex": false,
+          "safe": true,
+          "strict": "throw"
+        },
+        "INDEXES": "USER_ID_1 CONNECTION_CSRF_TOKEN_1 COMPANY_ID_1 DEVICE_ID_1",
+        "USER_ID_1": "USER_ID,1",
+        "USER_ID_1_OPTIONS": {
+          
+        },
+        "CONNECTION_CSRF_TOKEN_1": "CONNECTION.CSRF_TOKEN,1",
+        "CONNECTION_CSRF_TOKEN_1_OPTIONS": {
+          
+        },
+        "COMPANY_ID_1": "COMPANY_ID,1",
+        "COMPANY_ID_1_OPTIONS": {
+          
+        },
+        "DEVICE_ID_1": "DEVICE_ID,1",
+        "DEVICE_ID_1_OPTIONS": {
+          
+        }
+      },
+      "TEMPORARY_SECURITY_TOKEN": {
+        "COLLECTION_NAME": "TEMPORARY_SECURITY_TOKEN",
+        "JSON_SCHEMA": {
+          "CSRF_TOKEN": "String",
+          "CREATED_DATE": "Date"
+        },
+        "OPTION": {
+          "autoIndex": false,
+          "safe": true,
+          "strict": "throw"
+        }
+      },
+      "USER": {
+        "COLLECTION_NAME": "USER",
+        "JSON_SCHEMA": {
+          "USER_ID": "String",
+          "USER_ORIGIN": "String",
+          "ROLE_ID":["Number"],
+		  "MISCELLANEOUS" : "Mixed",
+          "RESOURCE_PRIVILEGE": [
+            {
+              "_id": false,
+              "RESOURCE_ID": "Number",
+              "RESOURCE_IDENTIFIER": "String",
+              "PRIVILEGE": [
+                "String"
+              ],
+              "RESOURCE_TYPE":"String",
+              "ENTITY": [
+                {
+                  "ENTITY_ID": "Number",
+                  "PRIVILEGE": "String"
+                }
+              ]
+            }
+          ],
+          "IS_CUSTOM_USER": "Boolean",
+          "USER_PASSWORD": "String",
+          "CREATED_BY": {
+            "type": "String",
+            "default": "tj_user"
+          },
+          "CREATED_DATE": "Date",
+          "MODIFIED_BY": {
+            "type": "String",
+            "default": "tj_user"
+          },
+          "MODIFIED_DATE": "Date",
+          "IS_ADMIN_USER": "Boolean",
+          "FIRST_NAME": "String",
+          "LAST_NAME": "String",
+          "MOBILE_NUMBER": {
+            "PRIMARY": "String",
+            "SECONDARY": "String",
+            "TERTIARY": "String",
+            "ALTERNATE1": "String",
+            "ALTERNATE2": "String",
+            "ALTERNATE3": "String",
+            "ALTERNATE4": "String",
+            "ALTERNATE5": "String",
+            "OTHERS": [
+              "String"
+            ]
+          },
+          "EMAIL_ID": [
+            "String"
+          ],
+          "IS_ACTIVE": {
+            "type": "Boolean",
+            "default": true
+          },
+          "IS_SESSION_SHAREABLE": {
+            "type": "Boolean",
+            "default": false
+          }
+        },
+        "INDEXES": "USER_ID_1 USER_PASSWORD_USER_ID_1",
+        "USER_ID_1": "USER_ID,1",
+        "USER_ID_1_OPTIONS": {
+          "unique": true
+        },
+		"USER_PASSWORD_USER_ID_1": "USER_PASSWORD,1 USER_ID,1",
+        "USER_PASSWORD_USER_ID_1_OPTIONS": {},
+        "OPTION": {
+          "autoIndex": false,
+          "safe": true,
+          "strict": "throw"
+        }
+      },
+      "ROLE": {
+        "COLLECTION_NAME": "ROLE",
+        "JSON_SCHEMA": {
+          "CSRF_EXPIRY_TIME": "Number",
+          "CREATED_BY": {
+            "type": "String",
+            "default": "tj_user"
+          },
+          "CREATED_DATE": "Date",
+          "MODIFIED_BY": {
+            "type": "String",
+            "default": "tj_user"
+          },
+          "MODIFIED_DATE": "Date",
+          "ROLE_ORIGIN": "String",
+          "IS_ADMIN_ROLE": "Boolean",
+          "RESOURCE_PRIVILEGE": [
+            {
+              "_id": false,
+              "RESOURCE_ID": "Number",
+              "RESOURCE_IDENTIFIER": "String",
+              "PRIVILEGE": [
+                "String"
+              ],
+              "RESOURCE_TYPE": "String",
+              "ENTITY": [
+                {
+                  "ENTITY_ID": "Number",
+                  "PRIVILEGE": "String"
+                }
+              ]
+            }
+          ],
+          "IS_CUSTOM_ROLE": "Boolean",
+          "USER_ID": [
+            "String"
+          ],
+          "ROLE_NAME": "String",
+          "ROLE_ID": "Number"
+        },
+        "INDEXES": "ROLE_ID_1 ROLE_NAME_1 USER_ID_ROLE_NAME_1",
+        "ROLE_ID_1": "ROLE_ID,1",
+        "ROLE_ID_1_OPTIONS": {
+          "unique": true
+        },
+        "ROLE_NAME_1": "ROLE_NAME,1",
+        "ROLE_NAME_1_OPTIONS": {
+          "unique": true
+        },
+		"USER_ID_ROLE_NAME_1": "USER_ID,1 ROLE_NAME,1",
+        "USER_ID_ROLE_NAME_1_OPTIONS": {},
+        "OPTION": {
+          "autoIndex": false,
+          "safe": true,
+          "strict": "throw"
+        }
+      },
+      "PRIVILEGE": {
+        "COLLECTION_NAME": "PRIVILEGE",
+        "JSON_SCHEMA": {
+          "CREATED_BY": {
+            "type": "String",
+            "default": "tj_user"
+          },
+          "CREATED_DATE": "Date",
+          "PRIVILEGE_TYPE": "String",
+          "PRIVILEGE_NAME": "String",
+          "PRIVILEGE_ID": "Number"
+        },
+        "INDEXES": "PRIVILEGE_ID_1",
+        "PRIVILEGE_ID_1": "PRIVILEGE_ID,1",
+        "PRIVILEGE_ID_1_OPTIONS": {
+          "unique": true
+        },
+        "OPTION": {
+          "autoIndex": false,
+          "safe": true,
+          "strict": "throw"
+        }
+      },
+      "DATA_TRANSIT_KEY": {
+        "COLLECTION_NAME": "DATA_TRANSIT_KEY",
+        "JSON_SCHEMA": {
+          "TRU_ID": "String",
+          "APP_ID": "Number",
+          "CLIENT_PUBLIC_KEY": "String",
+          "TJ_PUBLIC_KEY": "String",
+          "TJ_PRIVATE_KEY": "String",
+          "TJ_SIGNATURE": "String",
+          "CREATED_DATE": "Date",
+          "CLIENT_SECRET_KEY": "String",
+          "TJ_SECRET_KEY": "String"
+        },
+        "OPTION": {
+          "autoIndex": false,
+          "safe": true,
+          "strict": "throw"
+        },
+        "INDEXES": "TRU_ID_1_APP_ID_1",
+        "TRU_ID_1_APP_ID_1": "TRU_ID,1 APP_ID,1",
+        "TRU_ID_1_APP_ID_1_OPTIONS": {
+          
+        }
+      },
+      "APP_REGISTRATION": {
+        "COLLECTION_NAME": "APP_REGISTRATION",
+        "JSON_SCHEMA": {
+          "TJ_APP_ID": "Number",
+          "APP_REGISTRATION_ID": "String",
+          "APP_SECRET_KEY": "String",
+          "CREATED_BY": "String",
+          "CREATED_DATE": "Date",
+          "MODIFIED_BY": "String",
+          "MODIFIED_DATE": "Date"
+        },
+        "OPTION": {
+          "autoIndex": false,
+          "safe": true,
+          "strict": "throw"
+        },
+        "INDEXES": "TJ_APP_ID_1",
+        "TJ_APP_ID_1": "TJ_APP_ID,1",
+        "TJ_APP_ID_1_OPTIONS": {
+          
+        }
+      },
+      "ORCHESTRATION_SPIKE_ARREST": {
+        "COLLECTION_NAME": "ORCHESTRATION_SPIKE_ARREST",
+        "JSON_SCHEMA": {
+          "APP_ID": "Number",
+          "ORCHESTRATION_ID": "Number",
+          "ORCHESTRATION_IDENTIFIER": "String",
+          "SPIKE_THRESHOLD_VALUE": "Number",
+          "SPIKE_DURATION": "Number",
+          "SPIKE_LEVEL": {
+            "type": "String",
+            "default": "USER"
+          },
+          "CREATED_BY": "String",
+          "CREATED_DATE": "Date",
+          "MODIFIED_BY": "String",
+          "MODIFIED_DATE": "Date",
+          "APP_IDENTIFIER": "String",
+          "APP_VERSION_NUMBER": "Number"
+        },
+        "OPTION": {
+          "autoIndex": false,
+          "safe": true,
+          "strict": "throw"
+        },
+        "INDEXES": "ORCHESTRATION_ID_1_APP_VERSION_NUMBER_1",
+        "ORCHESTRATION_ID_1_APP_VERSION_NUMBER_1": "ORCHESTRATION_ID,1 APP_VERSION_NUMBER,1",
+        "ORCHESTRATION_ID_1_APP_VERSION_NUMBER_1_OPTIONS": {
+          
+        }
+      },
+      "DEVICE": {
+        "COLLECTION_NAME": "DEVICE",
+        "JSON_SCHEMA": {
+          "DEVICE_APP_TENANT_ID": "String",
+          "DEVICE_NAME": "String",
+          "DEVICE_TYPE": "String",
+          "CREATED_BY": {
+            "type": "String",
+            "default": "tj_user"
+          },
+          "CREATED_DATE": "Date",
+          "MODIFIED_BY": {
+            "type": "String",
+            "default": "tj_user"
+          },
+          "MODIFIED_DATE": "Date",
+          "DEVICE_TOKEN": "String",
+          "DEVICE_IMEI": "String",
+          "DEVICE_SERIAL": "String",
+          "DEVICE_MAKE": "String",
+          "DEVICE_IP": "String",
+          "DEVICE_MAC_ADDRESS": "String",
+          "DEVICE_MODEL": "String",
+          "DEVICE_PLATFORM": "String",
+          "REQUEST_TYPE": "String",
+          "RETRY_INTERVAL": "Number",
+          "NO_OF_RETRY": "Number",
+          "DEVICE_PLATFORM_VERSION": "String",
+          "MOBILE_APP_BUNDLE_ID": [
+            "String"
+          ],
+          "PUSH_NOTIFICATION_ID": "String",
+          "DEVICE_OWNER": [
+            {
+              "_id": false,
+              "APP_ID": "Number",
+              "TRU_ID": "String",
+              "USER_ID": "String",
+              "DEVICE_OWNERSHIP_TYPE": "String",
+              "CREATED_DATE": "Date",
+              "SECONDARY_APP": [
+                {
+                  "_id": false,
+                  "APP_ID": "Number",
+                  "APP_IDENTIFIER": "String"
+                }
+              ]
+            }
+          ]
+        },
+        "OPTION": {
+          "autoIndex": false,
+          "safe": true,
+          "strict": "throw"
+        },
+        "INDEXES": "DEVICE_APP_TENANT_ID_1",
+        "DEVICE_APP_TENANT_ID_1": "DEVICE_APP_TENANT_ID,1",
+        "DEVICE_APP_TENANT_ID_1_OPTIONS": {
+          "unique": false
+        }
+      },
+      "JOB_SCHEDULER": {
+        "COLLECTION_NAME": "JOB_SCHEDULER",
+        "JSON_SCHEMA": {
+          "JOB_ID": "Number",
+          "JOB_NAME": "String",
+          "JOB_TYPE": {
+            "type": "String",
+            "enum": [
+              "MANUAL",
+              "SCHEDULED",
+              "EOD"
+            ]
+          },
+          "JOB_HISTORY": [
+            {
+              "_id": false,
+              "JOB_START_DATE": "Date",
+              "JOB_END_DATE": "Date",
+              "JOB_STATUS": {
+                "type": "String",
+                "enum": [
+                  "STARTED",
+                  "STOPPED",
+                  "RESTARTED",
+                  "CANCELLED"
+                ]
+              },
+              "RECORD_UPDATE_COUNT": "Number",
+              "JOB_PERFORMED_BY": "String"
+            }
+          ]
+        },
+        "OPTION": {
+          "autoIndex": false,
+          "safe": true,
+          "strict": "throw"
+        },
+        "INDEXES": "JOB_ID_1",
+        "JOB_ID_1": "JOB_ID,1",
+        "JOB_ID_1_OPTIONS": {
+          "unique": true
+        }
+      },
+      "SEQUENCE_GENERATOR": {
+        "COLLECTION_NAME": "SEQUENCE_GENERATOR",
+        "JSON_SCHEMA": {
+          "COLLECTION_NAME": "String",
+          "ATTRIBUTE_SEQUENCE": [
+            {
+              "_id": false,
+              "ATTRIBUTE_NAME": "String",
+              "SEQUENCE_CURRENT_VALUE": {
+                "type": "Number",
+                "default": 0
+              }
+            }
+          ]
+        },
+        "OPTION": {
+          "autoIndex": false,
+          "safe": true,
+          "strict": "throw"
+        },
+        "INDEXES": "COLLECTION_NAME_1",
+        "COLLECTION_NAME_1": "COLLECTION_NAME,1",
+        "COLLECTION_NAME_1_OPTIONS": {
+          "unique": true
+        }
+      },
+      "COLLECTION_JSON_SCHEMA": {
+        "COLLECTION_NAME": "COLLECTION_JSON_SCHEMA",
+        "JSON_SCHEMA": {
+          "COLLECTION_NAME": "String",
+          "JSON_SCHEMA": {
+            
+          },
+          "OPTION": {
+            
+          }
+        },
+        "OPTION": {
+          "autoIndex": false,
+          "safe": true,
+          "strict": "true"
+        },
+        "INDEXES": "COLLECTION_NAME_1",
+        "COLLECTION_NAME_1": "COLLECTION_NAME,1",
+        "COLLECTION_NAME_1_OPTIONS": {
+          
+        }
+      },
+      "APP_ID_ORCHESTRATION_ID_SPIKE_ARREST_LOG": {
+        "COLLECTION_NAME": "APP_ID_ORCHESTRATION_ID_SPIKE_ARREST_LOG",
+        "JSON_SCHEMA": {
+          "ID": "String",
+          "SPIKE_LEVEL": "String",
+          "START_DATE": "Date",
+          "END_DATE": "Date",
+          "SPIKE_HIT_COUNT": {
+            "type": "Number",
+            "default": 0
+          },
+          "APP_VERSION_NUMBER": "Number"
+        },
+        "OPTION": {
+          "autoIndex": false,
+          "safe": true,
+          "strict": "throw"
+        },
+        "INDEXES": "ID_1",
+        "ID_1": "ID,1",
+        "ID_1_OPTIONS": {
+          
+        }
+      },
+      "TJ_APP_ID_DEVICE_CLIENT_KEY": {
+        "COLLECTION_NAME": "TJ_APP_ID_DEVICE_CLIENT_KEY",
+        "JSON_SCHEMA": {
+          "TRU_ID": "String",
+          "APP_CLIENT_ID": "String",
+          "APP_CLIENT_SECRET_KEY": "String",
+          "CREATED_BY": "String",
+          "CREATED_DATE": "Date",
+          "TJ_PRIVATE_KEY": "String",
+          "TJ_PUBLIC_KEY": "String",
+          "APP_CLIENT_PUBLIC_KEY": "String"
+        },
+        "OPTION": {
+          "autoIndex": false,
+          "safe": true,
+          "strict": "throw"
+        },
+        "INDEXES": "TRU_ID_1",
+        "TRU_ID_1": "TRU_ID,1",
+        "TRU_ID_1_OPTIONS": {
+          "unique": true
+        }
+      }
+    },
+    "COLLECTIONS": [
+      "SECURITY_TOKEN",
+      "TEMPORARY_SECURITY_TOKEN",
+      "ORCHESTRATION_SPIKE_ARREST",
+      "APP_REGISTRATION",
+      "USER",
+      "ROLE",
+      "PRIVILEGE",
+      "DATA_TRANSIT_KEY",
+      "DEVICE",
+      "SEQUENCE_GENERATOR",
+      "JOB_SCHEDULER",
+      "COLLECTION_JSON_SCHEMA"
+    ]
+  },
+  "RULE_DB": {
+    "SCHEMA": {
+      "RULE": {
+        "COLLECTION_NAME": "RULE",
+        "JSON_SCHEMA": {
+          "RULE_ID": {
+            "type": "Number",
+            "required": "true"
+          },
+          "RULE_EXECUTION_TYPE": {
+            "type": "String",
+            "default": "NORMAL_EXECUTION",
+            "enum": [
+              "NORMAL_EXECUTION",
+              "SERVICE_PRE_EXECUTION",
+              "RAP_PRE_EXECUTION",
+              "SERVICE_POST_EXECUTION",
+              "RAP_POST_EXECUTION"
+            ]
+          },
+          "APPLY_TO_ALL_EPS": {
+            "type": "Boolean",
+            "default": true
+          },
+          "RULE_ORIGIN_ID": "Number",
+          "RULE_NAME": "String",
+          "RULE_DISPLAY_NAME": "String",
+          "RULE_CATEGORY": "String",
+          "CREATED_BY": "String",
+          "CREATED_DATE": "Date",
+          "MODIFIED_BY": "String",
+          "MODIFIED_DATE": "Date",
+          "DSL_CONTENT": "String",
+          "PROCESSED_DSL_CONTENT": "String",
+          "PARSER_GENERATED_JS_CONTENT": "String",
+          "CUSTOM_LOGIC": [
+            {
+              "_id": false,
+              "CUSTOM_LOGIC_ID": "Number",
+              "APP_ID": "Number",
+              "VERSION_NUMBER": [
+                "Number"
+              ]
+            }
+          ],
+          "IS_DELETED": "Boolean",
+          "RULE_DESCRIPTION": "String",
+          "APP_VERSION": [
+            {
+              "_id": false,
+              "APP_ID": "Number",
+              "ORCHESTRATION_ID": "Number",
+              "VERSION_NUMBER": [
+                "Number"
+              ],
+              "CREATED_BY": "String",
+              "CREATED_DATE": "Date",
+              "OBJECT_ORIENTED_JS_CONTENT": "Object",
+              "IS_DELETED": "Boolean",
+              "ACTION_TYPE": "String"
+            }
+          ]
+        },
+        "OPTION": {
+          "autoIndex": false,
+          "safe": true,
+          "strict": "throw"
+        },
+        "INDEXES": "RULE_ID_1 RULE_ORIGIN_ORCHESTRATION_ID_1",
+        "RULE_ID_1": "RULE_ID,1",
+        "RULE_ID_1_OPTIONS": {
+          "unique": true
+        },
+        "RULE_ORIGIN_ORCHESTRATION_ID_1": "RULE_ORIGIN_ID,1 APP_VERSION.ORCHESTRATION_ID,1",
+        "RULE_ORIGIN_ORCHESTRATION_ID_1_OPTIONS": {
+          
+        }
+      },
+      "CUSTOM_LOGIC": {
+        "COLLECTION_NAME": "CUSTOM_LOGIC",
+        "JSON_SCHEMA": {
+          "CUSTOM_LOGIC_ID": "Number",
+          "CUSTOM_LOGIC_ORIGIN_ID": "Number",
+          "CUSTOM_LOGIC_NAME": "String",
+          "CUSTOM_LOGIC_DESC": "String",
+          "CLASS_NAME": "String",
+          "CALLBACK_QUALIFIER": "String",
+          "UPLOADED_FILE_NAME": "String",
+          "JS_CONTENT": "String",
+          "OBJECT_ORIENTED_JS_CONTENT": "String",
+          "CREATED_BY": "String",
+          "CREATED_DATE": "Date",
+          "MODIFIED_BY": "String",
+          "MODIFIED_DATE": "Date",
+          "CALLBACK_DATA": "String",
+          "APP_VERSION": [
+            {
+              "_id": false,
+              "APP_ID": "Number",
+              "VERSION_NUMBER": [
+                "Number"
+              ]
+            }
+          ]
+        },
+        "OPTION": {
+          "autoIndex": false,
+          "safe": true,
+          "strict": "throw"
+        },
+        "INDEXES": "CUSTOM_LOGIC_ID_1",
+        "CUSTOM_LOGIC_ID_1": "CUSTOM_LOGIC_ID,1",
+        "CUSTOM_LOGIC_ID_1_OPTIONS": {
+          "unique": true
+        }
+      },
+      "SEQUENCE_GENERATOR": {
+        "COLLECTION_NAME": "SEQUENCE_GENERATOR",
+        "JSON_SCHEMA": {
+          "COLLECTION_NAME": "String",
+          "ATTRIBUTE_SEQUENCE": [
+            {
+              "_id": false,
+              "ATTRIBUTE_NAME": "String",
+              "SEQUENCE_CURRENT_VALUE": {
+                "type": "Number",
+                "default": 0
+              }
+            }
+          ]
+        },
+        "OPTION": {
+          "autoIndex": false,
+          "safe": true,
+          "strict": "throw"
+        },
+        "INDEXES": "COLLECTION_NAME_1",
+        "COLLECTION_NAME_1": "COLLECTION_NAME,1",
+        "COLLECTION_NAME_1_OPTIONS": {
+          "unique": true
+        }
+      },
+      "COLLECTION_JSON_SCHEMA": {
+        "COLLECTION_NAME": "COLLECTION_JSON_SCHEMA",
+        "JSON_SCHEMA": {
+          "COLLECTION_NAME": "String",
+          "JSON_SCHEMA": {
+            
+          },
+          "OPTION": {
+            
+          }
+        },
+        "OPTION": {
+          "autoIndex": false,
+          "safe": true,
+          "strict": "true"
+        },
+        "INDEXES": "COLLECTION_NAME_1",
+        "COLLECTION_NAME_1": "COLLECTION_NAME,1",
+        "COLLECTION_NAME_1_OPTIONS": {
+          
+        }
+      }
+    },
+    "COLLECTIONS": [
+      "RULE",
+      "CUSTOM_LOGIC",
+      "SEQUENCE_GENERATOR",
+      "COLLECTION_JSON_SCHEMA"
+    ]
+  },
+  "CONTEXT_DB": {
+    "SCHEMA": {
+      "COLLECTION_JSON_SCHEMA": {
+        "COLLECTION_NAME": "COLLECTION_JSON_SCHEMA",
+        "JSON_SCHEMA": {
+          "COLLECTION_NAME": "String",
+          "JSON_SCHEMA": {
+            
+          },
+          "OPTION": {
+            
+          }
+        },
+        "OPTION": {
+          "autoIndex": false,
+          "safe": true,
+          "strict": "true"
+        },
+        "INDEXES": "COLLECTION_NAME_1",
+        "COLLECTION_NAME_1": "COLLECTION_NAME,1",
+        "COLLECTION_NAME_1_OPTIONS": {
+          
+        }
+      },
+      "APP_ID_LOCATION_CONTEXT": {
+        "JSON_SCHEMA": {
+          "TRU_ID": "String",
+          "LOCATION": {
+            "LONGITUDE": "Number",
+            "LATITUDE": "Number"
+          },
+          "CREATED_DATE": "Date",
+          "TIME_ZONE": "String",
+          "LOCATION_PROVIDER": "String",
+          "STAY_DURATION": "Number",
+          "USER_ID": "String",
+          "GEO_LOCATION": [
+            "Number"
+          ],
+          "DEVICE_PLATFORM": "String"
+        },
+        "OPTION": {
+          "autoIndex": false,
+          "safe": true,
+          "strict": "throw"
+        },
+        "INDEXES": "LOCATION_2d",
+        "LOCATION_2d": "LOCATION,2d",
+        "LOCATION_2d_OPTIONS": {
+          
+        }
+      },
+      "APP_ID_DEVICE_CONTEXT": {
+        "JSON_SCHEMA": {
+          "TRU_ID": "String",
+          "DEVICE_ID": "String",
+          "USER_ID": [
+            "String"
+          ],
+          "DEVICE_NAME": "String",
+          "DEVICE_TYPE": "String",
+          "CREATED_BY": {
+            "type": "String",
+            "default": "tj_user"
+          },
+          "CREATED_DATE": "Date",
+          "MODIFIED_BY": {
+            "type": "String",
+            "default": "tj_user"
+          },
+          "MODIFIED_DATE": "Date",
+          "DEVICE_TOKEN": "String",
+          "DEVICE_IMEI": "String",
+          "DEVICE_SERIAL": "String",
+          "DEVICE_MAKE": "String",
+          "DEVICE_IP": "String",
+          "DEVICE_MAC_ADDRESS": "String",
+          "DEVICE_MODEL": "String",
+          "DEVICE_PLATFORM": "String",
+          "REGISTRATION_ID": {
+            "type": "String",
+            "required": "true"
+          },
+          "REQUEST_TYPE": "String",
+          "RETRY_INTERVAL": "Number",
+          "NO_OF_RETRY": "Number",
+          "DEVICE_PLATFORM_VERSION": "String",
+          "MOBILE_APP_BUNDLE_ID": [
+            "String"
+          ]
+        },
+        "OPTION": {
+          "autoIndex": false,
+          "safe": true,
+          "strict": "throw"
+        },
+        "INDEXES": "TRU_ID_1",
+        "TRU_ID_1": "TRU_ID,1",
+        "TRU_ID_1_OPTIONS": {
+          
+        }
+      },
+      "APP_ID_NETWORK_CONTEXT": {
+        "JSON_SCHEMA": {
+          "TRU_ID": "String",
+          "IS_CONNECTED": "Boolean",
+          "NETWORK_TYPE": "String",
+          "IS_ROAMING": "Boolean",
+          "NETWORK_COUNTRY": "String",
+          "IS_WIFI_ENABLED": "Boolean",
+          "SSID": "String",
+          "MAC_ADDRESS": "Boolean",
+          "IP_ADDRESS": "String",
+          "NETWORK_LOCATION": "String",
+          "IS_DATA_CONNECTION_ACTIVE": "String",
+          "NETWORK_OPERATOR_NAME": "String",
+          "SIGNAL_STRENGTH": "Number",
+          "CREATED_DATE": "Date",
+          "USER_ID": "String"
+        },
+        "OPTION": {
+          "autoIndex": false,
+          "safe": true,
+          "strict": "throw"
+        }
+      }
+    },
+    "COLLECTIONS": [
+      "COLLECTION_JSON_SCHEMA"
+    ]
+  },
+  "NOTIFICATION_DB": {
+    "SCHEMA": {
+      "NOTIFICATION_MESSAGE": {
+        "COLLECTION_NAME": "NOTIFICATION_MESSAGE",
+        "JSON_SCHEMA": {
+          "APP_ID": "Number",
+          "NOTIFICATION_ID": "Number",
+          "MESSAGE": "String",
+          "CREATED_DATE": "Date",
+          "CREATED_BY": "String",
+          "MODIFIED_DATE": "Date",
+          "MODIFIED_BY": "String",
+          "SCHEDULE": {
+            "WHEN_TO_SEND": "String",
+            "FROM_DATE": "Date",
+            "TO_DATE": "Date",
+            "START_TIME": "String",
+            "FREQUENCY": "String",
+            "JOB_GENERATED_TO_DATE": "Date"
+          },
+          "IS_ACTIVE": "Boolean",
+          "END_POINT_NOTIFICATION_URL": [
+            {
+              "_id": false,
+              "END_POINT_ORCHESTRATION_IDENTIFIER": "String",
+              "NOTIFICATION_TYPE": "String"
+            }
+          ]
+        },
+        "OPTION": {
+          "autoIndex": false,
+          "safe": true,
+          "strict": "throw"
+        },
+        "INDEXES": "NOTIFICATION_ID_1",
+        "NOTIFICATION_ID_1": "NOTIFICATION_ID,1",
+        "NOTIFICATION_ID_1_OPTIONS": {
+          
+        }
+      },
+      "NOTIFICATION_JOB": {
+        "COLLECTION_NAME": "NOTIFICATION_JOB",
+        "JSON_SCHEMA": {
+          "NOTIFICATION_ID": "Number",
+          "JOB_ID": "String",
+          "JOB_START_DATE": "Date",
+          "APP_ID": "Number",
+          "NOTIFICATION_TYPE": "String",
+          "JOB_START_TIME": "String",
+          "JOB_STATUS": "String",
+          "IS_SCHEDULED": "Boolean"
+        },
+        "OPTION": {
+          "autoIndex": false,
+          "safe": true,
+          "strict": "throw"
+        },
+        "INDEXES": "JOB_ID_1",
+        "JOB_ID_1": "JOB_ID,1",
+        "JOB_ID_1_OPTIONS": {
+          
+        }
+      },
+      "USER_NOTIFICATION_LOG": {
+        "COLLECTION_NAME": "USER_NOTIFICATION_LOG",
+        "JSON_SCHEMA": {
+          "USER_ID": "String",
+          "JOB_ID": "Number",
+          "APP_ID": "Number",
+          "MESSAGE": "String",
+          "PUSH_NOTIFICATION": [
+            {
+              "PUSH_NOTIFICATION_ID": "String",
+              "STATUS": {
+                "type": "String",
+                "default": "NEW"
+              },
+              "STATUS_RECEIVED_DATE": "Date",
+              "SENT_DATE": "Date",
+              "STATUS_DESCRIPTION": "String",
+              "DEVICE_PLATFORM": "String"
+            }
+          ],
+          "EMAIL_NOTIFICATION": [
+            {
+              "EMAIL_ID": "String",
+              "STATUS": {
+                "type": "String",
+                "default": "NEW"
+              },
+              "STATUS_RECEIVED_DATE": "Date",
+              "SENT_DATE": "Date",
+              "STATUS_DESCRIPTION": "String",
+              "RECIPIENT_TYPE": {
+                "type": "String",
+                "enum": [
+                  "TO",
+                  "CC",
+                  "BCC"
+                ]
+              }
+            }
+          ],
+          "SMS_NOTIFICATION": [
+            {
+              "MOBILE_NUMBER": "String",
+              "STATUS": {
+                "type": "String",
+                "default": "NEW"
+              },
+              "STATUS_RECEIVED_DATE": "Date",
+              "SENT_DATE": "Date",
+              "STATUS_DESCRIPTION": "String"
+            }
+          ]
+        },
+        "OPTION": {
+          "strict": "throw",
+          "safe": true,
+          "autoIndex": false
+        },
+        "INDEXES": "USER_ID_1_JOB_ID_1",
+        "USER_ID_1_JOB_ID_1": "USER_ID,1 JOB_ID,1",
+        "USER_ID_1_JOB_ID_1_OPTIONS": {
+          
+        }
+      },
+      "EMAIL_NOTIFICATION_LOG": {
+        "COLLECTION_NAME": "EMAIL_NOTIFICATION_LOG",
+        "JSON_SCHEMA": {
+          "EMAIL_ID": "String",
+          "JOB_ID": "Number",
+          "APP_ID": "Number",
+          "MESSAGE": "String",
+          "STATUS": {
+            "type": "String",
+            "default": "NEW"
+          },
+          "STATUS_RECEIVED_DATE": "Date",
+          "SENT_DATE": "Date",
+          "STATUS_DESCRIPTION": "String",
+          "RECIPIENT_TYPE": {
+            "type": "String",
+            "enum": [
+              "TO",
+              "CC",
+              "BCC"
+            ]
+          }
+        },
+        "OPTION": {
+          "strict": "throw",
+          "safe": true,
+          "autoIndex": false
+        },
+        "INDEXES": "EMAIL_ID_1",
+        "EMAIL_ID_1": "EMAIL_ID,1",
+        "EMAIL_ID_1_OPTIONS": {
+          
+        }
+      },
+      "MOBILE_NOTIFICATION_LOG": {
+        "COLLECTION_NAME": "MOBILE_NOTIFICATION_LOG",
+        "JSON_SCHEMA": {
+          "MOBILE_NUMBER": "String",
+          "JOB_ID": "Number",
+          "APP_ID": "Number",
+          "MESSAGE": "String",
+          "STATUS": {
+            "type": "String",
+            "default": "NEW"
+          },
+          "STATUS_RECEIVED_DATE": "Date",
+          "SENT_DATE": "Date",
+          "STATUS_DESCRIPTION": "String"
+        },
+        "OPTION": {
+          "strict": "throw",
+          "safe": true,
+          "autoIndex": false
+        },
+        "INDEXES": "MOBILE_NUMBER_1",
+        "MOBILE_NUMBER_1": "MOBILE_NUMBER,1",
+        "MOBILE_NUMBER_1_OPTIONS": {
+          
+        }
+      },
+      "SEQUENCE_GENERATOR": {
+        "COLLECTION_NAME": "SEQUENCE_GENERATOR",
+        "JSON_SCHEMA": {
+          "COLLECTION_NAME": "String",
+          "ATTRIBUTE_SEQUENCE": [
+            {
+              "_id": false,
+              "ATTRIBUTE_NAME": "String",
+              "SEQUENCE_CURRENT_VALUE": {
+                "type": "Number",
+                "default": 0
+              }
+            }
+          ]
+        },
+        "OPTION": {
+          "autoIndex": false,
+          "safe": true,
+          "strict": "throw"
+        },
+        "INDEXES": "COLLECTION_NAME_1",
+        "COLLECTION_NAME_1": "COLLECTION_NAME,1",
+        "COLLECTION_NAME_1_OPTIONS": {
+          "unique": true
+        }
+      },
+      "COLLECTION_JSON_SCHEMA": {
+        "COLLECTION_NAME": "COLLECTION_JSON_SCHEMA",
+        "JSON_SCHEMA": {
+          "COLLECTION_NAME": "String",
+          "JSON_SCHEMA": {
+            
+          },
+          "OPTION": {
+            
+          }
+        },
+        "OPTION": {
+          "autoIndex": false,
+          "safe": true,
+          "strict": "true"
+        },
+        "INDEXES": "COLLECTION_NAME_1",
+        "COLLECTION_NAME_1": "COLLECTION_NAME,1",
+        "COLLECTION_NAME_1_OPTIONS": {
+          
+        }
+      },
+      "NOTIFICATION_LOG": {
+        "COLLECTION_NAME": "NOTIFICATION_LOG",
+        "JSON_SCHEMA": {
+          "USER_ID": "String",
+          "JOB_ID": "String",
+          "APP_ID": "Number",
+          "MESSAGE": "String",
+          "NOTIFICATION": [
+            {
+              "_id": false,
+              "NOTIFICATION_TYPE": "String",
+              "PUSH_NOTIFICATION_ID": "String",
+              "EMAIL_ID": "String",
+              "RECIPIENT_TYPE": {
+                "type": "String",
+                "enum": [
+                  "TO",
+                  "CC",
+                  "BCC"
+                ]
+              },
+              "MOBILE_NUMBER": "String",
+              "STATUS_WORKFLOW": [
+                {
+                  "_id": false,
+                  "STATUS": {
+                    "type": "String",
+                    "default": "NEW"
+                  },
+                  "STATUS_DESCRIPTION": "String",
+                  "CREATED_DATE": "Date"
+                }
+              ],
+              "DEVICE_PLATFORM": "String",
+              "SERVICE_PROVIDER": "String"
+            }
+          ]
+        },
+        "OPTION": {
+          "strict": "throw",
+          "safe": true,
+          "autoIndex": false
+        },
+        "INDEXES": "JOB_ID_APP_ID_1",
+        "JOB_ID_APP_ID_1": "JOB_ID,1 APP_ID,1",
+        "JOB_ID_APP_ID_1_OPTIONS": {
+          
+        }
+      }
+    },
+    "COLLECTIONS": [
+      "NOTIFICATION_MESSAGE",
+      "NOTIFICATION_JOB",
+      "USER_NOTIFICATION_LOG",
+      "EMAIL_NOTIFICATION_LOG",
+      "MOBILE_NOTIFICATION_LOG",
+      "SEQUENCE_GENERATOR",
+      "COLLECTION_JSON_SCHEMA",
+      "NOTIFICATION_LOG"
+    ]
+  },
+  "APP_STORAGE_DB": {
+    "SCHEMA": {
+      "COLLECTION_JSON_SCHEMA": {
+        "COLLECTION_NAME": "COLLECTION_JSON_SCHEMA",
+        "JSON_SCHEMA": {
+          "COLLECTION_NAME": "String",
+          "JSON_SCHEMA": {
+            
+          },
+          "OPTION": {
+            
+          }
+        },
+        "OPTION": {
+          "autoIndex": false,
+          "safe": true,
+          "strict": "true"
+        },
+        "INDEXES": "COLLECTION_NAME_1",
+        "COLLECTION_NAME_1": "COLLECTION_NAME,1",
+        "COLLECTION_NAME_1_OPTIONS": {
+          
+        }
+      },
+      "APP_STORAGE_ENTITY": {
+        "JSON_SCHEMA": {
+          
+        },
+        "OPTION": {
+          "autoIndex": false,
+          "safe": true,
+          "strict": "false"
+        }
+      }
+    },
+    "COLLECTIONS": [
+      "COLLECTION_JSON_SCHEMA"
+    ]
+  },
+  "ENTERPRISE_DB": {
+    "SCHEMA": {
+      "NOTIFICATION_QUEUE_LIST": {
+        "JSON_SCHEMA": {
+          "ORCHESTRATION_ID": "Number",
+          "STATUS": "String",
+          "START_DATE": "Date",
+          "END_DATE": "Date",
+          "STATUS_COMMENT": "String"
+        },
+        "COLLECTION_NAME": "NOTIFICATION_QUEUE_LIST",
+        "OPTION": {
+          "autoIndex": false,
+          "safe": true,
+          "strict": "throw"
+        },
+        "INDEXES": "STATUS_1_START_DATE_1",
+        "STATUS_1_START_DATE_1": "STATUS,1 START_DATE,1",
+        "STATUS_1_START_DATE_1_OPTIONS": {
+          
+        }
+      },
+      "DEVICE_BLOCK_LIST": {
+        "JSON_SCHEMA": {
+          "TRU_ID": "String",
+          "BLOCK_START_DATE": "Date",
+          "BLOCK_END_DATE": "Date",
+          "BLOCK_TYPE": "String"
+        },
+        "COLLECTION_NAME": "DEVICE_BLOCK_LIST",
+        "OPTION": {
+          "autoIndex": false,
+          "safe": true,
+          "strict": "throw"
+        },
+        "INDEXES": "TRU_ID_1",
+        "TRU_ID_1": "TRU_ID,1",
+        "TRU_ID_1_OPTIONS": {
+          
+        }
+      },
+      "COLLECTION_JSON_SCHEMA": {
+        "COLLECTION_NAME": "COLLECTION_JSON_SCHEMA",
+        "JSON_SCHEMA": {
+          "COLLECTION_NAME": "String",
+          "JSON_SCHEMA": {
+            
+          },
+          "OPTION": {
+            
+          }
+        },
+        "OPTION": {
+          "autoIndex": false,
+          "safe": true,
+          "strict": "true"
+        },
+        "INDEXES": "COLLECTION_NAME_1",
+        "COLLECTION_NAME_1": "COLLECTION_NAME,1",
+        "COLLECTION_NAME_1_OPTIONS": {
+          
+        }
+      },
+      "ORCHID_ENTITYNAME": {
+        "JSON_SCHEMA": {
+          "DATA_VERSION": "Number",
+          "STATUS": "String",
+          "TRANSACTION_GROUP_ID": "ObjectId",
+          "ATTACHMENT": [
+            "ObjectId"
+          ],
+          "DEFINITION_ATTACHMENT_FILE": [
+            "ObjectId"
+          ],
+          "IS_DELETED": {
+            "type": "Boolean",
+            "default": false
+          }
+        },
+        "OPTION": {
+          "autoIndex": false,
+          "safe": true,
+          "strict": false
+        },
+        "INDEXES": "TRANSACTION_GROUP_ID_1",
+        "TRANSACTION_GROUP_ID_1": "TRANSACTION_GROUP_ID,1",
+        "TRANSACTION_GROUP_ID_1_OPTIONS": {
+          
+        }
+      },
+      "ORCHID_NOTIFICATION_QUEUE": {
+        "JSON_SCHEMA": {
+          "STATUS": "String",
+          "DATA_KEYS": [
+            {
+              "_id": false,
+              "KEY": "String",
+              "VALUE": "String"
+            }
+          ],
+          "ACTION_TYPE": "String",
+          "NOTIFICATION_MESSAGE": "String",
+          "SOURCE_ID": "Number",
+          "CREATED_DATE": "Date"
+        },
+        "OPTION": {
+          "autoIndex": false,
+          "safe": true,
+          "strict": false
+        },
+        "INDEXES": "CREATED_DATE_1",
+        "CREATED_DATE_1": "CREATED_DATE,1",
+        "CREATED_DATE_1_OPTIONS": {
+          
+        }
+      }
+    },
+    "COLLECTIONS": [
+      "NOTIFICATION_QUEUE_LIST",
+      "DEVICE_BLOCK_LIST",
+      "COLLECTION_JSON_SCHEMA"
+    ]
+  },
+  "EVENT_LOG_DB": {
+    "SCHEMA": {
+      "EVENT_LISTENER": {
+        "COLLECTION_NAME": "EVENT_LISTENER",
+        "JSON_SCHEMA": {
+          "LISTENER_ID": {
+            "type": "Number",
+            "required": "true"
+          },
+          "LISTENER_CLASS": "String",
+          "LISTENER_NAME": "String",
+          "EVENT_ID": "Number",
+          "EVENT_NAME": "String",
+          "CREATED_BY": {
+            "type": "String",
+            "default": "tj_user"
+          },
+          "CREATED_DATE": "Date",
+          "MODIFIED_BY": {
+            "type": "String",
+            "default": "tj_user"
+          },
+          "MODIFIED_DATE": "Date",
+          "EVENT_ARCHIVE_FREQUENCY": "Number",
+          "EVENT_LISTENER_TYPE": "String",
+          "IS_ACTIVE": "Boolean"
+        },
+        "OPTION": {
+          "autoIndex": false,
+          "safe": true,
+          "strict": "throw"
+        }
+      },
+      "1_PROCESS_TRACK_LOG": {
+        "COLLECTION_NAME": "1_PROCESS_TRACK_LOG",
+        "JSON_SCHEMA": {
+          "TRU_ID": "String",
+          "CREATED_DATE": "Date",
+          "STATUS": "String",
+          "EVENT_LOG_TYPE": "String",
+          "EVENT_MESSAGE": "String",
+          "TRANSACTION_ID": "ObjectId",
+          "APP_VERSION_NUMBER": "Number",
+          "CLIENT_TRANSACTION_ID": "String",
+          "CLIENT_TRANSACTION_GROUP_ID": "String"
+        },
+        "OPTION": {
+          "autoIndex": false,
+          "safe": true,
+          "strict": false
+        },
+        "INDEXES": "TEXT_INDEX",
+        "TEXT_INDEX": "$**,text",
+        "TEXT_INDEX_OPTIONS": {
+          
+        }
+      },
+      "1_TRANSACTION_LOG": {
+        "COLLECTION_NAME": "1_TRANSACTION_LOG",
+        "JSON_SCHEMA": {
+          "CREATED_DATE": "Date",
+          "STATUS": "String",
+          "EVENT_LOG_TYPE": "String",
+          "EVENT_MESSAGE": "String",
+          "ORCHESTRATION_ID": "Number",
+          "CLIENT_TRANSACTION_ID": "String",
+          "CLIENT_TRANSACTION_GROUP_ID": "String",
+          "TRANSACTION_ID": "ObjectId"
+        },
+        "OPTION": {
+          "autoIndex": false,
+          "safe": true,
+          "strict": false
+        }
+      },
+      "USER_DAILY_MONTHLY_YEARLY_AX": {
+        "COLLECTION_NAME": "USER_DAILY_MONTHLY_YEARLY_AX",
+        "JSON_SCHEMA": {
+          "USER_ID": "String",
+          "YEAR": "Number",
+          "MONTH": "Number",
+          "APP_VERSION_NUMBER": "Number",
+          "ACTION_TYPE": "String",
+          "EPS_DAILY": [
+            {
+              "_id": false,
+              "EPS_ID": "Number",
+              "DATE": "Number",
+              "BACKEND_ERROR_CNT": "Number",
+              "TOTAL_RESPONSE_TIME": "Number",
+              "TOTAL_MESSAGE_SIZE": "Number",
+              "CACHE_HIT_CNT": "Number",
+              "REQUEST_CNT": "Number",
+              "CACHE_MISS_CNT": "Number",
+              "TOTAL_REQUEST_LATENCY": "Number",
+              "RESPONSE_CNT": "Number",
+              "TOTAL_RESPONSE_LATENCY": "Number",
+              "ERROR_CNT": "Number",
+              "TRANSACTION_CNT": "Number",
+              "TOTAL_SERVICE_EXECUTION_TIME": "Number"
+            }
+          ],
+          "EPS_MONTHLY": [
+            {
+              "_id": false,
+              "EPS_ID": "Number",
+              "BACKEND_ERROR_CNT": "Number",
+              "TOTAL_RESPONSE_TIME": "Number",
+              "TOTAL_MESSAGE_SIZE": "Number",
+              "CACHE_HIT_CNT": "Number",
+              "REQUEST_CNT": "Number",
+              "CACHE_MISS_CNT": "Number",
+              "TOTAL_REQUEST_LATENCY": "Number",
+              "RESPONSE_CNT": "Number",
+              "TOTAL_RESPONSE_LATENCY": "Number",
+              "ERROR_CNT": "Number",
+              "TRANSACTION_CNT": "Number",
+              "TOTAL_SERVICE_EXECUTION_TIME": "Number"
+            }
+          ],
+          "ALL_EPS_HOURLY": [
+            {
+              "_id": false,
+              "HOUR": "Date",
+              "BACKEND_ERROR_CNT": "Number",
+              "TOTAL_RESPONSE_TIME": "Number",
+              "TOTAL_MESSAGE_SIZE": "Number",
+              "CACHE_HIT_CNT": "Number",
+              "REQUEST_CNT": "Number",
+              "CACHE_MISS_CNT": "Number",
+              "TOTAL_REQUEST_LATENCY": "Number",
+              "RESPONSE_CNT": "Number",
+              "TOTAL_RESPONSE_LATENCY": "Number",
+              "ERROR_CNT": "Number",
+              "TRANSACTION_CNT": "Number",
+              "TOTAL_SERVICE_EXECUTION_TIME": "Number"
+            }
+          ],
+          "ALL_EPS_DAILY": [
+            {
+              "_id": false,
+              "DATE": "Number",
+              "BACKEND_ERROR_CNT": "Number",
+              "TOTAL_RESPONSE_TIME": "Number",
+              "TOTAL_MESSAGE_SIZE": "Number",
+              "CACHE_HIT_CNT": "Number",
+              "REQUEST_CNT": "Number",
+              "CACHE_MISS_CNT": "Number",
+              "TOTAL_REQUEST_LATENCY": "Number",
+              "RESPONSE_CNT": "Number",
+              "TOTAL_RESPONSE_LATENCY": "Number",
+              "ERROR_CNT": "Number",
+              "TRANSACTION_CNT": "Number",
+              "TOTAL_SERVICE_EXECUTION_TIME": "Number"
+            }
+          ],
+          "ALL_EPS_MONTHLY": {
+            "BACKEND_ERROR_CNT": "Number",
+            "TOTAL_RESPONSE_TIME": "Number",
+            "TOTAL_MESSAGE_SIZE": "Number",
+            "CACHE_HIT_CNT": "Number",
+            "REQUEST_CNT": "Number",
+            "CACHE_MISS_CNT": "Number",
+            "TOTAL_REQUEST_LATENCY": "Number",
+            "RESPONSE_CNT": "Number",
+            "TOTAL_RESPONSE_LATENCY": "Number",
+            "ERROR_CNT": "Number",
+            "TRANSACTION_CNT": "Number",
+            "TOTAL_SERVICE_EXECUTION_TIME": "Number"
+          }
+        },
+        "OPTION": {
+          "strict": "throw",
+          "safe": true,
+          "autoIndex": false
+        },
+        "INDEXES": "YEAR_1_MONTH_1_USER_ID_1",
+        "YEAR_1_MONTH_1_USER_ID_1": "YEAR,1 MONTH,1 USER_ID,1",
+        "YEAR_1_MONTH_1_USER_ID_1_OPTIONS": {
+          
+        }
+      },
+      "EPS_DAILY_MONTHLY_YEARLY_AX": {
+        "COLLECTION_NAME": "EPS_DAILY_MONTHLY_YEARLY_AX",
+        "JSON_SCHEMA": {
+          "YEAR": "Number",
+          "MONTH": "Number",
+          "APP_VERSION_NUMBER": "Number",
+          "ACTION_TYPE": "String",
+          "EPS_DAILY": [
+            {
+              "_id": false,
+              "EPS_ID": "Number",
+              "DATE": "Number",
+              "BACKEND_ERROR_CNT": "Number",
+              "TOTAL_RESPONSE_TIME": "Number",
+              "TOTAL_MESSAGE_SIZE": "Number",
+              "CACHE_HIT_CNT": "Number",
+              "REQUEST_CNT": "Number",
+              "CACHE_MISS_CNT": "Number",
+              "TOTAL_REQUEST_LATENCY": "Number",
+              "RESPONSE_CNT": "Number",
+              "TOTAL_RESPONSE_LATENCY": "Number",
+              "ERROR_CNT": "Number",
+              "TRANSACTION_CNT": "Number",
+              "TOTAL_SERVICE_EXECUTION_TIME": "Number"
+            }
+          ],
+          "EPS_MONTHLY": [
+            {
+              "_id": false,
+              "EPS_ID": "Number",
+              "BACKEND_ERROR_CNT": "Number",
+              "TOTAL_RESPONSE_TIME": "Number",
+              "TOTAL_MESSAGE_SIZE": "Number",
+              "CACHE_HIT_CNT": "Number",
+              "REQUEST_CNT": "Number",
+              "CACHE_MISS_CNT": "Number",
+              "TOTAL_REQUEST_LATENCY": "Number",
+              "RESPONSE_CNT": "Number",
+              "TOTAL_RESPONSE_LATENCY": "Number",
+              "ERROR_CNT": "Number",
+              "TRANSACTION_CNT": "Number",
+              "TOTAL_SERVICE_EXECUTION_TIME": "Number"
+            }
+          ],
+          "ALL_EPS_HOURLY": [
+            {
+              "_id": false,
+              "HOUR": "Date",
+              "BACKEND_ERROR_CNT": "Number",
+              "TOTAL_RESPONSE_TIME": "Number",
+              "TOTAL_MESSAGE_SIZE": "Number",
+              "CACHE_HIT_CNT": "Number",
+              "REQUEST_CNT": "Number",
+              "CACHE_MISS_CNT": "Number",
+              "TOTAL_REQUEST_LATENCY": "Number",
+              "RESPONSE_CNT": "Number",
+              "TOTAL_RESPONSE_LATENCY": "Number",
+              "ERROR_CNT": "Number",
+              "TRANSACTION_CNT": "Number",
+              "TOTAL_SERVICE_EXECUTION_TIME": "Number"
+            }
+          ],
+          "ALL_EPS_DAILY": [
+            {
+              "_id": false,
+              "DATE": "Number",
+              "BACKEND_ERROR_CNT": "Number",
+              "TOTAL_RESPONSE_TIME": "Number",
+              "TOTAL_MESSAGE_SIZE": "Number",
+              "CACHE_HIT_CNT": "Number",
+              "REQUEST_CNT": "Number",
+              "CACHE_MISS_CNT": "Number",
+              "TOTAL_REQUEST_LATENCY": "Number",
+              "RESPONSE_CNT": "Number",
+              "TOTAL_RESPONSE_LATENCY": "Number",
+              "ERROR_CNT": "Number",
+              "TRANSACTION_CNT": "Number",
+              "TOTAL_SERVICE_EXECUTION_TIME": "Number"
+            }
+          ],
+          "ALL_EPS_MONTHLY": {
+            "BACKEND_ERROR_CNT": "Number",
+            "TOTAL_RESPONSE_TIME": "Number",
+            "TOTAL_MESSAGE_SIZE": "Number",
+            "CACHE_HIT_CNT": "Number",
+            "REQUEST_CNT": "Number",
+            "CACHE_MISS_CNT": "Number",
+            "TOTAL_REQUEST_LATENCY": "Number",
+            "RESPONSE_CNT": "Number",
+            "TOTAL_RESPONSE_LATENCY": "Number",
+            "ERROR_CNT": "Number",
+            "TRANSACTION_CNT": "Number",
+            "TOTAL_SERVICE_EXECUTION_TIME": "Number"
+          }
+        },
+        "OPTION": {
+          "strict": "throw",
+          "safe": true,
+          "autoIndex": false
+        },
+        "INDEXES": "YEAR_1_MONTH_1",
+        "YEAR_1_MONTH_1": "YEAR,1 MONTH,1",
+        "YEAR_1_MONTH_1_OPTIONS": {
+          
+        }
+      },
+      "USER_HOURLY_DAILY_AX": {
+        "COLLECTION_NAME": "USER_HOURLY_DAILY_AX",
+        "JSON_SCHEMA": {
+          "USER_ID": "String",
+          "DATE": "Date",
+          "APP_VERSION_NUMBER": "Number",
+          "ACTION_TYPE": "String",
+          "EPS_HOURLY": [
+            {
+              "_id": false,
+              "EPS_ID": "Number",
+              "HOUR": "Number",
+              "BACKEND_ERROR_CNT": "Number",
+              "TOTAL_RESPONSE_TIME": "Number",
+              "TOTAL_MESSAGE_SIZE": "Number",
+              "CACHE_HIT_CNT": "Number",
+              "REQUEST_CNT": "Number",
+              "CACHE_MISS_CNT": "Number",
+              "TOTAL_REQUEST_LATENCY": "Number",
+              "RESPONSE_CNT": "Number",
+              "TOTAL_RESPONSE_LATENCY": "Number",
+              "ERROR_CNT": "Number",
+              "TRANSACTION_CNT": "Number",
+              "TOTAL_SERVICE_EXECUTION_TIME": "Number"
+            }
+          ]
+        },
+        "OPTION": {
+          "strict": "throw",
+          "safe": true,
+          "autoIndex": false
+        },
+        "INDEXES": "USER_ID_1_DATE_1",
+        "USER_ID_1_DATE_1": "USER_ID,1 DATE,1",
+        "USER_ID_1_DATE_1_OPTIONS": {
+          
+        }
+      },
+      "EPS_HOURLY_DAILY_AX": {
+        "COLLECTION_NAME": "EPS_HOURLY_DAILY_AX",
+        "JSON_SCHEMA": {
+          "DATE": "Date",
+          "APP_VERSION_NUMBER": "Number",
+          "ACTION_TYPE": "String",
+          "EPS_HOURLY": [
+            {
+              "_id": false,
+              "EPS_ID": "Number",
+              "HOUR": "Number",
+              "BACKEND_ERROR_CNT": "Number",
+              "TOTAL_RESPONSE_TIME": "Number",
+              "TOTAL_MESSAGE_SIZE": "Number",
+              "CACHE_HIT_CNT": "Number",
+              "REQUEST_CNT": "Number",
+              "CACHE_MISS_CNT": "Number",
+              "TOTAL_REQUEST_LATENCY": "Number",
+              "RESPONSE_CNT": "Number",
+              "TOTAL_RESPONSE_LATENCY": "Number",
+              "ERROR_CNT": "Number",
+              "TRANSACTION_CNT": "Number",
+              "TOTAL_SERVICE_EXECUTION_TIME": "Number"
+            }
+          ]
+        },
+        "OPTION": {
+          "strict": "throw",
+          "safe": true,
+          "autoIndex": false
+        },
+        "INDEXES": "DATE_1_HOUR_1",
+        "DATE_1_HOUR_1": "DATE,1 EPS_HOURLY.HOUR,1",
+        "DATE_1_HOUR_1_OPTIONS": {
+          
+        }
+      },
+      "1_PROCESS_TRACK_LOG_GELF": {
+        "COLLECTION_NAME": "1_PROCESS_TRACK_LOG_GELF",
+        "JSON_SCHEMA": {
+          "version": "String",
+          "host": "String",
+          "short_message": "String",
+          "full_message": "String",
+          "Timestamp": "Number",
+          "level": "Number",
+          "_user_id": "String",
+          "_some_info": "String",
+          "_some_env_var": "String",
+          "CREATED_BY": "String",
+          "CREATED_DATE": "Date"
+        },
+        "OPTION": {
+          "autoIndex": false,
+          "safe": true,
+          "strict": "throw"
+        }
+      },
+      "COLLECTION_JSON_SCHEMA": {
+        "COLLECTION_NAME": "COLLECTION_JSON_SCHEMA",
+        "JSON_SCHEMA": {
+          "COLLECTION_NAME": "String",
+          "JSON_SCHEMA": {
+            
+          },
+          "OPTION": {
+            
+          }
+        },
+        "OPTION": {
+          "autoIndex": false,
+          "safe": true,
+          "strict": "true"
+        },
+        "INDEXES": "COLLECTION_NAME_1",
+        "COLLECTION_NAME_1": "COLLECTION_NAME,1",
+        "COLLECTION_NAME_1_OPTIONS": {
+          
+        }
+      },
+      "ORCHESTRATION_ID_TRANSACTION_LOG": {
+        "JSON_SCHEMA": {
+          "TRU_ID": "String",
+          "CREATED_DATE": "Date",
+          "ACTION": "String",
+          "CLIENT_TRANSACTION_ID": "String",
+          "CLIENT_TRANSACTION_GROUP_ID": "String",
+          "TRANSACTION_ID": "ObjectId",
+          "LOCATION": {
+            "LONGITUDE": "Number",
+            "LATITUDE": "Number"
+          },
+          "BLOCKED_DATE": "Date",
+          "STATUS": "String",
+          "MESSAGE_SIZE": "Number",
+          "CACHE_HIT": "Boolean",
+          "REQUEST_LATENCY": "Number",
+          "RESPONSE_LATENCY": "Number",
+          "BACKEND_ERROR_COUNT": "Number",
+          "RESPONSE_TIME": "Number",
+          "EVENT_LOG_TYPE": "String",
+          "EVENT_MESSAGE": "String",
+          "SERVICE_EXECUTION_TIME": "Number",
+          "GEO_LOCATION": [
+            "Number"
+          ],
+          "DEVICE_PLATFORM": "String"
+        },
+        "OPTION": {
+          "autoIndex": false,
+          "safe": true,
+          "strict": false
+        },
+        "INDEXES": "TRU_ID_1",
+        "TRU_ID_1": "TRU_ID,1",
+        "TRU_ID_1_OPTIONS": {
+          
+        }
+      },
+      "ORCHESTRATION_ID_LOCATION_CONTEXT_LOG": {
+        "JSON_SCHEMA": {
+          "TRU_ID": "String",
+          "USER_ID": "String",
+          "CLIENT_TRANSACTION_ID": "String",
+          "CLIENT_TRANSACTION_GROUP_ID": "String",
+          "TRANSACTION_ID": "ObjectId",
+          "LOCATION": {
+            "LONGITUDE": "Number",
+            "LATITUDE": "Number"
+          },
+          "CREATED_DATE": "Date",
+          "ACTION": "String",
+          "GEO_LOCATION": [
+            "Number"
+          ],
+          "DEVICE_PLATFORM": "String"
+        },
+        "OPTION": {
+          "autoIndex": false,
+          "safe": true,
+          "strict": false
+        },
+        "INDEXES": "LOCATION_2d",
+        "LOCATION_2d": "LOCATION,2d",
+        "LOCATION_2d_OPTIONS": {
+          
+        }
+      },
+      "ORCHESTRATION_ID_DEVICE_BLOCK_LOG": {
+        "JSON_SCHEMA": {
+          "TRU_ID": "String",
+          "CREATED_DATE": "Date",
+          "BLOCK_START_DATE": "Date",
+          "BLOCK_END_DATE": "Date",
+          "BLOCK_TYPE": "String"
+        },
+        "OPTION": {
+          "autoIndex": false,
+          "safe": true,
+          "strict": false
+        }
+      }
+    },
+    "COLLECTIONS": [
+      "EVENT_LISTENER",
+      "1_PROCESS_TRACK_LOG",
+      "USER_DAILY_MONTHLY_YEARLY_AX",
+      "EPS_DAILY_MONTHLY_YEARLY_AX",
+      "USER_HOURLY_DAILY_AX",
+      "EPS_HOURLY_DAILY_AX",
+      "COLLECTION_JSON_SCHEMA",
+      "1_PROCESS_TRACK_LOG_GELF"
+    ]
+  },
+  "APP_LOG_DB": {
+    "SCHEMA": {
+      "COLLECTION_JSON_SCHEMA": {
+        "COLLECTION_NAME": "COLLECTION_JSON_SCHEMA",
+        "JSON_SCHEMA": {
+          "COLLECTION_NAME": "String",
+          "JSON_SCHEMA": {
+            
+          },
+          "OPTION": {
+            
+          }
+        },
+        "OPTION": {
+          "autoIndex": false,
+          "safe": true,
+          "strict": "true"
+        },
+        "INDEXES": "COLLECTION_NAME_1",
+        "COLLECTION_NAME_1": "COLLECTION_NAME,1",
+        "COLLECTION_NAME_1_OPTIONS": {
+          
+        }
+      },
+      "APP_LOG_GELF": {
+        "JSON_SCHEMA": {
+          "version": "String",
+          "host": "String",
+          "short_message": "String",
+          "full_message": "String",
+          "Timestamp": "Number",
+          "level": "Number",
+          "_user_id": "String",
+          "_some_info": "String",
+          "_some_env_var": "String",
+          "CREATED_BY": "String",
+          "CREATED_DATE": "Date"
+        },
+        "OPTION": {
+          "autoIndex": false,
+          "safe": true,
+          "strict": "throw"
+        }
+      },
+      "APP_AX": {
+        "JSON_SCHEMA": {
+          "CREATED_DATE": "Date",
+          "APP_DETAIL": [
+            {
+              "APP_IDENTIFIER": "String",
+              "SUCCESSFUL_TRANSACTION_COUNT": "Number",
+              "FAILURE_TRANSACTION_COUNT": "Number",
+              "TOTAL_COUNT": "Number"
+            }
+          ]
+        },
+        "OPTION": {
+          "autoIndex": false,
+          "safe": true,
+          "strict": "throw"
+        },
+        "COLLECTION_NAME": "APP_AX"
+      },
+      "ORCHESTRATION_AX": {
+        "JSON_SCHEMA": {
+          "CREATED_DATE": "Date",
+          "APP_IDENTIFIER": "String",
+          "ORCHESTRATION_DETAIL": [
+            {
+              "ORCHESTRATION_IDENTIFIER": "String",
+              "ACTION_TYPE": "String",
+              "SUCCESSFUL_TRANSACTION_COUNT": "Number",
+              "FAILURE_TRANSACTION_COUNT": "Number",
+              "TOTAL_COUNT": "Number"
+            }
+          ]
+        },
+        "OPTION": {
+          "autoIndex": false,
+          "safe": true,
+          "strict": "throw"
+        },
+        "COLLECTION_NAME": "ORCHESTRATION_AX"
+      },
+      "USER_AX": {
+        "JSON_SCHEMA": {
+          "CREATED_DATE": "Date",
+          "USER_ID": "String",
+          "USER_DETAIL": [
+            {
+              "ORCHESTRATION_IDENTIFIER": "String",
+              "ACTION_TYPE": "String",
+              "SUCCESSFUL_TRANSACTION_COUNT": "Number",
+              "FAILURE_TRANSACTION_COUNT": "Number",
+              "TOTAL_COUNT": "Number"
+            }
+          ]
+        },
+        "OPTION": {
+          "autoIndex": false,
+          "safe": true,
+          "strict": "throw"
+        },
+        "COLLECTION_NAME": "USER_AX"
+      },
+      "NOTIFICATION_AX": {
+        "JSON_SCHEMA": {
+          "CREATED_DATE": "Date",
+          "NOTIFICATION_TYPE": "String",
+          "NOTIFICATION_DETAIL": [
+            {
+              "SUCCESSFUL_TRANSACTION_COUNT": "Number",
+              "FAILURE_TRANSACTION_COUNT": "Number",
+              "TOTAL_COUNT": "Number",
+              "SERVICE_PROVIDER": "String"
+            }
+          ]
+        },
+        "OPTION": {
+          "autoIndex": false,
+          "safe": true,
+          "strict": "throw"
+        },
+        "COLLECTION_NAME": "NOTIFICATION_AX"
+      },
+      "DEVICE_AX": {
+        "JSON_SCHEMA": {
+          "CREATED_DATE": "Date",
+          "TRU_ID": "String",
+          "DEVICE_DETAIL": [
+            {
+              "ORCHESTRATION_IDENTIFIER": "String",
+              "ACTION_TYPE": "String",
+              "SUCCESSFUL_TRANSACTION_COUNT": "Number",
+              "FAILURE_TRANSACTION_COUNT": "Number",
+              "TOTAL_COUNT": "Number"
+            }
+          ]
+        },
+        "OPTION": {
+          "autoIndex": false,
+          "safe": true,
+          "strict": "throw"
+        },
+        "COLLECTION_NAME": "DEVICE_AX"
+      },
+      "ORCHESTRATION_CONCURRENCY_AX": {
+        "JSON_SCHEMA": {
+          "CREATED_DATE": "Date",
+          "ORCHESTRATION_IDENTIFIER": "String",
+          "ACTION_TYPE": "String",
+          "APP_IDENTIFIER": "String",
+          "CONCURRENCY_DETAIL": [
+            {
+              "CONCURRENCY_TIME": "Date",
+              "CONCURRENCY_COUNT": "Number"
+            }
+          ]
+        },
+        "OPTION": {
+          "autoIndex": false,
+          "safe": true,
+          "strict": "throw"
+        },
+        "COLLECTION_NAME": "ORCHESTRATION_CONCURRENCY_AX"
+      },
+      
+      "DATA_PURGE": {
+        "JSON_SCHEMA": {
+          "JOB_NAME": "String",
+          "DB_NAME": "String",
+          "COLLECTION_NAME": "String",
+          "START_DATE": "Date",
+          "END_DATE": "Date",
+          "REMARKS": "String",
+          "DOCUMENT_COUNT_BEFORE_PURGING": "Number",
+          "DOCUMENT_COUNT_AFTER_PURGING": "Number",
+          "COLLECTION_SIZE_BEFORE_PURGING": "Number",
+          "COLLECTION_SIZE_AFTER_PURGING": "Number",
+          "PURGED_DOCUMENT_COUNT": "Number",
+          "PURGED_BY": "String",
+          "CONFIGURED_EXPIRY_TIME": "Number",
+          "AFFECTED_APPS": "Number"
+        },
+        "OPTION": {
+          "autoIndex": false,
+          "safe": true,
+          "strict": "throw"
+        },
+        "COLLECTION_NAME": "DATA_PURGE"
+      }
+    },
+    "COLLECTIONS": [
+      "COLLECTION_JSON_SCHEMA",
+      "DATA_PURGE",
+      "ORCHESTRATION_CONCURRENCY_AX",
+      "APP_AX",
+      "ORCHESTRATION_AX",
+      "USER_AX",
+      "NOTIFICATION_AX",
+      "DEVICE_AX"
+    ]
+  }
+}

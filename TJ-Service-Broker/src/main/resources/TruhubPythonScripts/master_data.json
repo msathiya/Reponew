@@ -1,0 +1,454 @@
+{
+  "DATA_SETUP": {
+    "MASTER_DB": [
+	  "tenant"
+    ],
+    "Trumobi": [
+      "group",
+	  "template",
+	  "app_store_details"
+    ]
+  },
+  "group": {
+    "UNIQUE_ID_FIELD": "",
+    "MASTER_DATA": [
+      {
+        "group_id": 1,
+        "name": "All Custom Groups",
+        "authentication_mode": 1,
+        "is_active": true,
+        "created_date": null
+      },
+      {
+        "group_id": 2,
+        "name": "All LDAP Groups",
+        "authentication_mode": 2,
+        "is_active": true,
+        "created_date": null
+      },
+      {
+        "group_id": 3,
+        "name": "All External Groups",
+        "authentication_mode": 3,
+        "is_active": true,
+        "created_date": null
+      }
+    ],
+    "PRIMARY_KEY": "group_id"
+  },
+    "app_store_details": {
+	"MASTER_DATA":[
+		{
+		"app_name": "Appstore",
+      "app_version": "50",
+      "device_type": "Tablets",
+      "os_version": "3.0",
+      "manifest_file": "",
+      "binary_file": "TruHub_Tablets.apk",
+      "is_latest": true,
+      "version_check_message": "Download the latest version from the TruHub portal.",
+      "is_version_upd_mandatory": 0,
+	  "created_date" :null,
+	  "modified_date" :null,
+      "appstore_launch_url": "https://archmigrationdev.cognizant.com/launchpad"
+		},
+		{
+	 "app_name": "Appstore",
+      "app_version": "70",
+      "device_type": "Phones",
+      "os_version": "2.0",
+      "manifest_file": "",
+      "binary_file": "TruHub_Phones.apk",
+      "is_latest": true,
+      "version_check_message": "Download the latest version from the TruHub portal.",
+      "is_version_upd_mandatory": 0,
+	  "created_date" :null,
+	  "modified_date" :null,
+      "appstore_launch_url": "https://archmigrationdev.cognizant.com/launchpad"
+		}
+		],
+		"PRIMARY_KEY": "device_type",
+		"UNIQUE_ID_FIELD": ""
+	},
+	"user": {
+	"MASTER_DATA":[
+		{
+		"first_name":"superuser",
+		"last_name":"superuser",
+		"user_name":"superuser",
+		"password":"cb693552e95a730e4bed3e5c3227db93",
+		"language":1,
+		"role_id":56,
+		"is_active":true,
+		"emp_id":"superuser",
+		"authentication_mode":1,
+		"email_required":false,
+		"email":"",
+		"created_date":null,
+		"modified_date":null,
+		"user_id":1,
+		"profile":[],
+		"group":[],
+		"subscribe":false,
+		"session":[]
+		}
+		],
+		"PRIMARY_KEY": "emp_id",
+		"UNIQUE_ID_FIELD": ""
+	},
+  "template":{
+	"MASTER_DATA":[
+		{
+		"template_id":1,
+		"name":"ResetPassword",
+		"lang_id":1,
+		"subject":"Password Reset for Chola TruHub",
+		"message":"Hi [USERNAME],<br/> Your password has been reset. Please find your new login credentials below:<br/><br/>UserID: [USERID]<br/>Password: [PASSWORD]<br/><br/>Thanks,<br/>TruHub Support",
+		"email_list":"",
+		"is_visible":0
+		},
+		{
+		"template_id":2,
+		"name":"NewUser",
+		"lang_id":1,
+		"subject":"Welcome to Chola TruHub",
+		"message":"Hi [USERNAME],<br/> You have been granted access to TruHub (https://chola.com). Your login credentials for accessing the same are listed below.<br/><br/>UserID: [USERID]<br/>Password: [PASSWORD]<br/><br/>Thanks,<br/>TruHub Support",
+		"email_list":"NULL",
+		"is_visible":0
+		},
+		{
+		"template_id":3,
+		"name":"ResourceSubmitted",
+		"lang_id":1,
+		"subject":"Resource [RESOURCENAME] submitted for approval",
+		"message":"<div style=\"font-family: Verdana;font-size: 10pt;\"><p>Hi, <br/><br/>Resource [RESOURCENAME] with the following details has been submitted for Approval.</p><table style=\"font-family: Verdana;font-size: 10pt;\"><tr><td>Resource Name</td><td>:</td><td>[RESOURCENAME]</td></tr><tr><td>Type</td><td>:</td><td>[RESOURCETYPE]</td></tr><tr><td>Version</td><td>:</td><td>[VERSION]</td></tr><tr><td>Submitted by</td><td>:</td> <td>[UPLOADEDBY]</td></tr></table><p>Thanks,<br />TruHub Support.</p></div><span style=\"font-family: Verdana;font-size:8pt;color: #FF0000;\">This is a system generated email. Please do not reply.</span>",
+		"email_list":"NULL",
+		"is_visible":0
+		},
+		{
+		"template_id":4,
+		"name":"ResourceApproved",
+		"lang_id":1,
+		"subject":"Resource [RESOURCENAME] Approved",
+		"message":"<div style=\"font-family: Verdana;font-size: 10pt;\"><p>Hi, <br/><br/>Resource [RESOURCENAME] with the following details has been Approved.</p><table style=\"font-family: Verdana;font-size: 10pt;\"><tr><td>Resource Name</td><td>:</td><td>[RESOURCENAME]</td></tr><tr><td>Version</td><td>:</td><td>[VERSION]</td></tr><tr><td>Approved by</td><td>:</td> <td>[UPLOADEDBY]</td></tr></table><p>Thanks,<br />TruHub Support.</p></div><span style=\"font-family: Verdana;font-size:8pt;color: #FF0000;\">This is a system generated email. Please do not reply.</span>",
+		"email_list":"NULL",
+		"is_visible":0
+		},
+		{
+		"template_id":5,
+		"name":"ResourceRejected",
+		"lang_id":1,
+		"subject":"Resource [RESOURCENAME] Rejected",
+		"message":"<div style=\"font-family: Verdana;font-size: 10pt;\"><p>Hi, <br/><br/>Resource [RESOURCENAME] with the following details has been Rejected.</p><table style=\"font-family: Verdana;font-size: 10pt;\"><tr><td>Resource Name</td><td>:</td><td>[RESOURCENAME]</td></tr><tr><td>Version</td><td>:</td><td>[VERSION]</td></tr><tr><td>Rejected by</td><td>:</td> <td>[UPLOADEDBY]</td></tr><tr><td>Rejection Comments</td><td>:</td> <td>[COMMENTS]</td></tr></table><p>Thanks,<br />TruHub Support.</p></div><span style=\"font-family: Verdana;font-size:8pt;color: #FF0000;\">This is a system generated email. Please do not reply.</span>",
+		"email_list":"NULL",
+		"is_visible":0
+		},
+		{
+		"template_id":6,
+		"name":"Request For Accessing App",
+		"lang_id":1,
+		"subject":"Requisition of Access for [APP_NAME] App",
+		"message":"<span>Hi [OWNER_NAME], <p /> [REQUESTER_NAME] ([REQUESTER_ID]) wants  to Download [APP_NAME] app. Please grant him access to download the app.<br/><br/><b><u>Details:</u></b><br/><table><tr><td>Category</td><td>: [CATEGORY_NAME]</td></tr><tr><td>App Name</td><td>: [APP_NAME]</td></tr><tr><td>App Owner</td><td>: [OWNER_NAME]</td></tr><tr><td>App Uploaded by</td><td>: [UPLOADED_BY]</td></tr><tr><td>Group</td><td>: [GROUP_NAME]</td></tr></table></span><br/><span>Thanks,<br/>TruHub Support </span><br/><br/> Please do not reply to this mail as it is a system  generated mail<br/>",
+		"email_list":"NULL",
+		"is_visible":0
+		},
+		{
+		"template_id":7,
+		"name":"Request For Accessing Resource",
+		"lang_id":1,
+		"subject":"Requisition of Access for [RESOURCE_NAME] Resource",
+		"message":"<span>Hi [OWNER_NAME], <p /> [REQUESTER_NAME] ([REQUESTER_ID]) wants  to Download [RESOURCE_NAME] Resource. Please grant him access to download the resource.<br/><br/><b><u>Details:</u></b><br/><table><tr><td>Category</td><td>: [CATEGORY_NAME]</td></tr><tr><td>App Name</td><td>: [RESOURCE_NAME]</td></tr><tr><td>Resource Owner</td><td>: [OWNER_NAME]</td></tr><tr><td>Resource Uploaded by</td><td>: [UPLOADED_BY]</td></tr><tr><td>Group</td><td>: [GROUP_NAME]</td></tr></table></span><br/><span>Thanks,<br/>TruHub Support</span><br/><br/> Please do not reply to this mail as it is a system  generated mail<br/>",
+		"email_list":"NULL",
+		"is_visible":0
+		},
+		{
+		"template_id":8,
+		"name":"AppSubmissionForApproval",
+		"lang_id":1,
+		"subject":"[APPNAME] - [DEVICETYPE] Submitted for Approval",
+		"message":"<div style=\"font-family: Verdana;font-size: 10pt;\"><p>Hi, <br/><br/>App [APPNAME] with the following details has been submitted for Approval.</p><table style=\"font-family: Verdana;font-size: 10pt;\"><tr><td>App Name</td><td>:</td><td>[APPNAME]</td></tr><tr><td>Platform</td><td>:</td><td>[DEVICETYPE]</td></tr><tr><td>Version</td><td>:</td><td>[VERSION]</td></tr><tr><td>App Owner</td><td>:</td> <td>[UPLOADEDBY]</td></tr></table><p>Thanks,<br />TruHub Support.</p></div><span style=\"font-family: Verdana;font-size:8pt;color: #FF0000;\">This is a system generated email. Please do not reply.</span>",
+		"email_list":"3;",
+		"is_visible":0
+		},
+		{
+		"template_id":9,
+		"name":"AppApproved",
+		"lang_id":1,
+		"subject":"[APPNAME] - [DEVICETYPE] Approved",
+		"message":"<div style=\"font-family: Verdana;font-size: 10pt;\"><p>Hi, <br/><br/>App [APPNAME] with the following details has been Approved.</p><table style=\"font-family: Verdana;font-size: 10pt;\"><tr><td>App Name</td><td>:</td><td>[APPNAME]</td></tr><tr><td>Platform</td><td>:</td><td>[DEVICETYPE]</td></tr><tr><td>Version</td><td>:</td><td>[VERSION]</td></tr><tr><td>App Owner</td><td>:</td> <td>[UPLOADEDBY]</td></tr></table><p>Thanks,<br />TruHub Support.</p></div><span style=\"font-family:Verdana;font-size:8pt;color: #FF0000;\">This is a system generated email. Please do not reply.</span>",
+		"email_list":"3;",
+		"is_visible":0
+		},
+		{
+		"template_id":10,
+		"name":"AppRejection",
+		"lang_id":1,
+		"subject":"[APPNAME] - [DEVICETYPE] Rejected",
+		"message":"<div style=\"font-family: Verdana;font-size: 10pt;\"><p>Hi, <br/><br/>App [APPNAME] with the following details has been Rejected.</p><table style=\"font-family: Verdana;font-size: 10pt;\"><tr><td>App Name</td><td>:</td><td>[APPNAME]</td></tr><tr><td>Platform</td><td>:</td><td>[DEVICETYPE]</td></tr><tr><td>Version</td><td>:</td><td>[VERSION]</td></tr><tr><td>App Owner</td><td>:</td><td>[UPLOADEDBY]</td></tr><tr><td>Rejection Comments</td><td>:</td><td>[COMMENTS]</td></tr></table><p>Thanks,<br />TruHub Support.</p></div><span style=\"font-family: Verdana;font-size:8pt;color: #FF0000;\">This is a system generated email. Please do not reply.</span>",
+		"email_list":"3;",
+		"is_visible":0
+		},
+		{
+		"template_id":11,
+		"name":"PasswordChanged",
+		"lang_id":1,
+		"subject":"Password Changed for Chola TruHub",
+		"message":"Hi [USERNAME],<br/> Your password has been changed. Please find your new login credentials below:<br/><br/>UserID: [USERID]<br/>Password: [PASSWORD]<br/><br/>Thanks,<br/>TruHub Support",
+		"email_list":"NULL",
+		"is_visible":0
+		},
+		{
+		"template_id":12,
+		"name":"ChangePassword",
+		"lang_id":1,
+		"subject":"Password Changed for Chola TruHub",
+		"message":"Hi [USERNAME],<br/> Your password has been changed. Please find your new login credentials below:<br/><br/>UserID: [USERID]<br/>Password: [PASSWORD]<br/><br/>Thanks,<br/>TruHub Support",
+		"email_list":"NULL",
+		"is_visible":0
+		},
+		{
+		"template_id":13,
+		"name":"ChangeOwnershipRequest",
+		"lang_id":1,
+		"subject":"Request to change device owner",
+		"message":"<div style=\"font-family: Verdana;font-size: 10pt;\"><p>Hi, <br/><br/> [USERNAME] has requested to change the owner for the below mentioned device from [FROMUSERNAME] to [TOUSERNAME].Please note changing device owner will wipe out previous owner’s email settings from the mobile device if already configured.</p><table style=\"font-family: Verdana;font-size: 10pt;\"><tr><td>Device UId</td><td>:</td><td>[DEVICEUUID]</td></tr><tr><td>Device Type</td><td>:</td><td>[DEVICETYPE]</td></tr></table><p>Thanks,<br />TruHub Support.</p></div><span style=\"font-family: Verdana;font-size:8pt;color: #FF0000;\">This is a system generated email. Please do not reply.</span>",
+		"email_list":"3;",
+		"is_visible":0
+		},
+		{
+		"template_id":14,
+		"name":"ChangeOwnershipApproval",
+		"lang_id":1,
+		"subject":"[APPROVED] Request to change device owner ",
+		"message":"<div style=\"font-family: Verdana;font-size: 10pt;\"><p>Hi [FROMUSERNAME], </p><p>The site admin has approved your request to change device ownership. The device ownership has changed from [FROMUSERNAME] to [TOUSERNAME] for the below mentioned device. The new device owner [TOUSERNAME] can configure email settings on his/her mobile device by clicking the request for email access option in settings section of the TruHub native application.</p><p>Device Type:[DEVICETYPE]<br/>Device UID: [DEVICEUID]<p>Thanks,<br />TruHub Support.</p></div><span style=\"font-family: Verdana;font-size:8pt;color: #FF0000;\">This is a system generated email. Please do not reply.</span>",
+		"email_list":"NULL",
+		"is_visible":0
+		},
+		{
+		"template_id":15,
+		"name":"ChangeOwnershipRejected",
+		"lang_id":1,
+		"subject":"[Rejected] Request to change device owner ",
+		"message":"<div style=\"font-family: Verdana;font-size: 10pt;\"><p>Hi [TOUSERNAME] ,</p> <p>The request to change the device ownership from  [FROMUSERNAME] to [TOUSERNAME] has been rejected . The reason for rejection is provided in the comments below.</p><p>Device Type:[DEVICETYPE]<br/>Device Id: [DEVICEUID]<br/>Rejection comments: [COMMENTS]</p><p>Thanks,<br />TruHub Support.</p></div><span style=\"font-family: Verdana;font-size:8pt;color: #FF0000;\">This is a system generated email. Please do not reply.</span>",
+		"email_list":"NULL",
+		"is_visible":0
+		}
+		],
+		"PRIMARY_KEY": "template_id",
+		"UNIQUE_ID_FIELD": ""
+  },
+  "tenant":{
+	"MASTER_DATA":[
+	{
+	  "tenant_id":100,
+	  "name":"Admin",
+	  "auth_type":0,
+	  "is_system_generated" : true,
+	  "auth_url":"chola.com",
+	  "auth_domains":"chola;chl;",
+	  "domain":"admin",
+	  "status":3,
+	  "is_certificate_available":false,
+	  "authentication_priority":[{"priority_zero":0,"priority_one":3,"priority_two":1,"priority_three":0}],
+	  "external_authenticate_details":[{"host":"choladev.chola.com","protocol":"https","external_url":"/CHOLA/customservice/AuthenticationService","method":"POST","external_system_port":0,"external_system_timeout":10000}],
+	  "external_user_details_details":[{"host":"choladev.chola.com","protocol":"https","external_url":"/CHOLA/customservice/FetchUserDetails","method":"GET","external_system_port":0,"external_system_timeout":10000}],
+	  "external_group_check_details":[{"host":"choladev.chola.com","protocol":"https","external_url":"/CHOLA/customservice/CheckGroupExists","method":"GET","external_system_port":0,"external_system_timeout":10000}]
+	  },
+	  {
+	  "tenant_id":101,
+	  "name":"Chola",
+	  "auth_type":0,
+	  "is_sso_enabled":false,
+	  "is_container_sso_agent":true,
+	  "provide_container_app":true,
+	  "is_system_generated" : false,
+	  "show_app_within_container":true,
+	  "feedback_mail_id":"TruHubSupport@chola.com",
+	  "exchange_server":"m.chola.com",
+	  "domain_name":"chola",
+	  "port_no":443,
+	  "auth_url":"chola.com",
+	  "auth_domains":"chola;chl;",
+	  "domain":"chola",
+	  "certificate_name":"28802D300343EB1D45900E383E9EF5BA5775B680",
+	  "ios_wrapping_details":[{"unwrapped_binary_path":"http://10.232.209.203/CholaDev/UnWrappedIPAs","wrapped_binary_path":"http://10.232.209.203/CholaDev/WrappedIPAs","wrap_script_url":"http://10.232.209.203/cgi-bin/CholaDev/WrapBinary","wrap_server_type": "mac","user_name":"cholaadmin","password":"cholaadmin"}],
+	  "android_wrapping_details":[{"unwrapped_binary_path":"http://10.232.209.203/CholaDev/UnWrappedAPKs","wrapped_binary_path":"http://10.232.209.203/CholaDev/WrappedAPKs","wrap_script_url":"http://10.232.209.203/cgi-bin/CholaDev/WrapBinary","wrap_server_type": "linux","user_name":"cholaadmin","password":"cholaadmin"}],
+	  "sso_details":[],
+	  "ldap_url":"ldap://cholaldap.com",
+	  "authentication_priority":[{"priority_zero":0,"priority_one":3,"priority_two":1,"priority_three":0}],
+	  "external_authenticate_details":[{"host":"choladev.chola.com","protocol":"https","external_url":"/CHOLA/customservice/AuthenticationService","method":"POST","external_system_port":0,"external_system_timeout":10000}],
+	  "external_user_details_details":[{"host":"choladev.chola.com","protocol":"https","external_url":"/CHOLA/customservice/FetchUserDetails","method":"GET","external_system_port":0,"external_system_timeout":10000}],
+	  "external_group_check_details":[{"host":"choladev.chola.com","protocol":"https","external_url":"/CHOLA/customservice/CheckGroupExists","method":"GET","external_system_port":0,"external_system_timeout":10000}],
+	  "ldap_username":"ldapuser",
+	  "ldap_password":"ldappassword",
+	  "base_dn":"dc=chola,dc=com",
+	  "status":3,
+	  "is_certificate_available":false
+	  }
+	  ],
+	  "PRIMARY_KEY": "tenant_id",
+	  "UNIQUE_ID_FIELD": "tenant_id"
+  },
+  "SEQUENCE_GENERATOR": {
+    "MASTER_DB": {
+	  "tenant": {
+        "ATTRIBUTE_SEQUENCE": [
+          {
+            "ATTRIBUTE_NAME": "tenant_id",
+            "SEQUENCE_CURRENT_VALUE": 99
+          }
+        ]
+      }
+    },
+    "Trumobi": {
+      "category": {
+        "ATTRIBUTE_SEQUENCE": [
+          {
+            "ATTRIBUTE_NAME": "category_id",
+            "SEQUENCE_CURRENT_VALUE": 0
+          }
+        ]
+      },
+      "app": {
+        "ATTRIBUTE_SEQUENCE": [
+          {
+            "ATTRIBUTE_NAME": "app_id",
+            "SEQUENCE_CURRENT_VALUE": 0
+          },
+		  {
+            "ATTRIBUTE_NAME": "app_platform_id",
+            "SEQUENCE_CURRENT_VALUE": 0
+          }
+        ]
+      },
+      "resource": {
+        "ATTRIBUTE_SEQUENCE": [
+          {
+            "ATTRIBUTE_NAME": "resource_id",
+            "SEQUENCE_CURRENT_VALUE": 0
+          }
+        ]
+      },
+      "resource_detail": {
+        "ATTRIBUTE_SEQUENCE": [
+          {
+            "ATTRIBUTE_NAME": "resource_detail_id",
+            "SEQUENCE_CURRENT_VALUE": 0
+          }
+        ]
+      },
+      "app_mix": {
+        "ATTRIBUTE_SEQUENCE": [
+          {
+            "ATTRIBUTE_NAME": "app_mix_id",
+            "SEQUENCE_CURRENT_VALUE": 0
+          }
+        ]
+      },
+      "group": {
+        "ATTRIBUTE_SEQUENCE": [
+          {
+            "ATTRIBUTE_NAME": "group_id",
+            "SEQUENCE_CURRENT_VALUE": 3
+          }
+        ]
+      },
+      "vip_user": {
+        "ATTRIBUTE_SEQUENCE": [
+          {
+            "ATTRIBUTE_NAME": "vip_id",
+            "SEQUENCE_CURRENT_VALUE": 0
+          }
+        ]
+      },
+      "user": {
+        "ATTRIBUTE_SEQUENCE": [
+          {
+            "ATTRIBUTE_NAME": "user_id",
+            "SEQUENCE_CURRENT_VALUE": 1
+          }
+        ]
+      },
+      "app_rating": {
+        "ATTRIBUTE_SEQUENCE": [
+          {
+            "ATTRIBUTE_NAME": "comment_id",
+            "SEQUENCE_CURRENT_VALUE": 0
+          }
+        ]
+      },
+      "profile": {
+        "ATTRIBUTE_SEQUENCE": [
+          {
+            "ATTRIBUTE_NAME": "profile_id",
+            "SEQUENCE_CURRENT_VALUE": 0
+          }
+        ]
+      },
+      "template": {
+        "ATTRIBUTE_SEQUENCE": [
+          {
+            "ATTRIBUTE_NAME": "template_id",
+            "SEQUENCE_CURRENT_VALUE": 15
+          }
+        ]
+      },
+      "resource_rating": {
+        "ATTRIBUTE_SEQUENCE": [
+          {
+            "ATTRIBUTE_NAME": "comment_id",
+            "SEQUENCE_CURRENT_VALUE": 0
+          }
+        ]
+      },
+      "email_cert_request": {
+        "ATTRIBUTE_SEQUENCE": [
+          {
+            "ATTRIBUTE_NAME": "email_request_id",
+            "SEQUENCE_CURRENT_VALUE": 0
+          }
+        ]
+      },
+      "job_master": {
+        "ATTRIBUTE_SEQUENCE": [
+          {
+            "ATTRIBUTE_NAME": "job_id",
+            "SEQUENCE_CURRENT_VALUE": 0
+          }
+        ]
+      },
+      "admin_action": {
+        "ATTRIBUTE_SEQUENCE": [
+          {
+            "ATTRIBUTE_NAME": "ownership_id",
+            "SEQUENCE_CURRENT_VALUE": 0
+          }
+        ]
+      },
+      "device": {
+        "ATTRIBUTE_SEQUENCE": [
+          {
+            "ATTRIBUTE_NAME": "device_id",
+            "SEQUENCE_CURRENT_VALUE": 0
+          }
+        ]
+      },
+      "device_spec": {
+        "ATTRIBUTE_SEQUENCE": [
+          {
+            "ATTRIBUTE_NAME": "device_id",
+            "SEQUENCE_CURRENT_VALUE": 0
+          }
+        ]
+      },
+      "vpn_payload_values": {
+        "ATTRIBUTE_SEQUENCE": [
+          {
+            "ATTRIBUTE_NAME": "profile_id",
+            "SEQUENCE_CURRENT_VALUE": 0
+          }
+        ]
+      }
+    }
+  }
+}
